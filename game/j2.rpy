@@ -3,8 +3,8 @@ label j2:
 
    window hide
 
-   show text "{font=fonts/Pacifico-Regular.ttf}{cps=35}Jour 2" with Pause(3.0):
-      xpos 650
+   show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
+      xpos 950
       ypos 350
 
    scene black
@@ -29,6 +29,9 @@ label j2:
    protag_pensee " Le lac apparaît enfin devant mes yeux.
    Noa est là aussi. Il est accroupi au sol, cherchant quelque chose."
    protag "Il y a un souci ?"
+
+   show NoaPense
+   with dissolve
 
    noa "Ah salut. Euh… j’ai perdu les clés du local. Je ne sais pas où
    elles ont pu tomber."
@@ -67,6 +70,7 @@ label j2:
 
          protag_pensee "En tournant la tête, une silhouette lévite
          derrière les feuilles, fuyante."
+
 
    label aideCles:
 
@@ -117,6 +121,9 @@ label j2:
 
    protag "Super…"
 
+   hide NoaPense
+   with dissolve
+
    protag_pensee "Mes pieds traînent sur le sol alors que je
    m’éloigne. Plus loin, Chris se balade avec un détecteur de champ
    magnétique et d’autres outils dont je ne connais pas le nom. Un
@@ -127,7 +134,15 @@ label j2:
    protag_pensee "Quand j’arrive derrière lui, il tressaille.
    D’un mouvement vif, il se retourne face à moi, appareil levé."
 
+   show ChrisEffraye
+   with dissolve
+
    protag "Tout va bien, ce n’est que moi ?"
+
+   hide ChrisEffraye
+
+   show ChrisBasic
+   with dissolve
 
    chris "Oh… Salut."
 
@@ -138,10 +153,20 @@ label j2:
 
    protag "Cool le matos. Tu as attrapé un fantôme avec ça ?"
 
+   hide ChrisBasic
+
+   show ChrisPetitSourire
+   with dissolve
+
    chris "Non pas encore. Mais tu trouves mes machins cool ?
    Vraiment ?"
 
    protag "Ouais, ça m’intéresse. Ces trucs marchent au moins ?"
+
+   hide ChrisPetitSourire
+
+   show ChrisHeureux
+   with dissolve
 
    chris "Évidemment, je ne me promène pas avec de la camelote.
    Mon détecteur de champ magnétique s’est déclenché pour la

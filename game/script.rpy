@@ -24,8 +24,8 @@ label start:
 
     window hide
 
-    show text "{font=fonts/Pacifico-Regular.ttf}{cps=35}Jour 1" with Pause(3.0):
-        xpos 650
+    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 1{/cps}" with Pause(3.0):
+        xpos 950
         ypos 350
 
     scene black
