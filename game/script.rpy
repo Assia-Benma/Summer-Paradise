@@ -22,6 +22,17 @@ label start:
 
     ## début du jeu selon le script d'alissa
 
+    window hide
+
+    show text "{font=fonts/Pacifico-Regular.ttf}{cps=35}Jour 1" with Pause(3.0):
+        xpos 650
+        ypos 350
+
+    scene black
+    with dissolve
+
+    window show
+
     protag_pensee "Je descends enfin du car après 1h de trajet.
     Je ne voyais que des déserts de verdure à l’horizon.
     Ma tête tourne encore."
@@ -143,7 +154,7 @@ label start:
     show NoaBasic2 with dissolve
     noa "Salut, t’es la nouvelle employée je crois. C’est moi qui doit t’aider à prendre tes marques."
     
-    $ noa = "Noa"
+    $ noa_name = "Noa"
 
     menu:
         "Ah oui ! Tu es Noa.":
@@ -548,4 +559,5 @@ label start:
     hide JaneRizz
 
     #Décor : Cabanon
-return
+
+    jump j2
