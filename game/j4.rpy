@@ -231,17 +231,25 @@ label j4:
 
     hide NoaBasic
 
+    show NoaTimide
+    with dissolve
+
     noa "Génial. Tu m’aide à leur donner des gilets à leur taille."
 
     protag "Ouaip."
 
     noa "N’hésite pas à bien leur serrer."
 
+    hide NoaTimide
+
     protag_pensee "J’équipe une partie des enfants, tirant sur
     les sangles pour la tenu."
 
     protag_pensee "Noa laisse ensuite les enfants s’élancer
     dans les jeux."
+
+    show NoaBasic
+    with dissolve
 
     noa "T'as un maillot ?"
 
@@ -278,6 +286,8 @@ label j4:
     protag_pense "Tout d’un coup, une petite fille vient nous
     voir trempée et en pleurs. Je m’accroupis pour être à sa hauteur."
 
+    hide NoaBasic
+
     protag "Qu'y a t-il ma belle ?"
 
     "Petite fille" "J’ai…J’ai…J’ai perdu mon collier sous l’eau."
@@ -288,11 +298,16 @@ label j4:
 
     protag "C’est pas trop profond vers là, non ?"
 
+    show NoaPense
+    with dissolve
+
     noa "Non ça va."
 
     protag "Je vais y aller. Tu vas retrouver ton bijou, petite."
 
     "Petite fille" "Merci beaucoup."
+
+    hide NoaPense
 
     protag_pensee "J’enfile des lunettes de plongée puis
     rentre dans le lac. C'est légèrement trouble à cause de la terre mais
@@ -307,12 +322,20 @@ label j4:
 
     protag "Noa."
 
+    show NoaBasic
+    with dissolve
+
     noa "Quoi ?"
 
     protag "J’ai aussi trouvé ça."
 
     protag_pensee "Le bracelet argenté porte un prénom,
     Jane. Jane la fantôme ?"
+
+    hide NoaBasic
+
+    show NoaPense
+    with with dissolve
 
     noa "Hum…Je ne connais aucune Jane ici."
 
@@ -324,11 +347,17 @@ label j4:
     protag_pensee "Est-ce que c’est ici ? Qu’elle est
     devenue…un esprit ? Je garde le bracelet dans ma poche."
 
+    hide NoaPense
+
     protag_pensee "L’activité est finie, les enfants retournent
     avec leurs parents. Je range les gilets quand j'entends un splash.
     Je vais voir immédiatement."
 
+
     protag "Noa ? Qu’est ce que tu fais à l’eau ?"
+
+    show NoaPense
+    with with dissolve
 
     noa "Je ne sais pas ce qu’il s’est passé. J’ai eu l’impression qu’on
     m’a poussé."
@@ -349,11 +378,17 @@ label j4:
     faut qu’il sache que ce n’est pas sa faute. Il n’est pas juste
     maladroit."
 
+    hide NoaPense
+
     # Décor : Bar soir
 
-    protag_pensee ""
+    protag_pensee "Je sers des shorts comme tous les soirs.
+    Cette fois, Noa m’aide au comptoir. Je lui jette plusieurs coups d'œil
+    et mordille ma lèvre. Je lui dis ou pas ?"
 
-    protag_pensee ""
+    protag_pensee " Je cherche Chris parmi les campeurs. Je
+    vois sa famille mais pas lui. C’est bizarre. Où est-il ? Pitié, qu’il ne
+    soit pas parti en expédition tout seul."
 
     "Homme" "Salut ma/mon joli(e)."
 
@@ -379,6 +414,9 @@ label j4:
     je n’étais pas au travail, je lui aurais servi une droite. Il m’en aurait
     dit des nouvelles."
 
+    show NoaNRV
+    with dissolve
+
     noa "Monsieur, je vous demanderais de considérer les employés ici
     ou je n’hésiterais pas à appeler quelqu’un. Entendu ?"
 
@@ -390,6 +428,11 @@ label j4:
             $ noaAF += 5
 
             protag "Merci. Il était vraiment lourd."
+            hide NoaNRV
+
+            show NoaTimide
+            with dissolve
+
             noa "Ouais, t’es pas la première malheureusement. J’irais en parler
             à M.Thomas."
             protag "J’espère qu’il fera quelque chose."
@@ -402,12 +445,18 @@ label j4:
             protag "Je sais me défendre tout(e) seul(e) tu sais. Occupe toi de tes
             affaires la prochaine fois."
             noa "Wow…ok."
+
+            hide NoaNRV
+
             protag "Il m’a mis(e) sur les nerfs."
 
     protag_pensee "Quand il n’y a plus personne, je tire Noa à
     part."
 
     protag "Il faut que je te dise un truc."
+
+    show NoaBasic
+    with dissolve
 
     noa "Dis moi."
 
@@ -437,8 +486,11 @@ label j4:
 
     noa "Vas y."
 
+    hide NoaBasic
+
     protag_pensee "Il ne me croit pas. Évidemment. Je soupire
     de frustration et quitte le bar."
+
 
     # Décor : Forêt nuit
 
@@ -456,6 +508,9 @@ label j4:
     protag_pensee "Un soubresaut me secoue."
 
     protag "Merde ! Tu m’as fait peur, nom de dieu."
+
+    show JaneBasic
+    with dissolve
 
     JaneDoe "Tu as peur facilement dis donc." 
 
