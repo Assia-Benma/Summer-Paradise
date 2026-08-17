@@ -49,11 +49,20 @@ label j2:
       "Aller prendre le double des clés.":
          $ noaAF += 5
          $ habilete += 10
-         jump aideCles
+         
+         protag_pensee "Je retourne vite fait au cabanon, un des
+         animateurs avait signalé un double sur la table sur le talkie-walkie."
+
+         protag_pensee "Lorsque que je reviens, Noa fouille encore
+         par terre."
+
+         protag "Je les ai. Ne t’inquiète plus."
    
    label aideNoa:
 
          protag "Attends, je vais t’aider."
+
+         hide NoaPense
 
          protag_pensee "Il ne répond pas, trop concentré. Je fouille
          aux alentours, me rapprochant de la forêt. Et là, je vois un
@@ -66,27 +75,26 @@ label j2:
          protag_pensee "Il se lève immédiatement pour me
          rejoindre."
 
-         noa "C’est celles-là."
+         show NoaPense
+         with dissolve
+
+         protag "C’est celles-là."
 
          protag_pensee "En tournant la tête, une silhouette lévite
          derrière les feuilles, fuyante."
 
+   hide NoaPense
 
-   label aideCles:
-
-         protag_pensee "Je retourne vite fait au cabanon, un des
-         animateurs avait signalé un double sur la table sur le talkie-walkie."
-
-         protag_pensee "Lorsque que je reviens, Noa fouille encore
-         par terre."
-
-         protag "Je les ai. Ne t’inquiète plus."
+   show NoaBasic
+   with dissolve
 
    protag_pensee "Ses épaules se détendent. Il les récupère
    et ouvre finalement le local."
 
    noa "Merci. Je me serais probablement fait sermonner par le patron
    sans toi."
+
+   hide NoaBasic
 
    protag_pensee " Je suis Noa à l’intérieur. Mes pensées
    s’égarent sur la fantôme stupidement énervante et effrayante."
@@ -96,6 +104,9 @@ label j2:
 
    protag_pensee "Dis moi. As-tu déjà entendu des rumeurs
    ou vu un je-ne-sais-quoi d’inhabituel ?"
+
+   show NoaPense
+   with dissolve
 
    noa "Ici ? Personnellement non. Mais des clients ont mentionné
    des voix et des objets qui se sont déplacés par le passé."
@@ -113,6 +124,11 @@ label j2:
    protag_pensee "Vaut mieux éviter d’être pris(e) pour un(e)
    folle/fou."
 
+   hide NoaPense
+
+   show NoaBasic
+   with dissolve
+
    noa "Tu es attendu ailleurs je pense."
 
    protag "Quoi ? Je reste pas au lac avec toi ?"
@@ -121,7 +137,7 @@ label j2:
 
    protag "Super…"
 
-   hide NoaPense
+   hide NoaBasic
    with dissolve
 
    protag_pensee "Mes pieds traînent sur le sol alors que je
@@ -134,8 +150,14 @@ label j2:
    protag_pensee "Quand j’arrive derrière lui, il tressaille.
    D’un mouvement vif, il se retourne face à moi, appareil levé."
 
-   show ChrisEffraye
+   transform jumpScare:
+      xalign 0.0
+      yalign 0.0
+      yalign 0.2
+
+   show ChrisEffraye at jumpScare
    with dissolve
+   
 
    protag "Tout va bien, ce n’est que moi ?"
 
@@ -238,6 +260,8 @@ label j2:
             protag "Peut-être…j’en sais rien honnêtement."
             protag_pensee "Je lui rend son instrument et le
             laisse partir sur ses investigations."
+
+   hide ChrisHeureux
    
    # Décor : Cabanon
 
@@ -262,6 +286,9 @@ label j2:
    protag "Trop tard pour ça."
 
    JaneDoe "Mince alors."
+
+   show JaneBasic
+   with dissolve
 
    protag_pensee "Riant légèrement, elle porte un sourire qui
    m’irrite."
@@ -328,6 +355,8 @@ label j2:
    JaneDoe "Oh mon dieu. Je ne pensais pas mourir une deuxième fois."
 
    protag "Je vais t’étriper !"
+
+   hide JaneBasic
 
    protag_pensee "Malheureusement, ce maudit fantôme
    disparaît avant que je réagisse. Est ce que ça aurait servi ? Non.
@@ -430,6 +459,8 @@ label j2:
 
    protag_pensee "Il remonte sur scène et moi je m’occupe
    du monsieur."
+
+   jump j3
 
 
 
