@@ -516,9 +516,19 @@ label j4:
 
     protag "C’est à cause de ta tête."
 
+    hide JaneBasic
+
+    show JaneRizz
+    with dissolve
+
     JaneDoe "Du coup ? Tu me kiffes finalement ?" 
 
     protag "Rien à voir. Mais ce sera aussi fun pour toi."
+
+    hide JaneRizz
+
+    show JaneBasic
+    with dissolve
 
     JaneDoe "Hum ? Cela m’intéresse." 
 
@@ -539,6 +549,12 @@ label j4:
 
             protag "Jane…Soyons sérieux deux minutes. J’ai trouvé ça au fond
             de l’eau tout à l’heure."
+
+            hide JaneBasic
+
+            show JaneChock
+            with dissolve
+
             JaneDoe "C’est…mon bracelet. Comment ?"
             protag "Est ce que…difficile de demander ça mais…tu es morte
             là-bas ?"
@@ -553,6 +569,12 @@ label j4:
             protag "Qu’est ce que tu faisais au lac si tu ne sais pas nager ?"
             JaneDoe "Je…je suis juste débile, c’est tout. Débarrasse-toi de ça s’il te
             plait."
+
+            hide JaneChock
+
+            show JaneBasic
+            with dissolve
+
             protag_pensee "Je range le bijou dans ma poche. N’en
             parlons plus pour l’instant. Elle simule une profonde inspiration et
             son sourire revient."
@@ -566,10 +588,20 @@ label j4:
     JaneDoe "Non ! On est un vrai gang de fantômes." 
 
     protag "Vraiment ? Combien ?"
+
+    hide JaneBasic
+
+    show JanePense
+    with dissolve
     
     JaneDoe "Je sais pas, je compte pas." 
 
     protag "Ils sont plus discrets."
+
+    hide JanePense
+
+    show JaneBasic
+    with dissolve
     
     JaneDoe "Cerbère et moi on adore attirer l’attention. Mais tu en as déjà
     fait l’expérience." 
