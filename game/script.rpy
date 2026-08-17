@@ -373,7 +373,8 @@ label start:
 
     protag_pensee "Le jeune homme relève les yeux vers moi, les sourcils levés. Comme s’il était surpris que je lui adresse la parole. Son regard se détourne et il répond doucement."
 
-    show ChrisBasic with dissolve
+    show ChrisBasic
+    with dissolve
 
     chris "Euh…quoi ?"
 
@@ -472,7 +473,8 @@ label start:
 
     protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
 
-    show ChrisBasic with dissolve
+    show ChrisBasic at right
+    with dissolve
 
     chris "Euh…Je préfère pas, merci."
 

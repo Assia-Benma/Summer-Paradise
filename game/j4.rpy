@@ -335,7 +335,7 @@ label j4:
     hide NoaBasic
 
     show NoaPense
-    with with dissolve
+    with dissolve
 
     noa "Hum…Je ne connais aucune Jane ici."
 
@@ -357,7 +357,7 @@ label j4:
     protag "Noa ? Qu’est ce que tu fais à l’eau ?"
 
     show NoaPense
-    with with dissolve
+    with dissolve
 
     noa "Je ne sais pas ce qu’il s’est passé. J’ai eu l’impression qu’on
     m’a poussé."
@@ -402,7 +402,7 @@ label j4:
 
     protag "Je préfère ne pas répondre, désolé(e)."
 
-    "Homme" "[nom_protag], c’est écrit sur ton badge. Je t’offre un
+    "Homme" "[protag_name], c’est écrit sur ton badge. Je t’offre un
     verre pour te détendre ?"
 
     protag "Je suis en plein service et je ne vous ai pas permis de me

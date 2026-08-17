@@ -150,14 +150,8 @@ label j2:
    protag_pensee "Quand j’arrive derrière lui, il tressaille.
    D’un mouvement vif, il se retourne face à moi, appareil levé."
 
-   transform jumpScare:
-      xalign 0.0
-      yalign 0.0
-      yalign 0.2
-
-   show ChrisEffraye at jumpScare
+   show ChrisEffraye with vpunch
    with dissolve
-   
 
    protag "Tout va bien, ce n’est que moi ?"
 
@@ -206,6 +200,8 @@ label j2:
       "Partir":
          protag_pensee "Sur ce, je lui fais signe d’au revoir et
          m’éloigne vers le cabanon des animateurs."
+
+         jump suite_j2
    
    label essayer:
 
@@ -262,205 +258,211 @@ label j2:
             laisse partir sur ses investigations."
 
    hide ChrisHeureux
+
+   label suite_j2:
    
-   # Décor : Cabanon
+      # Décor : Cabanon
 
-   protag_pensee "Je vais dans la chambre pour me remettre
-   de la crème solaire. Le soleil tape trop fort aujourd’hui."
+      protag_pensee "Je vais dans la chambre pour me remettre
+      de la crème solaire. Le soleil tape trop fort aujourd’hui."
 
-   protag_pensee "Alors que je m’en étale sur le visage, un
-   mouvement dans le coin de l'œil attire mon attention."
+      protag_pensee "Alors que je m’en étale sur le visage, un
+      mouvement dans le coin de l'œil attire mon attention."
 
-   protag_pensee " C’est elle, la fantôme. Figée, aucun son ne
-   sort de ma bouche. Je fixe la silhouette féminine farfouiller dans
-   nos affaires."
+      protag_pensee " C’est elle, la fantôme. Figée, aucun son ne
+      sort de ma bouche. Je fixe la silhouette féminine farfouiller dans
+      nos affaires."
 
-   protag_pensee "Pour m’assurer de la réalité, je me pince le
-   bras aussi fort que possible."
+      protag_pensee "Pour m’assurer de la réalité, je me pince le
+      bras aussi fort que possible."
 
-   protag "Aie !"
+      protag "Aie !"
 
-   protag_pensee "À ma douleur, elle se cache à toute
-   vitesse. Mais c’est inutile, je l’ai vu."
+      protag_pensee "À ma douleur, elle se cache à toute
+      vitesse. Mais c’est inutile, je l’ai vu."
 
-   protag "Trop tard pour ça."
+      protag "Trop tard pour ça."
 
-   JaneDoe "Mince alors."
+      JaneDoe "Mince alors."
 
-   show JaneBasic
-   with dissolve
+      show JaneBasic
+      with dissolve
 
-   protag_pensee "Riant légèrement, elle porte un sourire qui
-   m’irrite."
+      protag_pensee "Riant légèrement, elle porte un sourire qui
+      m’irrite."
 
-   protag "Je peux savoir ce que tu fais ? Et qui es tu d’abord ?"
+      protag "Je peux savoir ce que tu fais ? Et qui es tu d’abord ?"
 
-   JaneDoe "Je me prénomme Jane, mademoiselle/damoiseau."
+      JaneDoe "Je me prénomme Jane, mademoiselle/damoiseau."
 
-   $ JaneDoe_name = 'Jane'
+      $ JaneDoe_name = 'Jane'
 
-   protag "Ne dis plus jamais ça."
+      protag "Ne dis plus jamais ça."
 
-   JaneDoe "J’ai été prise en flagrant délit on dirait. Miséricorde ! Je plaide
-   coupable."
+      JaneDoe "J’ai été prise en flagrant délit on dirait. Miséricorde ! Je plaide
+      coupable."
 
-   protag_pensee "Jane tend les poignées comme prête à se
-   faire passer les menottes. Son ton théâtrale me tape sur les nerfs."
+      protag_pensee "Jane tend les poignées comme prête à se
+      faire passer les menottes. Son ton théâtrale me tape sur les nerfs."
 
-   protag "T’as fini tes conneries ? Qui t’as permis de toucher à nos
-   affaires ?"
+      protag "T’as fini tes conneries ? Qui t’as permis de toucher à nos
+      affaires ?"
 
-   JaneDoe "C’est quoi ton nom à toi ?"
+      JaneDoe "C’est quoi ton nom à toi ?"
 
-   protag_pensee "Je ressens un profond désir de la tabasser
-   là, maintenant."
-
-   menu:
-      "Répondre à sa question":
-         protag "C'est [nom_protag]. Tu vas dégager maintenant ?"
-         JaneDoe "Non."
-
-      "L'envoyer boulet":
-         $ janeAF += 5
-         protag "Si tu crois que je vais te le dire, tu rêves cocotte."
-         JaneDoe "Tu veux jouer à ça. Ok, si tu ne me dis pas ton nom, je
-         continuerai mes conneries jusqu'à ce que tu craques."
-         protag "Tu le feras de toute façon."
-         JaneDoe "Ah oui ! T’as raison."
-
-   protag_pensee "Je lève les yeux au ciel et croise les bras
-   sous ma poitrine."
-
-   protag "Tu peux m’expliquer pourquoi tu es là. Je veux dire en tant
-   que revenante. Tu es la seule ?"
-
-   JaneDoe "Oh ! Un polaroid."
-
-   protag "Touche pas !"
-
-   protag_pensee " Je m’élance vers elle en la voyant
-   approcher des photos. Le visage rouge de gêne et de colère, je la
-   traverse…logique. Elle se marre sans vergogne."
-
-   JaneDoe "Oh mon dieu ! La gueule sur la photo."
-
-   protag "On m'avait envoyé du gâteau au visage pour mon
-   anniversaire !"
-
-   JaneDoe "Pourquoi tu gardes ce dossier ? C’est hilarant."
-
-   protag "Ma mère m’a donné une enveloppe pleine de photos avant
-   de partir."
-
-   JaneDoe "Oh mon dieu. Je ne pensais pas mourir une deuxième fois."
-
-   protag "Je vais t’étriper !"
-
-   hide JaneBasic
-
-   protag_pensee "Malheureusement, ce maudit fantôme
-   disparaît avant que je réagisse. Est ce que ça aurait servi ? Non.
-   Mais je me serais défoulé(e)."
-
-   # Décor : Bar (nuit)
-
-   protag_pensee "Je me suis calmé un moment dans la
-   chambre. Puis je suis allé(e) travailler au bar. L’animation joyeuse
-   disperse Jane de mes pensées en ébullition."
-
-   protag_pensee "Ce soir, Noa organise un karaoké. Après
-   cette journée chargée, ça me surprend qu’il ne soit pas au lit. Les
-   chansons s’enchaînent. Et je jure que la plupart des gens dans ce
-   camping ne sont pas de grands chanteurs."
-
-   protag_pensee "Les guirlandes de lumières clignotent
-   au-dessus de ma tête. Un ricanement, que je connais trop bien,
-   résonne."
-
-   protag_pensee "Je jette un coup d’oeil vers la table de
-   Chris avec sa famille. Il a ses écouteurs à ses oreilles, toujours
-   plongé dans le même podcast."
-
-   protag_pensee ": Chris se balance sur sa chaise, sans se
-   douter une seconde de Jane à ses pieds. Que manigance cette
-   foutue fantôme ? Elle me lance un regard plein de malice."
-
-   menu:
-      "Ne pas se mêler":
-         $ JaneAF += 5
-         protag_pensee "Je préfère me détourner. Jane ne doit pas
-         me perturber. Autant l’ignorer."
-         chris "Ah !"
-         protag_pensee "Un fracas éclate dans mon dos. Chris est
-         au sol attirant des regards. Il se hisse sur ses pieds sans attendre,
-         rouge de gêne."
-
-      "Intervenir":
-         $ chrisAF += 5
-         $ JaneAF -= 5
-         jump intervention
-
-   label intervention : 
-
-      protag_pensee "Je sors immédiatement du bar, approchant
-      de Chris. Je retiens son dossier d’une main avant qu’il ne tombe.
-      Jane s’enfuit aussitôt, s’évaporant plus loin."
-
-      chris "Merci. J’ai failli me couvrir de honte."
-
-      protag "Y’a pas de quoi."
-
-      protag_pensee " L’ambiance reprend, Noa délaisse la
-      scène aux participants et s’appuie au comptoir."
-
-      protag "Tu prends enfin une pause ?"
-
-      noa "Ouais. Je suis épuisé."
+      protag_pensee "Je ressens un profond désir de la tabasser
+      là, maintenant."
 
       menu:
-         "Lui proposer un verre":
-            $ noaAF += 5
-            protag "Je t’offre un verre ?"
-            noa "Oh oui, avec plaisir. Mais sans alcool s’il te plait."
-            protag "Je hoche la tête et lui sers un Virgin
-            Mojito."
-            noa "Tu es doué(e)."
+         "Répondre à sa question":
+            protag "C'est [protag_name]. Tu vas dégager maintenant ?"
+            JaneDoe "Non."
 
-         "Ne rien faire":
-            pass
+         "L'envoyer boulet":
+            $ JaneDoeAF += 5
+            protag "Si tu crois que je vais te le dire, tu rêves cocotte."
+            JaneDoe "Tu veux jouer à ça. Ok, si tu ne me dis pas ton nom, je
+            continuerai mes conneries jusqu'à ce que tu craques."
+            protag "Tu le feras de toute façon."
+            JaneDoe "Ah oui ! T’as raison."
 
-   protag "Le boss est cruel de t’obliger à travailler même le soir avec
-   tes journées."
+      protag_pensee "Je lève les yeux au ciel et croise les bras
+      sous ma poitrine."
 
-   noa "Après, tu sais, je m’amuse dans mon boulot. Les enfants sont
-   vraiment hilarants. Et j’adore savoir que je fais rire."
+      protag "Tu peux m’expliquer pourquoi tu es là. Je veux dire en tant
+      que revenante. Tu es la seule ?"
 
-   protag "Quand même, tu te fais exploiter. Tu devrais demander une
-   augmentation."
+      JaneDoe "Oh ! Un polaroid."
 
-   noa "Je vais peut-être le faire. Tu t'inquiètes pour moi ?"
+      protag "Touche pas !"
 
-   menu :
-      "Je suis simplement juste.":
-         $ noaAF += 10
-         $ courage += 5
-      "Oui, c’est normal.":
-         $ noaAF += 5
-      "Non, je dis ça comme ça.":
-         pass
-   
-   protag_pensee "Un client nous interpelle dans notre
-   discussion."
+      protag_pensee " Je m’élance vers elle en la voyant
+      approcher des photos. Le visage rouge de gêne et de colère, je la
+      traverse…logique. Elle se marre sans vergogne."
 
-   "Client" "Mademoiselle/jeune homme, retournez travailler voulez
-   vous. J’attends d’être servi depuis tout à l’heure."
+      JaneDoe "Oh mon dieu ! La gueule sur la photo."
 
-   noa "C’est ma faute, je la monopolise. Salut."
+      protag "On m'avait envoyé du gâteau au visage pour mon
+      anniversaire !"
 
-   protag_pensee "Il remonte sur scène et moi je m’occupe
-   du monsieur."
+      JaneDoe "Pourquoi tu gardes ce dossier ? C’est hilarant."
 
-   jump j3
+      protag "Ma mère m’a donné une enveloppe pleine de photos avant
+      de partir."
+
+      JaneDoe "Oh mon dieu. Je ne pensais pas mourir une deuxième fois."
+
+      protag "Je vais t’étriper !"
+
+      hide JaneBasic
+
+      protag_pensee "Malheureusement, ce maudit fantôme
+      disparaît avant que je réagisse. Est ce que ça aurait servi ? Non.
+      Mais je me serais défoulé(e)."
+
+      # Décor : Bar (nuit)
+
+      protag_pensee "Je me suis calmé un moment dans la
+      chambre. Puis je suis allé(e) travailler au bar. L’animation joyeuse
+      disperse Jane de mes pensées en ébullition."
+
+      protag_pensee "Ce soir, Noa organise un karaoké. Après
+      cette journée chargée, ça me surprend qu’il ne soit pas au lit. Les
+      chansons s’enchaînent. Et je jure que la plupart des gens dans ce
+      camping ne sont pas de grands chanteurs."
+
+      protag_pensee "Les guirlandes de lumières clignotent
+      au-dessus de ma tête. Un ricanement, que je connais trop bien,
+      résonne."
+
+      protag_pensee "Je jette un coup d’oeil vers la table de
+      Chris avec sa famille. Il a ses écouteurs à ses oreilles, toujours
+      plongé dans le même podcast."
+
+      protag_pensee "Chris se balance sur sa chaise, sans se
+      douter une seconde de Jane à ses pieds. Que manigance cette
+      foutue fantôme ? Elle me lance un regard plein de malice."
+
+      menu:
+         "Ne pas se mêler":
+            $ JaneDoeAF += 5
+            protag_pensee "Je préfère me détourner. Jane ne doit pas
+            me perturber. Autant l’ignorer."
+            chris "Ah !"
+            protag_pensee "Un fracas éclate dans mon dos. Chris est
+            au sol attirant des regards. Il se hisse sur ses pieds sans attendre,
+            rouge de gêne."
+
+            jump suite_j2_2
+
+         "Intervenir":
+            $ chrisAF += 5
+            $ JaneDoeAF -= 5
+            jump intervention
+
+      label intervention : 
+
+         protag_pensee "Je sors immédiatement du bar, approchant
+         de Chris. Je retiens son dossier d’une main avant qu’il ne tombe.
+         Jane s’enfuit aussitôt, s’évaporant plus loin."
+
+         chris "Merci. J’ai failli me couvrir de honte."
+
+         protag "Y’a pas de quoi."
+
+         protag_pensee " L’ambiance reprend, Noa délaisse la
+         scène aux participants et s’appuie au comptoir."
+
+         protag "Tu prends enfin une pause ?"
+
+         noa "Ouais. Je suis épuisé."
+
+         menu:
+            "Lui proposer un verre":
+               $ noaAF += 5
+               protag "Je t’offre un verre ?"
+               noa "Oh oui, avec plaisir. Mais sans alcool s’il te plait."
+               protag "Je hoche la tête et lui sers un Virgin
+               Mojito."
+               noa "Tu es doué(e)."
+
+            "Ne rien faire":
+               pass
+
+      label suite_j2_2:
+
+         protag "Le boss est cruel de t’obliger à travailler même le soir avec
+         tes journées."
+
+         noa "Après, tu sais, je m’amuse dans mon boulot. Les enfants sont
+         vraiment hilarants. Et j’adore savoir que je fais rire."
+
+         protag "Quand même, tu te fais exploiter. Tu devrais demander une
+         augmentation."
+
+         noa "Je vais peut-être le faire. Tu t'inquiètes pour moi ?"
+
+         menu :
+            "Je suis simplement juste.":
+               $ noaAF += 10
+               $ courage += 5
+            "Oui, c’est normal.":
+               $ noaAF += 5
+            "Non, je dis ça comme ça.":
+               pass
+         
+         protag_pensee "Un client nous interpelle dans notre
+         discussion."
+
+         "Client" "Mademoiselle/jeune homme, retournez travailler voulez
+         vous. J’attends d’être servi depuis tout à l’heure."
+
+         noa "C’est ma faute, je la monopolise. Salut."
+
+         protag_pensee "Il remonte sur scène et moi je m’occupe
+         du monsieur."
+
+         jump j3
 
 
 
@@ -474,7 +476,7 @@ label j2:
 
 
 
-   
+         
 
 
 
