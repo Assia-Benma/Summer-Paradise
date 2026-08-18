@@ -10,3 +10,5 @@ default JaneDoe_name = "???"
 default noaAF = 0
 default chrisAF = 0
 default JaneDoeAF = 0 
+
+$ noa_main_proposee = null

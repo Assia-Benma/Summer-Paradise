@@ -111,7 +111,7 @@ label j4:
 
     chris "Qu’est ce que c’est ?"
 
-    protag_peensee "Il approche et récupère une sorte de
+    protag_pensee "Il approche et récupère une sorte de
     collier canin."
 
     chris "Un collier pour chien ? C’est écrit… Cerbère."
@@ -172,8 +172,10 @@ label j4:
     retentit. Cerbère s’enfuit alors, s'évaporant entre les arbres. La voix
     de mon boss s’élève."
 
-    show thomas
-    with dissolve
+    hide ChrisPetitSourire
+
+    show ChrisPetitSourire at right
+    show thomas at left with dissolve
 
     thomas "Où es tu … ! Je t’attends depuis 1h déjà."
 
@@ -188,10 +190,13 @@ label j4:
     hide thomas
     with dissolve
 
+    show ChrisPetitSourire at center
+
     protag_pensee "Cette punition est pile ce que j’attendais. Il
     fait tellement chaud. Moi qui pensait que je ne pourrais jamais
     profiter du lac."
 
+    hide ChrisPetitSourire
     show ChrisTimide
     with dissolve
 
@@ -283,7 +288,7 @@ label j4:
             protag_pensee "Je soupire, frustré(e). Heureusement qu’il
             y a Chris, sinon j’aurais pu croire être folle."
 
-    protag_pense "Tout d’un coup, une petite fille vient nous
+    protag_pensee "Tout d’un coup, une petite fille vient nous
     voir trempée et en pleurs. Je m’accroupis pour être à sa hauteur."
 
     hide NoaBasic
@@ -292,14 +297,13 @@ label j4:
 
     "Petite fille" "J’ai…J’ai…J’ai perdu mon collier sous l’eau."
 
+    show NoaPense
+    with dissolve
     noa "Vers où ?"
 
     "Petite fille" "Au début du jeu."
 
     protag "C’est pas trop profond vers là, non ?"
-
-    show NoaPense
-    with dissolve
 
     noa "Non ça va."
 
@@ -370,7 +374,7 @@ label j4:
     Au loin à l’entrée de la forêt. Cerbère court vers elle. Elle m’énerve.
     C’est vraiment qu’une gamine immature."
     
-    protag_pensee "Noa se hisse hors del’eau."
+    protag_pensee "Noa se hisse hors de l’eau."
 
     noa "Je me suis rafraîchie au moins."
 
@@ -455,6 +459,7 @@ label j4:
 
     protag "Il faut que je te dise un truc."
 
+    hide NoaTimide
     show NoaBasic
     with dissolve
 
@@ -617,6 +622,10 @@ label j4:
     protag "Ne fais plus de bêtises en attendant."
     
     JaneDoe "Je ne promets rien." 
+
+    hide JaneBasic
+
+    jump j5
 
 
 
