@@ -12,7 +12,12 @@ image NoaTimide = "sprites/Noa/noa-timide.png"
 image NoaNRV = "sprites/Noa/noa-vener.png"
 
 #Sprite Chris
-image ChrisBasic = "sprites/Chris/chris-sprite.png"
+image ChrisBasic = "sprites/Chris/chris-basic.png"
+image ChrisEffraye = "sprites/Chris/chris-effray.png"
+image ChrisHeureux = "sprites/Chris/chris-heureux.png"
+image ChrisPetitSourire = "sprites/Chris/chris-petitsourire.png"
+image ChrisNRV = "sprites/Chris/chris-vener.png"
+image ChrisTimide = "sprites/Chris/chris-timide.png"
 
 #Sprite JaneDoe
 image JaneBasic = "sprites/JaneDoe/joe-sprite.png"

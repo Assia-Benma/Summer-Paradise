@@ -22,6 +22,17 @@ label start:
 
     ## début du jeu selon le script d'alissa
 
+    window hide
+
+    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
+        xpos 950
+        ypos 350
+
+    scene black
+    with dissolve
+
+    window show
+
     protag_pensee "Je descends enfin du car après 1h de trajet.
     Je ne voyais que des déserts de verdure à l’horizon.
     Ma tête tourne encore."
@@ -143,7 +154,7 @@ label start:
     show NoaBasic2 with dissolve
     noa "Salut, t’es la nouvelle employée je crois. C’est moi qui doit t’aider à prendre tes marques."
     
-    $ noa = "Noa"
+    $ noa_name = "Noa"
 
     menu:
         "Ah oui ! Tu es Noa.":
@@ -362,7 +373,8 @@ label start:
 
     protag_pensee "Le jeune homme relève les yeux vers moi, les sourcils levés. Comme s’il était surpris que je lui adresse la parole. Son regard se détourne et il répond doucement."
 
-    show ChrisBasic with dissolve
+    show ChrisBasic
+    with dissolve
 
     chris "Euh…quoi ?"
 
@@ -461,7 +473,8 @@ label start:
 
     protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
 
-    show ChrisBasic with dissolve
+    show ChrisBasic at right
+    with dissolve
 
     chris "Euh…Je préfère pas, merci."
 
@@ -548,4 +561,5 @@ label start:
     hide JaneRizz
 
     #Décor : Cabanon
-return
+
+    jump j2
