@@ -63,19 +63,19 @@ define gui.interface_text_color = '#ffffff'
 ## Polices et tailles de police ################################################
 
 ## Les polices utilisées pour le texte du jeu.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "Ithaca.ttf"
 
 ## Les polices utilisées pour le nom des personnages.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "Ithaca.ttf"
 
 ## Les polices utilisées pour les textes « hors du jeu ».
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "Ithaca.ttf"
 
 ## La taille normale pour les dialogues.
-define gui.text_size = 33
+define gui.text_size = 45
 
 ## La taille pour le nom des personnages.
-define gui.name_text_size = 45
+define gui.name_text_size = 55
 
 ## La taille du texte dans l’interface de jeu.
 define gui.interface_text_size = 33
