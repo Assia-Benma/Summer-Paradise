@@ -25,3 +25,5 @@ image JaneRizz = "sprites/JaneDoe/janeRizz.png"
 image JanePense = "sprites/JaneDoe/janePense.png"
 image JaneNRV = "sprites/JaneDoe/janeNRV.png"
 image JaneChock = "sprites/JaneDoe/janeChockbar.png"
+
+image mamanvener = "sprites/mamanvener.png"

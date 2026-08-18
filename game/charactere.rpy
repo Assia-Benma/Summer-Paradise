@@ -1,7 +1,14 @@
 # Déclarez les personnages utilisés dans le jeu.
 
-define protag = Character("[protag_name]", color="#ffa115")
-define protag_pensee= Character("[protag_name]", color="#ffa115", what_italic=True)
+init python:
+    def callback(event, **kwargs):
+        if event == "show":
+            renpy.music.play("sfx/talking_typewriting.wav", channel='sound', loop=True)
+        elif event == "slow_done" or event == "done":
+            renpy.music.stop(channel='sound')
+
+define protag = Character("[protag_name]", color="#ffa115", callback=callback, what_italic=True)
+define protag_pensee= Character("[protag_name]", color="#ffa115", callback=callback, what_italic=True)
 
 define noa = Character("[noa_name]", color="#32a36b")
 

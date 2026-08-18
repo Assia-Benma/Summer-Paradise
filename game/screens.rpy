@@ -188,11 +188,11 @@ screen input(prompt):
 style input_prompt is default
 
 style input_prompt:
-    xalign gui.dialogue_text_xalign
+    xalign 0.5
     properties gui.text_properties("input_prompt")
 
 style input:
-    xalign gui.dialogue_text_xalign
+    xalign 0.5
     xmaximum gui.dialogue_width
 
 
@@ -225,6 +225,8 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    activate_sound "sfx/onclick.wav"
+    hover_sound "sfx/hover.wav"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")

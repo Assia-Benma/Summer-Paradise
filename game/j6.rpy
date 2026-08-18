@@ -2,6 +2,8 @@ label j6:
 
     window hide
 
+    play sound "sfx/new_day.wav"
+
     show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 6{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
@@ -171,6 +173,7 @@ label j6:
                 mélange les ingrédients et les secoue au shaker. Je suis
                 généreux(se) dans les doses puis verse le tout dans un verre à
                 cocktail."
+                
 
                 protag "Voilà, mon cher Noa."
                 noa "Euh…Qu’est ce que c’est ?"
@@ -227,6 +230,8 @@ label j6:
 
             show NoaNRV
             with dissolve
+
+            play sound "sfx/bad_choice.wav"
 
             noa "Désolé mais je ne bois pas d’alcool. Je crois te l’avoir
             déjà dit."
@@ -469,6 +474,8 @@ label j6:
                 show ChrisBasic
                 with dissolve
 
+                play sound "sfx/bad_choice.wav"
+
                 chris "C’est…un Virgin Mojito ?"
                 protag "Tu sembles déçu."
                 chris "Ouais…hum…c’est pas mon truc les virgins. Mais
@@ -684,6 +691,8 @@ label j6:
                 protag "Ça reste délicieux."
                 JaneDoe "Mouais."
 
+                play sound "sfx/bad_choice.wav"
+
                 jump janeDrink
 
         menu janeDrink:
@@ -698,6 +707,8 @@ label j6:
                 protag "Ouais…J’ai oublié.
                 Excuse-moi."
                 jane "Pas grave."
+
+                play sound "sfx/bad_choice.wav"
 
                 hide JaneNRV
 
@@ -739,14 +750,14 @@ label j6:
 
         label drinkResultJane:
 
-                    show JaneBasic
-                    with dissolve
+            show JaneBasic
+            with dissolve
 
-                    protag "Je suis définitivement doué(e)."
-                    jane "Mais c’est qu’elle/il prend la grosse tête."
-                    protag "Pas du tout, c’est la vérité."
+            protag "Je suis définitivement doué(e)."
+            jane "Mais c’est qu’elle/il prend la grosse tête."
+            protag "Pas du tout, c’est la vérité."
 
-                    hide JaneBasic
+            hide JaneBasic
 
             jump suiteJane
 

@@ -3,6 +3,8 @@ label j2:
 
    window hide
 
+   play sound "sfx/new_day.wav"
+
    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
       xpos 950
       ypos 350
@@ -244,6 +246,8 @@ label j2:
       menu:
          "Insister":
             $ chrisAF -= 5
+            play sound "sfx/bad_choice.wav"
+
             protag "Puisque que je te dis que c’est des interférences,
             c’est logique."
             protag_pensee "Il récupère son détecteur
@@ -398,6 +402,8 @@ label j2:
          "Intervenir":
             $ chrisAF += 5
             $ JaneDoeAF -= 5
+            play sound "sfx/bad_choice.wav"
+
             jump intervention
 
       label intervention : 

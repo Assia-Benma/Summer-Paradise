@@ -2,6 +2,8 @@ label j3:
     
     window hide
 
+    play sound "sfx/new_day.wav"
+
     show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 3{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
@@ -43,6 +45,8 @@ label j3:
     menu:
         "Le reprocher pour la frayeur.":
             $ chrisAF -= 5
+            play sound "sfx/bad_choice.wav"
+
             protag "Merde, Chris. J’ai failli avoir une crise cardiaque."
             hide ChrisEffraye
             show ChrisTimide
@@ -216,9 +220,13 @@ label j3:
 
     protag_pensee "En m’approchant, je trouve Noa en pleine dispute avec une maman et un petit garçon les larmes sèches."
 
-    show NoaEffraye with dissolve
+    show mamanvener at right
+    with dissolve
 
-    "Maman" "Je peux savoir où vous étiez pendant que mon fils, paniqué dans la forêt, s’est blessé au genou ?!"
+    show NoaEffraye at left
+    with dissolve
+
+    "Maman" "Je peux savoir où vous étiez pendant que mon fils, paniqué dans la forêt, s’est blessé au genou ?!" with vpunch
 
     noa "Je suis vraiment désolée madame. J’ai beaucoup d'enfants à surveiller et vu que le terrain de la course est assez grand et fermé…"
 
@@ -246,6 +254,15 @@ label j3:
 
         "Maman" "J’espère bien."
 
+        hide mamanvener
+
+        show NoaEffraye at center
+        with move
+
+        hide NoaEffraye
+
+        show NoaBasic
+
         protag_pensee "Me voilà seul(e) avec lui."
 
         protag "Hé…ça va ?"
@@ -266,6 +283,16 @@ label j3:
 
         protag "Ne vous gênez pas madame."
 
+        hide mamanvener
+        with dissolve
+
+        show NoaEffraye at center
+        with move
+
+        hide NoaEffraye
+
+        show NoaBasic
+
         protag_pensee "Me voilà seul(e) avec lui."
 
         noa "Merci d’avoir pris ma défense."
@@ -277,6 +304,16 @@ label j3:
         jump suite_noa_talkie
 
     label demander_noa:
+
+        hide mamanvener
+        with dissolve
+
+        show NoaEffraye at center
+        with move
+
+        hide NoaEffraye
+
+        show NoaBasic
 
         protag_pensee "La mère et son fils s’éloignent finalement. Me voilà seul(e) avec lui."
 

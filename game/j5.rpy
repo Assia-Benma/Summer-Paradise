@@ -2,6 +2,8 @@ label j5:
 
     window hide
 
+    play sound "sfx/new_day.wav"
+
     show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 5{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
@@ -54,6 +56,8 @@ label j5:
 
         "Le redescendre":
             $ chrisAF -= 5
+
+            play sound "sfx/bad_choice.wav"
 
             protag "De base c’est pas mon truc après. C’est à cause des esprits que j’ai eu besoin de toi."
 
@@ -123,6 +127,8 @@ label j5:
     menu:
         "La rembarrer":
             $ JaneDoeAF -= 10
+
+            play sound "sfx/bad_choice.wav"
 
             protag "Ne me raconte pas ta vie, merci. J’ai du travail là."
 
@@ -254,6 +260,8 @@ label j5:
             if noa_main_proposee:
 
                 $ noaAF -= 5
+
+                play sound "sfx/bad_choice.wav"
 
                 noa "Désolé…je croyais que je pouvais."
 
@@ -501,4 +509,5 @@ label j5:
     protag_pensee "Les gens s’en vont vers les bungalow comme Chris et sa famille."
     protag_pensee "Je finis de tout ranger avec Noa. Ensuite j’éteins le feu et vais dormir au cabanon, repensant à cette journée."
     hide NoaBasic2 with dissolve
-    return
+    
+    jump j6

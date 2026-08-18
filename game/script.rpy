@@ -2,6 +2,8 @@
 
 label start:
 
+    stop music fadeout 5.0
+
     $ protag_name = renpy.input("Qui es-tu ?", default="Moi").strip()
     
     # Set a default name if the player leaves it blank
@@ -24,6 +26,8 @@ label start:
     ## début du jeu selon le script d'alissa
 
     window hide
+
+    play sound "sfx/new_day.wav"
 
     show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
         xpos 950
@@ -200,16 +204,16 @@ label start:
     menu: 
         "C’est franchement pas malin. Et vous m'impliquez dans vos bêtises en plus. Je dois débarrasser à votre place":
             $ noaAF -= 5
-            jump PasMalin
+            play sound "sfx/bad_choice.wav"
+
+            noa "Désolé, c’était pas voulu. On aurait peut-être pas dû, c’est vrai."
+
+
         "Dommage, j’aurais aimé être là. Si j’avais su, je serais venu un jour plus tôt.":
             $noaAF += 5
-            jump EtreLa
         
-    label PasMalin: 
-        noa "Désolé, c’était pas voulu. On aurait peut-être pas dû, c’est vrai."
-    label EtreLa:
-        noa "J’aurais aimé aussi. Tu aurais pu connaître tout le monde dans une bonne ambiance."
-        noa "Mais désolé que tu doive ranger ce bordel avec moi."
+            noa "J’aurais aimé aussi. Tu aurais pu connaître tout le monde dans une bonne ambiance."
+            noa "Mais désolé que tu doive ranger ce bordel avec moi."
 
     protag_pensee "Je m’arme d’un sac poubelle et ramasse les déchets. Noa réarrange le feu de camp pour ce soir en replaçant correctement les roches."
 
@@ -219,22 +223,18 @@ label start:
 
     menu:
         "L'aider":
-            jump aider
+            noa "Merci, c’est gentil."
+            protag_pensee "Je pousse le tronc de toutes mes forces."
+            protag_pensee "C’est plus lourd que prévu mais on arrive à le remettre correctement face au feu éteint."
+            noa "Tu es plus costaud que moi, je suis presque jaloux."
+            protag "Prends en de la graine."
+            protag_pensee "On rit ensemble."
+            protag_pensee "Je suis contente d’avoir pu me rapprocher si vite de lui. Ce nouveau job devient moins stressant avec quelqu’un de sympa aux alentours."
+
         "Le laisser faire":
-            jump poAider
+            
+            noa "Noa arrive à se débrouiller seul. Il est légèrement essoufflé mais il se relève plein d’énergie."
 
-
-    label aider:
-        noa "Merci, c’est gentil."
-        protag_pensee "Je pousse le tronc de toutes mes forces."
-        protag_pensee "C’est plus lourd que prévu mais on arrive à le remettre correctement face au feu éteint."
-        noa "Tu es plus costaud que moi, je suis presque jaloux."
-        protag "Prends en de la graine."
-        protag_pensee "On rit ensemble."
-        protag_pensee "Je suis contente d’avoir pu me rapprocher si vite de lui. Ce nouveau job devient moins stressant avec quelqu’un de sympa aux alentours."
-
-    label poAider:
-        noa "Noa arrive à se débrouiller seul. Il est légèrement essoufflé mais il se relève plein d’énergie."
 
     noa "Bon. Le bar fermera plus tôt. Comme tu l’as compris, ce soir c’est histoires d’horreurs et marshmallows au coin du feu."
     
@@ -453,7 +453,7 @@ label start:
 
         protag_pensee "Je l’aide à distribuer les brochettes puis m’installe sur une chaise face au feu. [noa_name] me rejoint, s’asseyant à côté de moi. Il me laisse le reste des marshamallows."
 
-        show NoaBasic2 with dissolve
+        show NoaBasic with dissolve
 
         noa "Salut tout le monde. Je suis [noa_name], l’animateur du club enfant. Certains parents m’ont rencontré cette après-midi pour l’inscription."
 
@@ -475,6 +475,9 @@ label start:
 
         protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
 
+    show NoaBasic at left
+    with move
+
     show ChrisBasic at right
     with dissolve
 
@@ -484,6 +487,7 @@ label start:
         "Insister":
             $ chrisAF -= 10
             $ noaAF -= 5
+    
             jump insister_chris
 
         "Le laisser":
@@ -496,6 +500,8 @@ label start:
 
         protag_pensee "Chris reste silencieux, paralysé. Sa pomme d’Adam bouge alors qu’il déglutit de stresse."
 
+        play sound "sfx/bad_choice.wav"
+
         jump suite_feu_camp
 
     label laisser_chris2:
@@ -505,6 +511,9 @@ label start:
     label suite_feu_camp:
 
     hide ChrisBasic with dissolve
+
+    show NoaBasic at center
+    with move
 
     noa "C’est bon. Je vais démarrer avec mon histoire. Connaissez-vous Jane Doe ?"
 
@@ -520,7 +529,7 @@ label start:
 
     noa "Ok. Merci."
 
-    hide NoaBasic2 with dissolve
+    hide NoaBasic with dissolve
 
     protag_pensee "[noa_name] part, je suis seul(e). La brise légère est agréable et le feu apaisant. Cela fait du bien, même si ce n’est que la première journée."
 
@@ -548,7 +557,7 @@ label start:
 
     show JaneRizz with dissolve
 
-    protag "AAAAHH ! Laisse moi ! T’es mort ! Tu pouvais pas rester sous terre !"
+    protag "AAAAHH ! Laisse moi ! T’es mort ! Tu pouvais pas rester sous terre !" with vpunch
 
     protag_pensee "Je tombe sur mes fesses et ferme les yeux par réflexe. Comme si cela allait me protéger. Puis, rien. Il ne se passe rien."
 

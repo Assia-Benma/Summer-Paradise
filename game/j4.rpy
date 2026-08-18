@@ -2,6 +2,8 @@ label j4:
 
     window hide
 
+    play sound "sfx/new_day.wav"
+
     show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 4{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
@@ -123,11 +125,12 @@ label j4:
     hide ChrisBasic
 
     protag_pensee "Brusquement, des aboiements surgissent
-    derrière nous. Dans un sursaut, Chris se cache dans mon dos."
+    derrière nous. Dans un sursaut, Chris se cache dans mon dos." with vpunch
 
     menu:
         "S'écarter":
             $ chrisAF -= 5
+            play sound "sfx/bad_choice.wav"
             protag_pensee "En le voyant faire, je m’écarte rapidement
             dans la panique."
             protag "Qu’est ce que tu fais ?! Je suis pas un bouclier !"
@@ -177,9 +180,10 @@ label j4:
     hide ChrisPetitSourire
 
     show ChrisPetitSourire at right
+    with move
     show thomas at left with dissolve
 
-    thomas "Où es tu … ! Je t’attends depuis 1h déjà."
+    thomas "Où es tu [protag_name] ! Je t’attends depuis 1h déjà."
 
     protag_pensee "Merde ! J’ai oublié l’inventaire."
 
@@ -193,12 +197,14 @@ label j4:
     with dissolve
 
     show ChrisPetitSourire at center
+    with move
 
     protag_pensee "Cette punition est pile ce que j’attendais. Il
     fait tellement chaud. Moi qui pensait que je ne pourrais jamais
     profiter du lac."
 
     hide ChrisPetitSourire
+
     show ChrisTimide
     with dissolve
 
@@ -210,6 +216,7 @@ label j4:
     chris "Tant mieux alors…je crois ?"
 
     hide ChrisTimide
+    with dissolve
 
     # Décor : Lac
 
@@ -385,6 +392,7 @@ label j4:
     maladroit."
 
     hide NoaPense
+    with dissolve
 
     # Décor : Bar soir
 
@@ -447,6 +455,7 @@ label j4:
 
         "Se plaindre":
             $ noaAF -= 5
+            play sound "sfx/bad_choice.wav"
 
             protag "Je sais me défendre tout(e) seul(e) tu sais. Occupe toi de tes
             affaires la prochaine fois."
