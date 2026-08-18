@@ -25,7 +25,7 @@ label start:
 
     window hide
 
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 1{/cps}" with Pause(3.0):
+    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
 

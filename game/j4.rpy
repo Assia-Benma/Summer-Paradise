@@ -140,6 +140,8 @@ label j4:
             protag_pensee "Je lève ma batte, prêt(e) à nous défendre."
             chris "N’hésite pas à frapper !"
 
+    # montrer le chien à droite
+
     protag_pensee "Chris tend son dictaphone pour enregistrer
     les sons. C'est là qu'apparaît l’esprit du beagle de Chris. Le chien
     court autour de nous et saute dans tous les sens."
