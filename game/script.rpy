@@ -10,7 +10,7 @@ label start:
         
     protag "Salut salut je suis [protag_name]!"
 
-    "Choisis maintenant tes pronons !"
+    "Choisis maintenant tes pronoms !"
 
     menu:
         "Il/lui":
@@ -19,6 +19,7 @@ label start:
         "Elle/la":
             $ pronoms1 = "Elle"
             $ pronoms2 = "la"
+        #Donner le choix de garder le texte en inclusif 
 
     ## début du jeu selon le script d'alissa
 
@@ -437,41 +438,42 @@ label start:
         protag_pensee "Je préfère le laisser tranquille. Il ne veut probablement pas discuter avec moi. Il remet tout simplement ses écouteurs, ne faisant plus attention à moi."
 
     label fin_bar_nuit:
+        $ chris_name = "Chris"
 
-    hide ChrisBasic with dissolve
+        hide ChrisBasic with dissolve
 
-    protag_pensee "L’heure sonne la fin de cette soirée au bar. Tout le monde commence à partir en direction du feu de camp."
-    protag_pensee "Le jeune homme de tout à l’heure et sa famille aussi. Je ferme tout avec mon collègue puis me dirige moi aussi vers cet after."
+        protag_pensee "L’heure sonne la fin de cette soirée au bar. Tout le monde commence à partir en direction du feu de camp."
+        protag_pensee "Le jeune homme de tout à l’heure et sa famille aussi. Je ferme tout avec mon collègue puis me dirige moi aussi vers cet after."
 
-    #Décor : Feu de camp nuit
+        #Décor : Feu de camp nuit
 
-    protag_pensee "Le feu est flamboyant cette nuit et sa chaleur reste supportable dans la fraicheur. [noa_name] installe les gens sur les troncs. Les petits sont assis au sol et des chaises sont à disposition au cas où."
+        protag_pensee "Le feu est flamboyant cette nuit et sa chaleur reste supportable dans la fraicheur. [noa_name] installe les gens sur les troncs. Les petits sont assis au sol et des chaises sont à disposition au cas où."
 
-    protag_pensee "J’apporte des bouts de bois pour garder le feu lumineux. [noa_name], lui, ouvre les paquets de marshamallows et les plante sur des branches. Il n’hésite pas à en manger un ou deux au passage."
+        protag_pensee "J’apporte des bouts de bois pour garder le feu lumineux. [noa_name], lui, ouvre les paquets de marshamallows et les plante sur des branches. Il n’hésite pas à en manger un ou deux au passage."
 
-    protag_pensee "Je l’aide à distribuer les brochettes puis m’installe sur une chaise face au feu. [noa_name] me rejoint, s’asseyant à côté de moi. Il me laisse le reste des marshamallows."
+        protag_pensee "Je l’aide à distribuer les brochettes puis m’installe sur une chaise face au feu. [noa_name] me rejoint, s’asseyant à côté de moi. Il me laisse le reste des marshamallows."
 
-    show NoaBasic2 with dissolve
+        show NoaBasic2 with dissolve
 
-    noa "Salut tout le monde. Je suis [noa_name], l’animateur du club enfant. Certains parents m’ont rencontré cette après-midi pour l’inscription."
+        noa "Salut tout le monde. Je suis [noa_name], l’animateur du club enfant. Certains parents m’ont rencontré cette après-midi pour l’inscription."
 
-    protag_pensee "Les mamans le reconnaissent immédiatement et une petite fille lui fait signe enthousiaste."
+        protag_pensee "Les mamans le reconnaissent immédiatement et une petite fille lui fait signe enthousiaste."
 
-    noa "Ce soir, devant le feu, nous allons nous conter des histoires d’horreurs. Vous avez la responsabilité de vos enfants, je vous préviens."
+        noa "Ce soir, devant le feu, nous allons nous conter des histoires d’horreurs. Vous avez la responsabilité de vos enfants, je vous préviens."
 
-    protag_pensee "Il le dit avec un petit rire et les autres le suivent dans sa blague."
+        protag_pensee "Il le dit avec un petit rire et les autres le suivent dans sa blague."
 
-    noa "Qui veut commencer ?"
+        noa "Qui veut commencer ?"
 
-    protag_pensee "Personne ne veut prendre la parole. Le crépitement du feu à lui seul brise le silence. Dans un coin, je vois les parents essayer de pousser leur fils à se lancer."
+        protag_pensee "Personne ne veut prendre la parole. Le crépitement du feu à lui seul brise le silence. Dans un coin, je vois les parents essayer de pousser leur fils à se lancer."
 
-    "Les parents" "Aller [chris_name]. Tu écoutes littéralement des histoires d’épouvantes toute la journée."
+        "Les parents" "Aller [chris_name]. Tu écoutes littéralement des histoires d’épouvantes toute la journée."
 
-    protag_pensee "Il refuse catégoriquement voulant faire taire ses parents. Je décide d’intervenir."
+        protag_pensee "Il refuse catégoriquement voulant faire taire ses parents. Je décide d’intervenir."
 
-    protag "Vas-y toi. [chris_name], il me semble."
+        protag "Vas-y toi. [chris_name], il me semble."
 
-    protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
+        protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
 
     show ChrisBasic at right
     with dissolve
