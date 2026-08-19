@@ -31,11 +31,12 @@ label j3:
     Ma vision m’illusionne d’ombres et de faux monstres. Mes muscles se tendent d’appréhension."
     protag_pensee "Brusquement, quelqu’un me fonce dessus. Ce poids lourd me plaque au sol sans que je puisse faire quoique ce soit."
 
-    protag "Ah ! Dégage !"
+    protag "Ah ! Dégage !" with vpunch
     protag_pensee "La batte m’échappe dans notre chute à quelques mètres. Je me débats dans l’obscurité. 
     Dans un réflexe inattendu, je donne un coup puissant entre les jambes de mon assaillant. Puis je me redresse debout."
 
     show ChrisEffraye
+    show screen loveMeter("Chris")
     chris "Arg !" with vpunch
 
     protag "Chris ?"
@@ -44,7 +45,7 @@ label j3:
 
     menu:
         "Le reprocher pour la frayeur.":
-            $ chrisAF -= 5
+            $ AF["Chris"] -= 5
             play sound "sfx/bad_choice.wav"
 
             protag "Merde, Chris. J’ai failli avoir une crise cardiaque."
@@ -54,7 +55,7 @@ label j3:
             hide ChrisTimide
 
         "S’excuser":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
             protag "Mince, excuse moi. Je croyais qu’on m’attaquait."
             hide ChrisEffraye
             show ChrisBasic
@@ -78,22 +79,30 @@ label j3:
 
     protag "Quel fantôme précisément ? Une jeune femme ?"
 
+    hide ChrisPetitSourire
+    show ChrisTimide
     chris "Euh…non. Cela ressemblait plutôt à un chien."
 
     protag "Un chien ?"
 
+    hide ChrisTimide
+    show ChrisBasic
     chris "Ouais."
 
     protag "Bon. On ferait mieux d’en reparler plus tard. Retournons dormir."
 
     protag_pensee "La forêt en pleine nuit fait trop flipper pour avoir une discussion sur le paranormal."
 
+    hide ChrisBasic
+    show ChrisEffraye
     chris "Tu as raison. C’est trop flippant ici."
 
     protag "On est d’accord."
 
     protag_pensee "Sur ce, on se quitte."
-    hide ChrisPetitSourire with fade
+    hide ChrisEffraye 
+    hide screen loveMeter
+    with dissolve
     #Décor : Bar
 
     protag_pensee "Après ce sommeil mouvementé, je manque d’énergie pour aujourd’hui. J’ai entre les mains une caisse pleine de bouteilles pour ce soir."
@@ -112,7 +121,7 @@ label j3:
 
         show thomas with dissolve
 
-        thomas "Je peux savoir ce que tu fabriques ? Range moi ça."
+        thomas "Je peux savoir ce que tu fabriques ? Range moi ça." with vpunch
 
         protag "Oui…"
 
@@ -142,10 +151,14 @@ label j3:
 
     protag_pensee "Des pièces sont semées partout sur le sol. Jane se téléporte devant moi sans que je m’y attende. Elle garde ce sourire malicieux que je déteste peu à peu."
 
-    show JaneRizz with dissolve
+    show JaneRizz 
+    show screen loveMeter("Jane")
+    with dissolve
 
     protag "Encore toi ? T’as vraiment pas d’amis."
 
+    hide JaneRizz
+    show JaneBasic
     JaneDoe "De vivant et grincheux ? Non, c’est vrai, tu es la/le seul(e)."
 
     protag_pensee "Je lève les yeux au ciel, lassé(e) de son attitude."
@@ -162,7 +175,7 @@ label j3:
 
     protag "Et toi toujours fourbe et chiante ?"
 
-    hide JaneRizz
+    hide JaneBasic
     show JaneNRV
 
     JaneDoe "Oh ! wow ! Tu as dis fourbe ? Un nouveau mot dans ton vocabulaire, dommage que ça se suive d’un mot vulgaire. Tu ne risques pas de plaire comme ça."
@@ -172,17 +185,20 @@ label j3:
             jump abandonner_jane
 
         "Répondre":
-            $ JaneDoeAF += 5
+            $ AF["Jane"] += 5
             jump repondre_jane
 
     label abandonner_jane:
 
         protag_pensee "J’inspire à fond et ramasse les pièces au sol."
-
+        hide JaneNRV
+        show JaneRizz
         JaneDoe "Hé ! Tu as perdu ta langue ?"
 
         protag_pensee "Je ne lui accorde plus une seconde de mon attention. Vaut mieux l’ignorer."
 
+        hide JaneRizz
+        show JaneNeutre
         JaneDoe "Pff."
 
         jump fin_jane
@@ -190,14 +206,16 @@ label j3:
     label repondre_jane:
 
         protag "J’en ai rien à faire de plaire ! Surtout pas à toi."
-
+        hide JaneNRV
+        show JanePense
         JaneDoe "Oh non ! Cela me blesse ce que tu dis."
-
+        hide JanePense
+        show JaneBasic
         protag_pensee "Je vais lui faire ravaler ce sourire."
 
         protag "Ce que tu as fait à Chris était vraiment idiot. Il aurait pu se faire très mal. Arrête d’embêter Noa. Il a stressé pour rien la dernière fois. Et ne casse plus rien. T’imagine le temps que tu nous fais perdre."
 
-        hide JaneNRV
+        hide JaneBasic
         show JanePense
         JaneDoe "Hum ? Tu disais ? Je n'ai pas vraiment écouté."
 
@@ -211,7 +229,8 @@ label j3:
     protag "Allez, du balais."
 
     hide JanePense
-    hide JaneNRV
+    hide JaneNeutre
+    hide screen loveMeter
     with dissolve
 
     #Décor : Forêt
@@ -224,6 +243,7 @@ label j3:
     with dissolve
 
     show NoaEffraye at left
+    show screen loveMeter("Noa")
     with dissolve
 
     "Maman" "Je peux savoir où vous étiez pendant que mon fils, paniqué dans la forêt, s’est blessé au genou ?!" with vpunch
@@ -239,12 +259,12 @@ label j3:
             jump rien_faire_noa
 
         "Prendre sa défense":
-            $ noaAF += 10
+            $ AF["Noa"] += 10
             $ courage += 5
             jump defense_noa
 
         "Lui demander ce qu’il s’est passé":
-            $ noaAF += 5
+            $ AF["Noa"] += 5
             $ curiosite += 5
             jump demander_noa
 
@@ -273,8 +293,12 @@ label j3:
 
     label defense_noa:
 
-        protag "Excusez moi madame mais Noa a très bien réagi. Votre fils s’est blessé et Noa a pris soin de lui. De plus, il n'est pas surhumain, il n’a pas les yeux partout. Et les jeunes faisaient une course d’orientation je vous rappelle. C’est ça ?"
+        protag "Excusez moi madame mais Noa a très bien réagi. 
+        Votre fils s’est blessé et Noa a pris soin de lui. De plus, il n'est pas surhumain, il n’a pas les yeux partout. 
+        Et les jeunes faisaient une course d’orientation je vous rappelle. C’est ça ?"
 
+        hide NoaEffraye
+        show NoaNeutre at left 
         noa "Oui…"
 
         protag "Donc, il est normal qu’ils soient dispersés et impossible de tous les surveiller."
@@ -286,11 +310,10 @@ label j3:
         hide mamanvener
         with dissolve
 
-        show NoaEffraye at center
+        show NoaNeutre at center
         with move
 
-        hide NoaEffraye
-
+        hide NoaNeutre
         show NoaBasic
 
         protag_pensee "Me voilà seul(e) avec lui."
@@ -300,7 +323,8 @@ label j3:
         protag "De rien. Ne te met pas la pression, ok ?"
 
         noa "Ouais…"
-
+        
+        hide NoaBasic
         jump suite_noa_talkie
 
     label demander_noa:
@@ -308,14 +332,14 @@ label j3:
         hide mamanvener
         with dissolve
 
+        protag_pensee "La mère et son fils s’éloignent finalement. Me voilà seul(e) avec lui."
+
         show NoaEffraye at center
         with move
 
         hide NoaEffraye
 
-        show NoaBasic
-
-        protag_pensee "La mère et son fils s’éloignent finalement. Me voilà seul(e) avec lui."
+        show NoaNeutre
 
         protag "Tout va bien ? Qu’est ce que s’est passé ?"
 
@@ -327,15 +351,17 @@ label j3:
         noa "Je la comprends après. J’aurais dû mieux veiller sur eux."
 
         protag "Ne te met pas la pression, ok ?"
-
+        
+        hide NoaNeutre
+        show NoaTimide
         noa "Merci."
+        hide NoaTimide
 
     label suite_noa_talkie:
-    
-        hide NoaEffraye
+        
         show NoaBasic
 
-        protag "Bon sinon. Tu t'en pas trop mal ?"
+        protag "Bon sinon. Tu t'en tire pas trop mal ?"
         
         hide NoaBasic
         show NoaPense
@@ -359,7 +385,9 @@ label j3:
 
         protag_pensee "Je retrouve son talkie-walkie près d’une racine. Je sais très bien comment il l’a perdu. Jane, toujours Jane."
 
-        hide NoaBasic2 with dissolve
+        hide NoaBasic2 
+        hide screen loveMeter
+        with dissolve
 
         #Décor : Bar nuit
 
@@ -367,7 +395,9 @@ label j3:
 
         protag_pensee "Quand on parle du loup. Je prépare une Pina colada alors qu’il trébuche en voulant s'asseoir au bar."
 
-        show ChrisBasic with dissolve
+        show ChrisBasic 
+        show screen loveMeter("Chris")
+        with dissolve
 
         chris "Euh…Salut."
 
@@ -389,7 +419,8 @@ label j3:
 
         protag "Dis moi."
 
-        chris "Je vais essayer de capturer une image avec mon appareil photo à vision nocturne. J’ai aussi une caméra infrarouge. Tu veux m’accompagner ? Tu pourras tenir mon dictaphone pour l’enregistrer."
+        chris "Je vais essayer de capturer une image avec mon appareil photo à vision nocturne. J’ai aussi une caméra infrarouge. 
+        Tu veux m’accompagner ? Tu pourras tenir mon dictaphone pour l’enregistrer."
 
         protag "Tu es vraiment bien équipé. J’accepte. Je veux venir."
 
@@ -401,7 +432,7 @@ label j3:
 
         menu:
             "Lui poser des questions sur le spectre.":
-                $ chrisAF += 5
+                $ AF["Chris"] += 5
                 $ curiosite += 5
                 jump questions_spectre
 
@@ -412,7 +443,8 @@ label j3:
         label questions_spectre:
 
             protag "Il ressemble à quoi exactement ton fantôme ?"
-
+            hide ChrisPetitSourire
+            show ChrisTimide
             chris "Ben du coup, c’est un chien…un beagle je dirais. Il me surprend toujours, venant de nulle part."
 
             protag "Toujours ? Tu l’as aperçu plusieurs fois ?"
@@ -420,7 +452,8 @@ label j3:
             chris "Ouais. Il me saute dessus et aboie. La sensation est trop étrange. On sent qu’il te traverse mais on peut pas le toucher."
 
             protag "Tu l’as vu aujourd’hui ?"
-
+            hide ChrisTimide
+            show ChrisBasic
             chris "Cet après-midi à mon bungalow."
 
             protag "Ok…"
@@ -428,12 +461,14 @@ label j3:
             jump fin_jour3
 
         label retour_travail:
-
             protag_pensee "Je le laisse, retournant laver des verres."
 
         label fin_jour3:
 
-        hide ChrisPetitSourire with dissolve
+        hide ChrisPetitSourire 
+        hide ChrisBasic
+        hide screen loveMeter
+        with dissolve
 
         protag_pensee "Ma journée est enfin terminée, c’est l’heure de dodo."
 
