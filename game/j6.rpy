@@ -27,15 +27,15 @@ label j6:
 
     menu:
         "Noa":
-            $ noaAF += 10
+            $ AF["Noa"] += 10
             jump noaDate
 
         "Chris":
-            $ chrisAF += 10
+            $ AF["Chris"] += 10
             jump chrisDate
 
         "Jane":
-            $ JaneDoeAF += 10
+            $ AF["Jane"] += 10
             jump janeDate
 
     label noaDate:
@@ -52,6 +52,7 @@ label j6:
         protag "Salut Noa."
 
         show NoaTimide
+        show screen loveMeter("Noa")
         with dissolve
 
         noa "Salut, tu n’as rien à faire aujourd'hui ?"
@@ -92,7 +93,7 @@ label j6:
 
         menu:
             "Mais c’est quoi le DEES ?":
-                $ noaAF += 5
+                $ AF["Noa"] += 5
                 $ curiosite += 5
 
                 noa "Le Diplôme d’Etat d’Educateur Spécialisé. Comme le
@@ -104,7 +105,7 @@ label j6:
                 noa "Tu seras la/le deuxième à le savoir, après ma mère."
 
             "Je connais le DEES.":
-                $ noaAF += 5
+                $ AF["Noa"] += 5
 
                 protag "Tu veux être éducateur spécialisé ? Je te vois bien
                 dans ce rôle."
@@ -166,25 +167,25 @@ label j6:
         attention."
 
         menu:
-            "Dirty Shirley":
-                $ noaAF -= 10
+            if KnowDirty == True:
+                "Dirty Shirley":
+                    $ AF["Noa"] -= 10
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
-                
+                    protag_pensee "Je fais comme je l’ai appris. Je
+                    mélange les ingrédients et les secoue au shaker. Je suis
+                    généreux(se) dans les doses puis verse le tout dans un verre à
+                    cocktail."
+                    
+                    protag "Voilà, mon cher Noa."
+                    noa "Euh…Qu’est ce que c’est ?"
+                    protag "Le Dirty Shirley."
+                    noa "Il y a de l’alcool ?"
+                    protag "Hum…oui."
 
-                protag "Voilà, mon cher Noa."
-                noa "Euh…Qu’est ce que c’est ?"
-                protag "Le Dirty Shirley."
-                noa "Il y a de l’alcool ?"
-                protag "Hum…oui."
-
-                jump echecNoaBoisson
+                    jump echecNoaBoisson
 
             "Cosmopolitan":
-                $ noaAF -= 10
+                $ AF["Noa"] -= 10
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis
@@ -200,7 +201,7 @@ label j6:
                 jump echecNoaBoisson
 
             "Virgin Mojito":
-                $ noaAF += 5
+                $ AF["Noa"] += 5
                 $ habilite += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
@@ -251,6 +252,7 @@ label j6:
             jump endDate
 
     label endDate:
+        hide screen loveMeter
 
         protag_pensee "Bon. Moi, je vais rester au bar jusqu’à ce
         soir. J’ai que ça à faire."
@@ -271,6 +273,8 @@ label j6:
         semble essayer de le dresser."
 
         show ChrisHeureux at left
+        show Cerbere at right 
+        show screen loveMeter("Chris")
         with dissolve
 
         chris "Allez Cerbère. Tu peux le faire. Assis !"
@@ -291,6 +295,7 @@ label j6:
         protag_pensee "On s’assoit côte à côte sur un tronc, nos
         épaules s’effleurent. J'en ai des frissons. Cerbère lévite au-dessus
         du feu de camp éteint."
+        hide Cerbere with dissolve
 
         protag "Dis moi, Chris. Pourquoi tu enquête autant sur le paranormal
         si ça te fait aussi peur ?"
@@ -315,7 +320,7 @@ label j6:
 
         menu:
             "C’est surtout moi qui ait fait la majorité du travail.":
-                $ chrisAF -= 5
+                $ AF["Chris"] -= 5
 
                 hide ChrisTimide
 
@@ -330,7 +335,7 @@ label j6:
                 hide ChrisNRV
 
             "Tu en es un. Je n'aurais jamais vu autant sans toi.":
-                $ chrisAF += 10
+                $ AF["Chris"] += 10
 
                 hide ChrisTimide
 
@@ -391,16 +396,14 @@ label j6:
         Ses mains sont sur ses cuisses et me regarde sans rien dire."
 
         menu:
-
-            "Dirty Shirley":
-                $ chrisAF += 5
+            "Dirty Shirley" if KnowDrink == True:
+                $ AF["Chris"] += 5
                 $ habilite += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis
                 généreux(se) dans les doses puis verse le tout dans un verre à
                 cocktail."
-
                 protag "Voilà, mon cher Chris."
 
                 hide ChrisPetitSourire
@@ -432,7 +435,7 @@ label j6:
                 jump endDate
 
             "Cosmopolitan":
-                $ chrisAF += 10
+                $ AF["Chris"] += 10
                 $ habilite += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
@@ -465,7 +468,7 @@ label j6:
                 jump endDate
 
             "Virgin Mojito":
-                $ chrisAF -= 5
+                $ AF["Chris"] -= 5
 
                 protag "Voilà, mon cher Chris."
 
@@ -507,12 +510,17 @@ label j6:
         protag_pensee "La journée aide à ne pas flipper dans cette
         forêt. Où est-elle ?"
 
-        show JaneBasic
+        show JaneFlip
+        show screen loveMeter("Jane")
         with dissolve
 
         JaneDoe "Bouh !" with vpunch
 
         protag "Oh ! Putain de merde ! Jane !"
+
+        hide JaneFlip
+        show JaneBasic
+        with dissolve
 
         JaneDoe "Oui ma belle/mon beau ?"
 
@@ -640,32 +648,33 @@ label j6:
         regardant performer."
 
         menu:
-            "Dirty Shirley":
-                $ JaneDoeAF += 10
-                $ habilite += 5
-                $ drinkDirty = True
+            if KnowDirty == True:
+                "Dirty Shirley":
+                    $ AF["Jane"] += 10
+                    $ habilite += 5
+                    $ drinkDirty = True
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
+                    protag_pensee "Je fais comme je l’ai appris. Je
+                    mélange les ingrédients et les secoue au shaker. Je suis
+                    généreux(se) dans les doses puis verse le tout dans un verre à
+                    cocktail."
 
-                protag "Voilà, ma chère Jane."
+                    protag "Voilà, ma chère Jane."
 
-                hide JaneBasic
+                    hide JaneBasic
 
-                show janeRizz
-                with dissolve
+                    show janeRizz
+                    with dissolve
 
-                JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
-                protag "Évidemment. Et si tu as reconnu, ça veut dire que
-                j’ai géré."
-                JaneDoe "Ça me fait si plaisir."
+                    JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
+                    protag "Évidemment. Et si tu as reconnu, ça veut dire que
+                    j’ai géré."
+                    JaneDoe "Ça me fait si plaisir."
 
-                jump janeDrink
+                    jump janeDrink
 
             "Cosmopolitan":
-                $ JaneDoeAF += 5
+                $ AF["Jane"] += 5
                 $ habilite += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
@@ -683,7 +692,7 @@ label j6:
 
 
             "Virgin Mojito":
-                $ JaneDoeAF -= 5
+                $ AF["Jane"] -= 5
 
                 protag "Voilà, ma chère Jane."
                 JaneDoe "Un cocktail sans alcool ? Tu me connais très mal à
@@ -697,16 +706,16 @@ label j6:
 
         menu janeDrink:
             "Régale toi.":
-                $ JaneDoeAF -= 5
+                $ AF["Jane"] -= 5
 
                 show JaneNRV
                 with dissolve
 
-                jane "Euh… Allo… Je suis un fantôme.
+                JaneDoe "Euh… Allo… Je suis un fantôme.
                 Si je pouvais boire, je serais saoule depuis un bail."
                 protag "Ouais…J’ai oublié.
                 Excuse-moi."
-                jane "Pas grave."
+                JaneDoe "Pas grave."
 
                 play sound "sfx/bad_choice.wav"
 
@@ -715,19 +724,19 @@ label j6:
                 jump suiteJane
                 
             "Je bois en ton honneur.":
-                $ JaneDoeAF += 5
+                $ AF["Jane"] += 5
 
                 show JaneBasic
                 with dissolve
 
-                jane "Je suis flattée par tant
+                JaneDoe "Je suis flattée par tant
                 d’attention."
                 protag "Compte sur moi pour t’en
                 donner."
 
                 "" "..."
 
-                jane "Alors ?"
+                JaneDoe "Alors ?"
 
                 hide JaneBasic
 
@@ -741,7 +750,7 @@ label j6:
             show JaneRizz
             with dissolve
 
-            jane "Tu vois pourquoi j’étais accro."
+            JaneDoe "Tu vois pourquoi j’étais accro."
             protag "Oui clairement."
 
             hide JaneRizz
@@ -754,7 +763,7 @@ label j6:
             with dissolve
 
             protag "Je suis définitivement doué(e)."
-            jane "Mais c’est qu’elle/il prend la grosse tête."
+            JaneDoe "Mais c’est qu’elle/il prend la grosse tête."
             protag "Pas du tout, c’est la vérité."
 
             hide JaneBasic
@@ -766,11 +775,11 @@ label j6:
             show JaneBasic
             with dissolve
 
-            jane "Bon, je vais disparaître."
+            JaneDoe "Bon, je vais disparaître."
             protag "Déjà ?"
-            jane "Je suis peut-être un fantôme mais j’ai des choses à faire."
+            JaneDoe "Je suis peut-être un fantôme mais j’ai des choses à faire."
             protag "Encore des bêtises sûrement."
-            jane "Exact."
+            JaneDoe "Exact."
 
             hide JaneBasic
             with dissolve

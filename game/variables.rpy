@@ -35,3 +35,4 @@ screen loveMeter(character):
 
 
 $ noa_main_proposee = null
+$ KnowDirty = false

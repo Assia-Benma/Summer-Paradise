@@ -39,7 +39,7 @@ label j5:
 
     menu:
         "Être compréhensif(ve)":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
 
             protag "Ouais, je comprends. C’est pareil pour moi, tu es le seul à qui je peux vraiment en parler."
             protag "Et tu es plutôt un bon partenaire de paranormal."
@@ -62,7 +62,7 @@ label j5:
             protag "J’aimerais bien."
 
         "Le redescendre":
-            $ chrisAF -= 5
+            $ AF["Chris"] -= 5
 
             play sound "sfx/bad_choice.wav"
 
@@ -155,7 +155,7 @@ label j5:
 
     menu:
         "La rembarrer":
-            $ JaneDoeAF -= 10
+            $ AF["Jane"] -= 10
 
             play sound "sfx/bad_choice.wav"
 
@@ -172,7 +172,7 @@ label j5:
             with dissolve
 
         "L’écouter":
-            $ JaneDoeAF += 10
+            $ AF["Jane"] += 10
             $ curiosite += 5
 
             hide JaneBasic
@@ -192,6 +192,8 @@ label j5:
             hide JanePense
             show JaneBasic
             with dissolve
+
+            $ KnowDirty = True
             JaneDoe "Le Dirty Shirley."
 
             protag "Rapide la réponse. C’est quoi ça ?"
@@ -283,7 +285,7 @@ label j5:
 
     menu:
         "Si tu as peur, je t’autorise à me tenir la main.":
-            $ noaAF += 5
+            $ AF["Noa"] += 5
             $ courage += 5
             $ noa_main_proposee = True
             hide NoaBasic2
@@ -315,7 +317,7 @@ label j5:
         "Retirer sa main":
             if noa_main_proposee:
 
-                $ noaAF -= 5
+                $ AF["Noa"] -= 5
 
                 play sound "sfx/bad_choice.wav"
 
@@ -330,7 +332,7 @@ label j5:
                 protag "Pas grave. T’inquiète pas."
 
         "Garder sa main":
-            $ noaAF += 10
+            $ AF["Noa"] += 10
 
             if noa_main_proposee:
                 
@@ -485,7 +487,7 @@ label j5:
 
     menu:
         "Aller voir Noa":
-            $ noaAF += 5
+            $ AF["Noa"] += 5
 
             show NoaEffraye 
             show screen loveMeter("Noa")
@@ -514,7 +516,7 @@ label j5:
             with dissolve
 
         "Aller voir Chris":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
 
             show ChrisHeureux
             show screen loveMeter("Chris")
@@ -549,7 +551,7 @@ label j5:
             with dissolve
 
         "Aller voir Jane":
-            $ JaneDoeAF += 5
+            $ AF["Jane"] += 5
 
             show JanePense 
             show screen loveMeter("Jane")
