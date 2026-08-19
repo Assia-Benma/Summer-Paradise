@@ -1,5 +1,7 @@
 label j6:
 
+    define config.menu_include_disabled = True
+
     window hide
 
     play sound "sfx/new_day.wav"
@@ -167,22 +169,21 @@ label j6:
         attention."
 
         menu:
-            if KnowDirty == True:
-                "Dirty Shirley":
-                    $ AF["Noa"] -= 10
+            "Dirty Shirley" if KnowDirty == True:
+                $ AF["Noa"] -= 10
 
-                    protag_pensee "Je fais comme je l’ai appris. Je
-                    mélange les ingrédients et les secoue au shaker. Je suis
-                    généreux(se) dans les doses puis verse le tout dans un verre à
-                    cocktail."
+                protag_pensee "Je fais comme je l’ai appris. Je
+                mélange les ingrédients et les secoue au shaker. Je suis
+                généreux(se) dans les doses puis verse le tout dans un verre à
+                cocktail."
                     
-                    protag "Voilà, mon cher Noa."
-                    noa "Euh…Qu’est ce que c’est ?"
-                    protag "Le Dirty Shirley."
-                    noa "Il y a de l’alcool ?"
-                    protag "Hum…oui."
+                protag "Voilà, mon cher Noa."
+                noa "Euh…Qu’est ce que c’est ?"
+                protag "Le Dirty Shirley."
+                noa "Il y a de l’alcool ?"
+                protag "Hum…oui."
 
-                    jump echecNoaBoisson
+                jump echecNoaBoisson
 
             "Cosmopolitan":
                 $ AF["Noa"] -= 10
@@ -202,7 +203,7 @@ label j6:
 
             "Virgin Mojito":
                 $ AF["Noa"] += 5
-                $ habilite += 5
+                $ habilete += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis
@@ -286,7 +287,8 @@ label j6:
 
         protag "Tu galères ?"
 
-        show ChrisPetitSourire
+        hide ChrisHeureux
+        show ChrisPetitSourire at left 
         with dissolve
 
         chris "Salut. Ouais, il ne comprend pas. Mais ce n'est pas grave
@@ -296,7 +298,7 @@ label j6:
         épaules s’effleurent. J'en ai des frissons. Cerbère lévite au-dessus
         du feu de camp éteint."
         hide Cerbere with dissolve
-
+        show ChrisPetitSourire at center with moveinright
         protag "Dis moi, Chris. Pourquoi tu enquête autant sur le paranormal
         si ça te fait aussi peur ?"
 
@@ -345,7 +347,7 @@ label j6:
                 chris "Merci. Vraiment. Ça me soulage. Ce que tu penses
                 de moi est important à mes yeux."
                 protag "Je le pense, sois sûr."
-                prtag_pensee "Il me sourit. Il semble heureux et
+                protag_pensee "Il me sourit. Il semble heureux et
                 pleinement détendu. J’aime le voir comme ça."
 
                 hide ChrisHeureux
@@ -396,9 +398,10 @@ label j6:
         Ses mains sont sur ses cuisses et me regarde sans rien dire."
 
         menu:
-            "Dirty Shirley" if KnowDrink == True:
+
+            "Dirty Shirley" if KnowDirty == True:
                 $ AF["Chris"] += 5
-                $ habilite += 5
+                $ habilete += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis
@@ -436,7 +439,7 @@ label j6:
 
             "Cosmopolitan":
                 $ AF["Chris"] += 10
-                $ habilite += 5
+                $ habilete += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis
@@ -538,7 +541,7 @@ label j6:
         hide JaneBasic
 
         show JanePense
-        with dissolbe
+        with dissolve
 
         JaneDoe "Sérieux ?"
 
@@ -648,34 +651,33 @@ label j6:
         regardant performer."
 
         menu:
-            if KnowDirty == True:
-                "Dirty Shirley":
-                    $ AF["Jane"] += 10
-                    $ habilite += 5
-                    $ drinkDirty = True
+            "Dirty Shirley" if KnowDirty == True:
+                $ AF["Jane"] += 10
+                $ habilete += 5
+                $ drinkDirty = True
 
-                    protag_pensee "Je fais comme je l’ai appris. Je
-                    mélange les ingrédients et les secoue au shaker. Je suis
-                    généreux(se) dans les doses puis verse le tout dans un verre à
-                    cocktail."
+                protag_pensee "Je fais comme je l’ai appris. Je
+                mélange les ingrédients et les secoue au shaker. Je suis
+                généreux(se) dans les doses puis verse le tout dans un verre à
+                cocktail."
 
-                    protag "Voilà, ma chère Jane."
+                protag "Voilà, ma chère Jane."
 
-                    hide JaneBasic
+                hide JaneBasic
 
-                    show janeRizz
-                    with dissolve
+                show JaneRizz
+                with dissolve
 
-                    JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
-                    protag "Évidemment. Et si tu as reconnu, ça veut dire que
-                    j’ai géré."
-                    JaneDoe "Ça me fait si plaisir."
+                JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
+                protag "Évidemment. Et si tu as reconnu, ça veut dire que
+                j’ai géré."
+                JaneDoe "Ça me fait si plaisir."
 
-                    jump janeDrink
+                jump janeDrink
 
             "Cosmopolitan":
                 $ AF["Jane"] += 5
-                $ habilite += 5
+                $ habilete += 5
 
                 protag_pensee "Je fais comme je l’ai appris. Je
                 mélange les ingrédients et les secoue au shaker. Je suis

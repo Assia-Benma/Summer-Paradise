@@ -35,4 +35,5 @@ screen loveMeter(character):
 
 
 $ noa_main_proposee = null
-$ KnowDirty = false
+define KnowDirty = False
+define drinkDirty = False
