@@ -102,7 +102,7 @@ label j2:
 
    hide NoaBasic
 
-   protag_pensee " Je suis Noa à l’intérieur. Mes pensées
+   protag_pensee "Je suis Noa à l’intérieur. Mes pensées
    s’égarent sur la fantôme stupidement énervante et effrayante."
    
    protag_pensee "Si elle existe vraiment, c’est sûrement elle qui a brisé le verre et éclaté
@@ -116,7 +116,7 @@ label j2:
 
    noa "Ici ? Personnellement non. Mais des clients ont mentionné
    des voix et des objets qui se sont déplacés par le passé."
-   
+
    noa "Une fois, quelqu’un a même dit avoir vu un fantôme une nuit.
    Son cerveau a dû s’imaginer des monstres dans le noir à mon avis."
 
@@ -144,6 +144,7 @@ label j2:
    protag "Super…"
 
    hide NoaBasic
+   hide screen loveMeter
    with dissolve
 
    protag_pensee "Mes pieds traînent sur le sol alors que je
@@ -157,6 +158,7 @@ label j2:
    D’un mouvement vif, il se retourne face à moi, appareil levé."
 
    show ChrisEffraye with vpunch
+   show screen loveMeter("Chris")
    with dissolve
 
    protag "Tout va bien, ce n’est que moi ?"
@@ -225,6 +227,8 @@ label j2:
       normal. Puis quand ça passe au jaune, une faible émanation est
       détecté. Plus on avance en couleur, plus la présence est proche."
 
+      hide ChrisHeureux
+      show ChrisBasic
       protag "D’accord."
 
       protag_pensee "Je me déplace, cherchant le moindre
@@ -236,6 +240,8 @@ label j2:
       soudainement, un pic se produit sur le détecteur. Cela vire au
       rouge."
 
+      hide ChrisBasic
+      show ChrisHeureux
       chris "Regarde ! C’est rouge !"
 
       protag_pensee "Je fais attention autour de moi mais il n’y a
@@ -244,6 +250,8 @@ label j2:
 
       protag "C’est probablement des interférences."
 
+      hide ChrisHeureux
+      show ChrisNRV
       chris "Impossible. Un pic pareil ? Quelle machine ici pourrait faire
       ça ?"
 
@@ -256,16 +264,24 @@ label j2:
             c’est logique."
             protag_pensee "Il récupère son détecteur
             sèchement."
+            hide ChrisNRV
+            show ChrisTimide
             chris "Si tu le dis."
             protag_pensee "Il me laisse là. Reprenant ses
             enquêtes ailleurs."
+            hide ChrisTimide
+            hide screen loveMeter
+            with dissolve
 
          "Rester sceptique":
+            hide ChrisNRV
+            show ChrisBasic
             protag "Peut-être…j’en sais rien honnêtement."
             protag_pensee "Je lui rend son instrument et le
             laisse partir sur ses investigations."
-
-   hide ChrisHeureux
+            hide ChrisBasic
+            hide screen loveMeter
+            with dissolve
 
    label suite_j2:
    
@@ -277,6 +293,10 @@ label j2:
       protag_pensee "Alors que je m’en étale sur le visage, un
       mouvement dans le coin de l'œil attire mon attention."
 
+      show JaneNeutre
+      show screen loveMeter("Jane")
+      with dissolve
+
       protag_pensee " C’est elle, la fantôme. Figée, aucun son ne
       sort de ma bouche. Je fixe la silhouette féminine farfouiller dans
       nos affaires."
@@ -286,15 +306,15 @@ label j2:
 
       protag "Aie !" with vpunch
 
+      hide JaneNeutre with dissolve
       protag_pensee "À ma douleur, elle se cache à toute
       vitesse. Mais c’est inutile, je l’ai vu."
 
       protag "Trop tard pour ça."
 
-      JaneDoe "Mince alors."
-
       show JaneBasic
       with dissolve
+      JaneDoe "Mince alors."
 
       protag_pensee "Riant légèrement, elle porte un sourire qui
       m’irrite."
@@ -307,6 +327,9 @@ label j2:
 
       protag "Ne dis plus jamais ça."
 
+      hide JaneBasic
+      show JanePense
+      with dissolve
       JaneDoe "J’ai été prise en flagrant délit on dirait. Miséricorde ! Je plaide
       coupable."
 
@@ -316,6 +339,10 @@ label j2:
       protag "T’as fini tes conneries ? Qui t’as permis de toucher à nos
       affaires ?"
 
+      hide JanePense
+      show JaneBasic
+      with dissolve
+
       JaneDoe "C’est quoi ton nom à toi ?"
 
       protag_pensee "Je ressens un profond désir de la tabasser
@@ -324,15 +351,25 @@ label j2:
       menu:
          "Répondre à sa question":
             protag "C'est [protag_name]. Tu vas dégager maintenant ?"
+            hide JaneBasic
+            show JaneRizz
+            with dissolve
             JaneDoe "Non."
+            hide JaneRizz with dissolve
 
          "L'envoyer boulet":
             $ AF["Jane"] += 5
             protag "Si tu crois que je vais te le dire, tu rêves cocotte."
+            hide JaneBasic
+            show JaneFlip
+            with dissolve
             JaneDoe "Tu veux jouer à ça. Ok, si tu ne me dis pas ton nom, je
             continuerai mes conneries jusqu'à ce que tu craques."
             protag "Tu le feras de toute façon."
             JaneDoe "Ah oui ! T’as raison."
+            hide JaneFlip with dissolve
+
+      show JaneBasic with dissolve
 
       protag_pensee "Je lève les yeux au ciel et croise les bras
       sous ma poitrine."
@@ -348,6 +385,9 @@ label j2:
       approcher des photos. Le visage rouge de gêne et de colère, je la
       traverse…logique. Elle se marre sans vergogne."
 
+      hide JaneBasic
+      show JaneRizz
+      with dissolve
       JaneDoe "Oh mon dieu ! La gueule sur la photo."
 
       protag "On m'avait envoyé du gâteau au visage pour mon
@@ -362,7 +402,9 @@ label j2:
 
       protag "Je vais t’étriper !"
 
-      hide JaneBasic
+      hide JaneRizz
+      hide screen loveMeter
+      with dissolve
 
       protag_pensee "Malheureusement, ce maudit fantôme
       disparaît avant que je réagisse. Est ce que ça aurait servi ? Non.
@@ -383,6 +425,10 @@ label j2:
       au-dessus de ma tête. Un ricanement, que je connais trop bien,
       résonne."
 
+      show ChrisTimide 
+      show screen loveMeter("Chris")
+      with dissolve
+
       protag_pensee "Je jette un coup d’oeil vers la table de
       Chris avec sa famille. Il a ses écouteurs à ses oreilles, toujours
       plongé dans le même podcast."
@@ -396,10 +442,14 @@ label j2:
             $ AF["Jane"] += 5
             protag_pensee "Je préfère me détourner. Jane ne doit pas
             me perturber. Autant l’ignorer."
-            chris "Ah !"
+            hide ChrisTimide
+            show ChrisEffraye
+            play sound "sfx/MetalPipe.wav"
+            chris "Ah !" with hpunch
             protag_pensee "Un fracas éclate dans mon dos. Chris est
             au sol attirant des regards. Il se hisse sur ses pieds sans attendre,
             rouge de gêne."
+            hide ChrisEffraye
 
             jump suite_j2_2
 
@@ -416,12 +466,22 @@ label j2:
          de Chris. Je retiens son dossier d’une main avant qu’il ne tombe.
          Jane s’enfuit aussitôt, s’évaporant plus loin."
 
+         hide ChrisTimide
+         show ChrisPetitSourire
          chris "Merci. J’ai failli me couvrir de honte."
 
          protag "Y’a pas de quoi."
 
+         hide ChrisPetitSourire
+         hide screen loveMeter
+         with dissolve
+
          protag_pensee " L’ambiance reprend, Noa délaisse la
          scène aux participants et s’appuie au comptoir."
+
+         show NoaBasic
+         show screen loveMeter("Noa")
+         with dissolve
 
          protag "Tu prends enfin une pause ?"
 
@@ -431,16 +491,22 @@ label j2:
             "Lui proposer un verre":
                $ AF["Noa"] += 5
                protag "Je t’offre un verre ?"
+
+               hide NoaBasic
+               show NoaBasic2
                noa "Oh oui, avec plaisir. Mais sans alcool s’il te plait."
                protag "Je hoche la tête et lui sers un Virgin
                Mojito."
+               hide NoaBasic2
+               show NoaTimide
                noa "Tu es doué(e)."
+               hide NoaTimide
 
             "Ne rien faire":
                pass
 
       label suite_j2_2:
-
+         show NoaBasic
          protag "Le boss est cruel de t’obliger à travailler même le soir avec
          tes journées."
 
@@ -450,6 +516,8 @@ label j2:
          protag "Quand même, tu te fais exploiter. Tu devrais demander une
          augmentation."
 
+         hide NoaBasic
+         show NoaBasic2
          noa "Je vais peut-être le faire. Tu t'inquiètes pour moi ?"
 
          menu :
@@ -460,17 +528,24 @@ label j2:
                $ AF["Noa"] += 5
             "Non, je dis ça comme ça.":
                pass
-         
+            
+         hide NoaBasic2
+         show NoaNeutre
          protag_pensee "Un client nous interpelle dans notre
          discussion."
 
          "Client" "Mademoiselle/jeune homme, retournez travailler voulez
          vous. J’attends d’être servi depuis tout à l’heure."
-
+         
+         hide NoaNeutre
+         show NoaBasic
          noa "C’est ma faute, je la monopolise. Salut."
 
          protag_pensee "Il remonte sur scène et moi je m’occupe
          du monsieur."
+         hide NoaBasic
+         hide screen loveMeter
+         with dissolve
 
          jump j3
 
