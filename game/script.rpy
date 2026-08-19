@@ -29,7 +29,7 @@ label start:
 
     play sound "sfx/new_day.wav"
 
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
+    show text "{font=fonts/digital-7.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
 
@@ -156,32 +156,42 @@ label start:
     protag_pensee " Je me retourne et vois une énorme caisse
     soulevée par quelqu’un. Il dévoile sa tête. Beau garçon dis donc."
 
-    show NoaBasic2 with dissolve
+    show NoaBasic with dissolve
     noa "Salut, t’es la nouvelle employée je crois. C’est moi qui doit t’aider à prendre tes marques."
     
     $ noa_name = "Noa"
+    show screen loveMeter("Noa")
 
     menu:
         "Ah oui ! Tu es Noa.":
+            $ AF["Noa"] += 5
             play sound "sfx/p5sfx.wav"
+            hide NoaBasic
+            show NoaBasic2
             noa "Exactement. Content de voir que tu me connais."
-            $ noaAF += 5
+            hide NoaBasic2
         "Ah oui ! Noé, c’est ça ?":
+            hide NoaBasic
+            show NoaNeutre
             noa "Presque, c’est Noa en fait."
+            hide NoaNeutre
     
+    show NoaBasic2
     protag "M.Thomas m’a parlé de toi."
     
     noa "Viens, je vais te donner tout ce dont tu as besoin."
     
     protag_pensee "On se dirige vers un grand terrain d’accrobranche où se trouve un local. Il pose sa caisse au sol puis récupère un talkie-walkie. Il allume et règle la fréquence radio."
     
+    hide NoaBasic2
+    show NoaBasic
     noa "Tiens. Tu auras besoin de ça pour communiquer dans tout le camp. Je vais te faire visiter tout le lieu mais je vais quand même te donner une carte au cas où."
 
     protag_pensee "Je prends tout ça et range tout dans ma banane."
 
     protag "Et pour le t-shirt du camping ?"
 
-    protag "Je te le donnerais ce soir avant que tu ailles au bar. Maintenant, tu vas m’aider à tout préparer pour le feu de camp de ce soir."
+    noa "Je te le donnerais ce soir avant que tu ailles au bar. Maintenant, tu vas m’aider à tout préparer pour le feu de camp de ce soir."
 
     protag "Ok, je te suis."
 
@@ -193,6 +203,8 @@ label start:
 
     protag_pensee "Noa se gratte la nuque clairement gêné."
 
+    hide NoaBasic
+    show NoaPense
     noa "Ouais… On a eu une semaine de pause entre les deux séjours des clients."
 
     noa "Disons qu’on s’est tous défoulé avant la remise au boulot. Et maintenant, je dois tout ranger."
@@ -203,26 +215,32 @@ label start:
 
     menu: 
         "C’est franchement pas malin. Et vous m'impliquez dans vos bêtises en plus. Je dois débarrasser à votre place":
-            $ noaAF -= 5
+            $ AF["Noa"] -= 5
             play sound "sfx/bad_choice.wav"
-
+            hide NoaPense
+            show NoaNeutre
             noa "Désolé, c’était pas voulu. On aurait peut-être pas dû, c’est vrai."
-
+            hide NoaNeutre
 
         "Dommage, j’aurais aimé être là. Si j’avais su, je serais venu un jour plus tôt.":
-            $noaAF += 5
-        
+            $ AF["Noa"] += 5
+            hide NoaPense
+            show NoaBasic2
             noa "J’aurais aimé aussi. Tu aurais pu connaître tout le monde dans une bonne ambiance."
             noa "Mais désolé que tu doive ranger ce bordel avec moi."
+            hide NoaBasic2
 
+    show NoaBasic with dissolve
     protag_pensee "Je m’arme d’un sac poubelle et ramasse les déchets. Noa réarrange le feu de camp pour ce soir en replaçant correctement les roches."
 
     protag_pensee "J’en finis avec les déchets. Ce fut plus long et répugnant que prévu."
 
-    protag_pensee "J’ai trouvé des choses que je souhaiterais oublier. Noa s’occupe des troncs, essayant de les pousser seul."
+    protag_pensee "J’ai trouvé des choses que je souhaiterais {b}oublier{/b}. Noa s’occupe des troncs, essayant de les pousser seul."
 
     menu:
         "L'aider":
+            hide NoaBasic 
+            show NoaBasic2
             noa "Merci, c’est gentil."
             protag_pensee "Je pousse le tronc de toutes mes forces."
             protag_pensee "C’est plus lourd que prévu mais on arrive à le remettre correctement face au feu éteint."
@@ -230,14 +248,17 @@ label start:
             protag "Prends en de la graine."
             protag_pensee "On rit ensemble."
             protag_pensee "Je suis contente d’avoir pu me rapprocher si vite de lui. Ce nouveau job devient moins stressant avec quelqu’un de sympa aux alentours."
+            hide NoaBasic2
 
         "Le laisser faire":
-            
             noa "Noa arrive à se débrouiller seul. Il est légèrement essoufflé mais il se relève plein d’énergie."
+            hide NoaBasic 
 
-
+    show NoaNeutre    
     noa "Bon. Le bar fermera plus tôt. Comme tu l’as compris, ce soir c’est histoires d’horreurs et marshmallows au coin du feu."
     
+    hide NoaNeutre
+    show NoaBasic
     noa "Si jamais tu as besoin, normalement tu ne seras pas seul(e)."
 
     protag "Oui je sais, le patron me l’a dit."
@@ -258,6 +279,8 @@ label start:
 
     protag "Je pourrais passer des jours au lac moi aussi ?"
 
+    hide NoaBasic
+    show NoaBasic2
     noa "Faut voir si le boss te met avec moi. Je prie pour toi."
 
     protag "Génial..."
@@ -284,6 +307,8 @@ label start:
 
     protag "Quel programme original."
 
+    hide NoaBasic2
+    show NoaNeutre
     noa "Je crois que c’est l’heure du déjeuner"
 
     protag "Génial, je meurs de faim."
@@ -293,7 +318,8 @@ label start:
     protag_pensee "On retourne au cabanon, se partageant la cuisine."
     protag_pensee "Je fais avec ce que je trouve et finis avec un sandwich simple. Noa me laisse pour manger, préférant finir ce qu’il faisait au club enfant."
     
-    hide NoaBasic2
+    hide NoaNeutre
+    hide screen loveMeter with dissolve
     
     protag_pensee "Une fois l’estomac rempli, je décide d’aller au bar pour me familiariser."
 
@@ -375,12 +401,15 @@ label start:
     protag_pensee "Le jeune homme relève les yeux vers moi, les sourcils levés. Comme s’il était surpris que je lui adresse la parole. Son regard se détourne et il répond doucement."
 
     show ChrisBasic
+    show screen loveMeter("Chris")
     with dissolve
 
     chris "Euh…quoi ?"
 
     protag "Tu veux boire…?"
 
+    hide ChrisBasic
+    show ChrisTimide 
     protag_pensee "Il ne semble pas trop savoir quoi faire. Il consulte rapidement la carte, cherchant rapidement."
 
     chris "Un simple shot de vodka s’il te plait."
@@ -389,8 +418,12 @@ label start:
 
     protag_pensee "Je prends un verre à shooter et y verse de la vodka délicatement. Ce serait préférable de ne rien renverser. Je le glisse ensuite sous son nez."
 
+    hide ChrisTimide
+    show ChrisPetitSourire
     chris "Merci…"
 
+    hide ChrisPetitSourire
+    show ChrisEffraye
     protag_pensee "Il boit son verre d’une traite. Et ce n’était pas une bonne idée dans son cas. Il s’étouffe légèrement et tousse, tapant sur sa poitrine." with vpunch 
 
     protag "Oula. T’as bu de travers. Tout va bien ?"
@@ -403,13 +436,15 @@ label start:
         "Faire la conversation":
             play sound "sfx/p5sfx.wav"
             $ curiosite += 5
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
             jump conversation_chris
 
         "Le laisser tranquille.":
             jump laisser_chris
 
     label conversation_chris:
+        hide ChrisEffraye
+        show ChrisBasic
 
         protag "“Fait divers” ? De quoi parle ton podcast exactement ?"
 
@@ -422,25 +457,30 @@ label start:
         protag_pensee "Tout ça me fait presque de la peine. Ce serait dommage que son séjour se déroule comme ça: écouteurs + shots de vodka."
 
         protag "C’est quoi ton nom ?"
-
+        hide ChrisBasic
+        show ChrisTimide
         chris "Chris. Pourquoi ?"
 
         $ chris_name = "Chris"
 
         protag "Et bien, [chris_name], sache qu’il y a une soirée histoires d’horreur devant le feu de camp. Cela pourrait te plaire."
 
+        hide ChrisTimide
+        show ChrisPetitSourire
         protag_pensee "Il hoche simplement la tête, réfléchissant sérieusement à la question."
-
         jump fin_bar_nuit
 
     label laisser_chris:
-
+        hide ChrisEffraye
+        show ChrisBasic
         protag_pensee "Je préfère le laisser tranquille. Il ne veut probablement pas discuter avec moi. Il remet tout simplement ses écouteurs, ne faisant plus attention à moi."
 
     label fin_bar_nuit:
         $ chris_name = "Chris"
-
-        hide ChrisBasic with dissolve
+        hide screen loveMeter
+        hide ChrisPetitSourire
+        hide ChrisBasic 
+        with dissolve
 
         protag_pensee "L’heure sonne la fin de cette soirée au bar. Tout le monde commence à partir en direction du feu de camp."
         protag_pensee "Le jeune homme de tout à l’heure et sa famille aussi. Je ferme tout avec mon collègue puis me dirige moi aussi vers cet after."
@@ -453,7 +493,9 @@ label start:
 
         protag_pensee "Je l’aide à distribuer les brochettes puis m’installe sur une chaise face au feu. [noa_name] me rejoint, s’asseyant à côté de moi. Il me laisse le reste des marshamallows."
 
-        show NoaBasic with dissolve
+        show NoaBasic 
+        show screen loveMeter("Noa")
+        with dissolve
 
         noa "Salut tout le monde. Je suis [noa_name], l’animateur du club enfant. Certains parents m’ont rencontré cette après-midi pour l’inscription."
 
@@ -461,6 +503,8 @@ label start:
 
         noa "Ce soir, devant le feu, nous allons nous conter des histoires d’horreurs. Vous avez la responsabilité de vos enfants, je vous préviens."
 
+        hide NoaBasic
+        show NoaBasic2
         protag_pensee "Il le dit avec un petit rire et les autres le suivent dans sa blague."
 
         noa "Qui veut commencer ?"
@@ -475,23 +519,24 @@ label start:
 
         protag_pensee "Chris se fige immédiatement en entendant son nom. On aurait dit que son corps se refermait face à tous ces regards sur lui maintenant."
 
-    show NoaBasic at left
+    hide screen loveMeter
+    show NoaBasic2 at left
     with move
 
-    show ChrisBasic at right
+    show ChrisTimide at right
     with dissolve
 
     chris "Euh…Je préfère pas, merci."
 
     menu:
         "Insister":
-            $ chrisAF -= 10
-            $ noaAF -= 5
+            $ AF["Chris"] -= 10
+            $ AF["Noa"] -= 5
     
             jump insister_chris
 
         "Le laisser":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
             jump laisser_chris2
 
     label insister_chris:
@@ -510,12 +555,16 @@ label start:
 
     label suite_feu_camp:
 
-    hide ChrisBasic with dissolve
+    hide ChrisTimide with dissolve
 
-    show NoaBasic at center
+    show screen loveMeter("Noa")
+    show NoaBasic2 at center
     with move
 
     noa "C’est bon. Je vais démarrer avec mon histoire. Connaissez-vous Jane Doe ?"
+
+    hide NoaBasic2
+    show NoaBasic
 
     protag_pensee "L’activité passe très vite. Tout le monde a pris du plaisir malgré la peur. [chris_name] était plus fasciné qu’effrayé par ces histoires. Et [noa_name] racontait étonnament bien les contes horrifiques. J’ai senti quelques frissons aux moments angoissants mais c’était amusant malgré tout."
 
@@ -523,13 +572,17 @@ label start:
 
     protag_pensee "Ils finirent par me laisser eux aussi. Il ne reste que [noa_name]."
 
+    hide NoaBasic
+    show NoaNeutre
     noa "Tu ne vas pas dormir ?"
 
     protag "Je vais rester un peu. J’éteindrais le feu."
 
     noa "Ok. Merci."
 
-    hide NoaBasic with dissolve
+    hide NoaNeutre 
+    hide screen loveMeter
+    with dissolve
 
     protag_pensee "[noa_name] part, je suis seul(e). La brise légère est agréable et le feu apaisant. Cela fait du bien, même si ce n’est que la première journée."
 
@@ -537,7 +590,7 @@ label start:
 
     protag_pensee "J’ai cette horrible impression qu’on me regarde. Mais je ne sais pas d’où ça vient. C’est comme si c’était partout et nulle part à la fois. Je me retourne finalement très lentement. Je le sens au fond de moi. Cette chose est là."
 
-    show JaneBasic with dissolve
+    show JaneFlip with dissolve
 
     JaneDoe "Bouh !" with hpunch
 
@@ -545,7 +598,7 @@ label start:
 
     protag_pensee "C’est un putain de fantôme ! Bordel de merde ! Sans plus attendre, je prends mes jambes à mon cou. Faisant gaffe où je posais mes pieds. Ce serait stupide de me fracasser en pleine fuite."
 
-    hide JaneBasic
+    hide JaneFlip
 
     #Décor : Forêt
 
@@ -555,21 +608,25 @@ label start:
 
     protag_pensee "Je tourne pour trouver un chemin. Et là, ce fantôme apparait de nouveau et brusquement devant moi."
 
-    show JaneRizz with dissolve
+    show JaneFlip with dissolve
 
     protag "AAAAHH ! Laisse moi ! T’es mort ! Tu pouvais pas rester sous terre !" with vpunch
 
-    protag_pensee "Je tombe sur mes fesses et ferme les yeux par réflexe. Comme si cela allait me protéger. Puis, rien. Il ne se passe rien."
+    protag_pensee "Je tombe sur mes fesses et ferme les yeux par réflexe. Comme si cela allait me protéger. Puis, rien. Il ne se passe rien." with hpunch
 
+    hide JaneFlip
+    show JaneRizz with dissolve
     protag_pensee "Et là…j’entend un rire. Le même rire féminin au bar. J’ouvre doucement les yeux. Je distingue un peu mieux les traits de ce fantôme. C’est une jeune femme."
 
     protag_pensee "Elle rit à chaudes larmes. Enfin, si ça peut pleurer. Je me détends. Malgré la détermination claire qu’elle a eue à m'effrayer, elle ne semble pas dangereuse."
 
     protag "Qui es tu ?"
+    hide JaneRizz
+    show JaneNeutre with dissolve
 
     protag_pensee "La miss fantôme ne dit rien. Elle me regarde un instant avant de disparaitre d’un seul coup. Je reste un moment sous le choc toujours au sol. Mais je finis par me relever lentement puis retourne au cabanon."
 
-    hide JaneRizz
+    hide JaneNeutre with dissolve
 
     #Décor : Cabanon
 

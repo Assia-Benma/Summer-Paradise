@@ -5,7 +5,7 @@ label j2:
 
    play sound "sfx/new_day.wav"
 
-   show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
+   show text "{font=fonts/digital-7.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
       xpos 950
       ypos 350
 
@@ -33,6 +33,7 @@ label j2:
    protag "Il y a un souci ?"
 
    show NoaPense
+   show screen loveMeter("Noa")
    with dissolve
 
    noa "Ah salut. Euh… j’ai perdu les clés du local. Je ne sais pas où
@@ -44,14 +45,16 @@ label j2:
 
    menu:
       "L'aider à chercher":
-         $ noaAF += 10
+         $ AF["Noa"] += 10
          $ habilete += 5
          jump aideNoa
 
       "Aller prendre le double des clés.":
-         $ noaAF += 5
+         $ AF["Noa"] += 5
          $ habilete += 10
-         
+
+         hide NoaPense
+         show NoaNeutre
          protag_pensee "Je retourne vite fait au cabanon, un des
          animateurs avait signalé un double sur la table sur le talkie-walkie."
 
@@ -59,6 +62,7 @@ label j2:
          par terre."
 
          protag "Je les ai. Ne t’inquiète plus."
+         hide NoaNeutre
    
    label aideNoa:
 
@@ -195,7 +199,7 @@ label j2:
 
    menu:
       "Essayer":
-         $ chrisAF += 10
+         $ AF["Chris"] += 10
          $ curiosite += 5
          jump essayer
 
@@ -245,7 +249,7 @@ label j2:
 
       menu:
          "Insister":
-            $ chrisAF -= 5
+            $ AF["Chris"] -= 5
             play sound "sfx/bad_choice.wav"
 
             protag "Puisque que je te dis que c’est des interférences,
@@ -280,7 +284,7 @@ label j2:
       protag_pensee "Pour m’assurer de la réalité, je me pince le
       bras aussi fort que possible."
 
-      protag "Aie !"
+      protag "Aie !" with vpunch
 
       protag_pensee "À ma douleur, elle se cache à toute
       vitesse. Mais c’est inutile, je l’ai vu."
@@ -323,7 +327,7 @@ label j2:
             JaneDoe "Non."
 
          "L'envoyer boulet":
-            $ JaneDoeAF += 5
+            $ AF["Jane"] += 5
             protag "Si tu crois que je vais te le dire, tu rêves cocotte."
             JaneDoe "Tu veux jouer à ça. Ok, si tu ne me dis pas ton nom, je
             continuerai mes conneries jusqu'à ce que tu craques."
@@ -389,7 +393,7 @@ label j2:
 
       menu:
          "Ne pas se mêler":
-            $ JaneDoeAF += 5
+            $ AF["Jane"] += 5
             protag_pensee "Je préfère me détourner. Jane ne doit pas
             me perturber. Autant l’ignorer."
             chris "Ah !"
@@ -400,8 +404,8 @@ label j2:
             jump suite_j2_2
 
          "Intervenir":
-            $ chrisAF += 5
-            $ JaneDoeAF -= 5
+            $ AF["Chris"] += 5
+            $ AF["Jane"] -= 5
             play sound "sfx/bad_choice.wav"
 
             jump intervention
@@ -425,7 +429,7 @@ label j2:
 
          menu:
             "Lui proposer un verre":
-               $ noaAF += 5
+               $ AF["Noa"] += 5
                protag "Je t’offre un verre ?"
                noa "Oh oui, avec plaisir. Mais sans alcool s’il te plait."
                protag "Je hoche la tête et lui sers un Virgin
@@ -450,10 +454,10 @@ label j2:
 
          menu :
             "Je suis simplement juste.":
-               $ noaAF += 10
+               $ AF["Noa"] += 10
                $ courage += 5
             "Oui, c’est normal.":
-               $ noaAF += 5
+               $ AF["Noa"] += 5
             "Non, je dis ça comme ça.":
                pass
          

@@ -10,6 +10,7 @@ image NoaEffraye = "sprites/Noa/noa-effray.png"
 image NoaPense = "sprites/Noa/noa-penseur.png"
 image NoaTimide = "sprites/Noa/noa-timide.png"
 image NoaNRV = "sprites/Noa/noa-vener.png"
+image NoaNeutre = "sprites/Noa/noa-neutral.png"
 
 #Sprite Chris
 image ChrisBasic = "sprites/Chris/chris-basic.png"
@@ -25,5 +26,8 @@ image JaneRizz = "sprites/JaneDoe/janeRizz.png"
 image JanePense = "sprites/JaneDoe/janePense.png"
 image JaneNRV = "sprites/JaneDoe/janeNRV.png"
 image JaneChock = "sprites/JaneDoe/janeChockbar.png"
+image JaneFlip = "sprites/JaneDoe/janeFlippant.png"
+image JaneNeutre = "sprites/JaneDoe/jane-neutral.png"
+image Cerbere = "sprites/JaneDoe/jane-chien.png"
 
 image mamanvener = "sprites/mamanvener.png"
