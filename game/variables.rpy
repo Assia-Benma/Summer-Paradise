@@ -6,34 +6,52 @@ default noa_name= "???"
 default chris_name = "???"
 default JaneDoe_name = "???"
 
+default noa_main_proposee = Null
+default KnowDirty = False
+default drinkDirty = False
+default ChoixDate = Null
+
 default AF = {
-    "Noa" : 0,
-    "Chris" : 0,
-    "Jane" : 0
+    "Noa": 0,
+    "Chris": 0,
+    "Jane": 0
 }
+
+define love_max = {
+    "Noa": 120,
+    "Chris": 110,
+    "Jane": 90
+}
+
+define bonus_seuil = {
+    "bonus_habilite": 45,
+    "bonus_curiosite": 50,
+    "bonus_courage": 40
+}
+
+init python:
+    def get_love_level(character):
+        """Calcule le niveau (1 à 8) de la lovemeter pour un personnage donné."""
+        value = AF[character]
+        max_value = love_max[character]
+        ratio = value / float(max_value) #je te ratio Inès bleeeeeeh
+
+        stade = [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3]
+        for i, t in enumerate(stade):
+            if ratio >= t:
+                return 8 - i
+        return 1
+
+    def ajout_bonus(habi, cour,curio):
+        if habi >= bonus_seuil["bonus_habilite"]:
+            AF["Noa"] += 5
+        elif cour >= bonus_seuil["bonus_courage"]:
+            AF["Jane"] += 5
+        elif curio >= bonus_seuil["bonus_curiosite"]:
+            AF["Chris"] += 5
+        return
+
 screen loveMeter(character):
-
-    $ loveValue = AF[character]
-
-    if loveValue >= 80:
-        $ level = 8
-    elif loveValue >= 70:
-        $ level = 7
-    elif loveValue >= 60:
-        $ level = 6
-    elif loveValue >= 40:
-        $ level = 5
-    elif loveValue >= 20:
-        $ level = 4
-    elif loveValue >= 10:
-        $ level = 3
-    elif loveValue >= 5:
-        $ level = 2
-    else:
-        $ level = 1
+    $ level = get_love_level(character)
     add "Ui/lovemeter[level].jpg" xpos 1700 ypos 250
 
-
-$ noa_main_proposee = null
-define KnowDirty = False
-define drinkDirty = False

@@ -30,14 +30,17 @@ label j6:
     menu:
         "Noa":
             $ AF["Noa"] += 10
+            $ ChoixDate = "Noa"
             jump noaDate
 
         "Chris":
             $ AF["Chris"] += 10
+            $ ChoixDate = "Chris"
             jump chrisDate
 
         "Jane":
             $ AF["Jane"] += 10
+            $ ChoixDate = "Jane"
             jump janeDate
 
     label noaDate:
@@ -833,7 +836,7 @@ label j6:
         protag_pensee "La journée se termine. Hâte de demain
         soir."
 
-        return
+        jump j7
 
 
 

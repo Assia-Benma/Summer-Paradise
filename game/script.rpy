@@ -21,6 +21,8 @@ label start:
         "Elle/la":
             $ pronoms1 = "Elle"
             $ pronoms2 = "la"
+        "Garder l'écriture inclusif":
+            pass
         #Donner le choix de garder le texte en inclusif 
 
     ## début du jeu selon le script d'alissa
@@ -29,7 +31,7 @@ label start:
 
     play sound "sfx/new_day.wav"
 
-    show text "{font=fonts/digital-7.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
+    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
         xpos 950
         ypos 350
 

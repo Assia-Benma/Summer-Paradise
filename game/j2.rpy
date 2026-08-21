@@ -5,7 +5,7 @@ label j2:
 
    play sound "sfx/new_day.wav"
 
-   show text "{font=fonts/digital-7.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
+   show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
       xpos 950
       ypos 350
 
@@ -209,6 +209,9 @@ label j2:
          protag_pensee "Sur ce, je lui fais signe d’au revoir et
          m’éloigne vers le cabanon des animateurs."
 
+         hide ChrisHeureux
+         hide screen loveMeter
+         with dissolve
          jump suite_j2
    
    label essayer:
