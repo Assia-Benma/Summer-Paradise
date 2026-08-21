@@ -7,8 +7,8 @@ init python:
         elif event == "slow_done" or event == "done":
             renpy.music.stop(channel='sound')
 
-define protag = Character("[protag_name]", color="#ffa115", callback=callback, what_italic=True)
-define protag_pensee= Character("[protag_name]", color="#ffa115", callback=callback, what_italic=True)
+define protag = Character("[protag_name]", color="#ea7602", callback=callback, what_italic=False)
+define protag_pensee= Character("[protag_name]", color="#ea7602", callback=callback, what_italic=True)
 
 define noa = Character("[noa_name]", color="#32a36b")
 

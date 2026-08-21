@@ -18,15 +18,18 @@ label j5:
     protag_pensee "Je quitte le cabanon quand je vois Chris m’attendre avec Cerbère."
 
     show ChrisBasic
+    show Cerbere at right 
+    show screen loveMeter("Chris")
+    with dissolve
 
     protag "Chris ! Pourquoi t’es là avec Cerbère ?"
 
     protag "On va le voir."
-
+    hide ChrisBasic
+    show ChrisTimide
     chris "Je pense que c’est le dernier de leur souci aux fantômes."
 
     protag "Allons ailleurs."
-
 
     #Forêt
 
@@ -36,16 +39,20 @@ label j5:
 
     menu:
         "Être compréhensif(ve)":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
 
             protag "Ouais, je comprends. C’est pareil pour moi, tu es le seul à qui je peux vraiment en parler."
             protag "Et tu es plutôt un bon partenaire de paranormal."
 
+            hide ChrisTimide
+            show ChrisHeureux
             chris "Vraiment ? Tu es doué(e) aussi. Plus courageux(se) et fort(e)."
 
             protag "Tu es aussi brave que moi, Chris. Tu n'hésites jamais pour enquêter."
             protag "Et je suis sûr(e) que c’est une habitude."
 
+            hide ChrisHeureux
+            show ChrisBasic
             chris "Ça m'arrive oui. Je fais un peu d’urbex quand j’ai le temps."
 
             protag "C’est trop cool !"
@@ -55,28 +62,37 @@ label j5:
             protag "J’aimerais bien."
 
         "Le redescendre":
-            $ chrisAF -= 5
+            $ AF["Chris"] -= 5
 
             play sound "sfx/bad_choice.wav"
 
             protag "De base c’est pas mon truc après. C’est à cause des esprits que j’ai eu besoin de toi."
 
+            hide ChrisTimide
+            show ChrisBasic
             chris "Au moins…tu es honnête."
 
             protag "Mais tu es sympa Chris. Tu es devenu un ami, je t’assure."
 
+            hide ChrisBasic
+            show ChrisPetitSourire
             chris "Cool alors."
+            hide ChrisPetitSourire
+            show ChrisBasic
 
     protag_pensee "Le chien saute et court partout. Il est très excité aujourd’hui."
 
     chris "Cerbère me lâche plus depuis que je l’ai trouvé. Je crois qu’il m’aime bien."
 
     protag "Tu l’aime bien également."
-
+    hide ChrisBasic 
+    show ChrisHeureux
     chris "C’est vrai."
 
     protag "Tu penses…qu’il est mort comment ?"
 
+    hide ChrisHeureux
+    show ChrisTimide
     chris "Hum…vu où était le collier…abandonné sûrement. En fait, j’y suis retourné hier soir."
     chris "Il y avait une corde accrochée à l’arbre."
 
@@ -86,8 +102,11 @@ label j5:
 
     protag_pensee "Chris ramasse un bâton et l’agite sous le nez du chien."
     protag_pensee "Il le jette ensuite au loin, Cerbère tente de l’attraper."
+    hide Cerbere with moveinleft
     protag_pensee "Bien évidemment, ça passe au travers. Le beagle essaye tout de même de saisir le bâton entre ses crocs mais rien y fait."
 
+    hide ChrisTimide
+    show ChrisPetitSourire
     chris "J’aurais dû m'y attendre."
 
     protag "Il va falloir que j’y aille. Je voudrais pas me faire engueuler…encore."
@@ -96,7 +115,9 @@ label j5:
 
     protag "Bye, Chris."
 
-    hide ChrisBasic with dissolve
+    hide ChrisPetitSourire 
+    hide screen loveMeter
+    with dissolve
 
     #Bar
 
@@ -105,7 +126,9 @@ label j5:
 
     protag_pensee "Un verre manque soudainement de tomber et je le rattrape."
 
-    show JaneBasic with fade
+    show JaneBasic 
+    show screen loveMeter("Jane")
+    with dissolve
 
     JaneDoe "Bon réflexe dis donc."
 
@@ -116,38 +139,61 @@ label j5:
 
     protag "Ouais ben cesse tes conneries quand même."
 
+    hide JaneBasic
+    show JaneNeutre
+    with dissolve
     protag_pensee "Jane regarde la carte des cocktails avec attention. Qu’est ce qu’elle a encore ?"
 
     JaneDoe "Tu sais, quand j’étais en vie, j’étais une grande buveuse d’alcool."
 
     protag "Une alcoolo en gros."
 
+    hide JaneNeutre 
+    show JaneBasic
+    with dissolve
     JaneDoe "Ouais ! J’ai visité tellement de bars. Une championne en marathon."
 
     menu:
         "La rembarrer":
-            $ JaneDoeAF -= 10
+            $ AF["Jane"] -= 10
 
             play sound "sfx/bad_choice.wav"
 
             protag "Ne me raconte pas ta vie, merci. J’ai du travail là."
 
+            hide JaneBasic 
+            show JaneNeutre
+            with dissolve
             JaneDoe "Pff. T’es qu’une rabat joie."
 
             protag_pensee "Elle disparaît aussi vite qu’elle est arrivée."
+            hide JaneNeutre
+            hide screen loveMeter
+            with dissolve
 
         "L’écouter":
-            $ JaneDoeAF += 10
+            $ AF["Jane"] += 10
             $ curiosite += 5
 
+            hide JaneBasic
+            show JaneRizz
+            with dissolve
             JaneDoe "J’ai carrément une liste pour mes cocktails préférés."
 
             protag "C’est lequel ton numéro 1 ?"
 
+            hide JaneRizz
+            show JanePense
+            with dissolve
             JaneDoe "Hum…tu me poses une colle, attends."
 
             protag "Prends ton temps."
 
+            hide JanePense
+            show JaneBasic
+            with dissolve
+
+            $ KnowDirty = True
             JaneDoe "Le Dirty Shirley."
 
             protag "Rapide la réponse. C’est quoi ça ?"
@@ -175,7 +221,9 @@ label j5:
             JaneDoe "Tu penses bien."
 
             protag "J’aurais dû m’en douter."
-
+            hide JaneBasic
+            show JaneRizz
+            with dissolve
             JaneDoe "En parlant de fête, j’ai des farces à faire."
 
             protag "Pff…ok mais laisse Noa tranquille cette fois."
@@ -184,13 +232,17 @@ label j5:
 
             protag "Merci, à ce soir."
 
-    hide JaneBasic with fade
+    hide JaneRizz 
+    hide screen loveMeter
+    with dissolve
     #Feu de camp nuit
 
     protag_pensee "La soirée débute enfin. Je suis un peu nerveuse."
     protag_pensee "J’aimerais éviter de traumatiser à vie Noa. Pitié que Jane ne soit pas trop méchante."
 
-    show NoaBasic with dissolve
+    show NoaBasic 
+    show screen loveMeter("Noa")
+    with dissolve
 
     noa "Tu es là. On prépare le goûter pour la fin de l’épreuve."
 
@@ -217,6 +269,8 @@ label j5:
     protag_pensee "Les gens s’enfoncent dans la forêt enthousiastes."
     protag_pensee "Je vois également Chris avec son détecteur. Il tremblote légèrement mais n’hésite pas à y aller."
 
+    hide NoaBasic
+    show NoaBasic2
     noa "On y va ?"
 
     protag "Nous aussi ?"
@@ -231,18 +285,22 @@ label j5:
 
     menu:
         "Si tu as peur, je t’autorise à me tenir la main.":
-            $ noaAF += 5
+            $ AF["Noa"] += 5
             $ courage += 5
             $ noa_main_proposee = True
-
+            hide NoaBasic2
+            show NoaTimide
             noa "Pour qui me prends-tu ? Mais c’est gentil, tu me donnes une excuse pour le faire."
 
         "Ne rien dire":
             $ noa_main_proposee = False
 
+    hide NoaTimide
+    hide NoaBasic2
     protag_pensee "On ne voit vraiment rien ici. Les gens sont loin de nous."
     protag_pensee "C’est comme si on était seul au monde. Tout à coup, un bruit dans un buisson attire notre attention."
 
+    show NoaNeutre with dissolve
     noa "C’est quoi ça ?"
 
     protag "Juste un animal peut-être."
@@ -251,7 +309,7 @@ label j5:
 
     protag_pensee "Un sanglier en sort et court devant nous." with hpunch
 
-    hide NoaBasic
+    hide NoaNeutre
     show NoaEffraye
     protag_pensee "Noa sursaute et saisit ma main. Mon cœur rate un battement en sentant sa main dans la mienne."
 
@@ -259,7 +317,7 @@ label j5:
         "Retirer sa main":
             if noa_main_proposee:
 
-                $ noaAF -= 5
+                $ AF["Noa"] -= 5
 
                 play sound "sfx/bad_choice.wav"
 
@@ -274,18 +332,23 @@ label j5:
                 protag "Pas grave. T’inquiète pas."
 
         "Garder sa main":
-            $ noaAF += 10
+            $ AF["Noa"] += 10
 
             if noa_main_proposee:
-
+                
+                hide NoaEffraye
+                show NoaTimide
                 noa "C’était pas une excuse finalement."
 
                 protag "T’as vraiment eu peur ? Je suis sûre que tu as fait exprès."
-
+                hide NoaTimide
+                show NoaBasic2
                 noa "Très drôle. Rien que pour ça, je te lâche plus."
 
                 protag_pensee "Il serre ma main. C’est chaud et apaisant."
                 protag_pensee "Un remède efficace contre la peur."
+                hide NoaBasic2
+                show NoaEffraye
 
             else:
 
@@ -316,8 +379,9 @@ label j5:
 
     protag "Noa…du calme. Tu ne risques rien."
 
+    hide screen loveMeter with dissolve
     show NoaEffraye at left 
-    show JaneRizz at right with fade
+    show JaneRizz at right with  dissolve
     protag_pensee "Jane s’approche le sourire aux lèvres."
     
     JaneDoe "Il n’y a rien à craindre mec. On ne va pas te manger, on ne peut pas se nourrir tout court."
@@ -333,6 +397,7 @@ label j5:
     noa "Ok…ok…je te fais confiance."
 
     protag_pensee "Les autres fantômes semblent hilares face à la confusion de Noa."
+    play sound "sfx/CuteDog.wav"
     protag_pensee "Cerbère s’élance derrière nous joyeusement et aboyant."
 
     chris "Salut mon grand. Toi aussi tu m’as manqué."
@@ -373,8 +438,13 @@ label j5:
     noa "Peut-être qu'ils ne sont pas visibles comme les vampires."
 
     JaneDoe "On est des vampires-fantômes, ouh…"
+    hide JaneBasic
+    show JaneFlip at right with dissolve
 
     protag "Arrête ça."
+
+    hide JaneFlip
+    show JaneBasic at right 
 
     hide NoaPense
     show NoaBasic at left 
@@ -382,7 +452,7 @@ label j5:
 
     JaneDoe "De même."
 
-    protag "Pas trop traumatiser."
+    protag "Pas trop traumatiser ?"
 
     hide NoaBasic
     show NoaTimide at left 
@@ -417,9 +487,11 @@ label j5:
 
     menu:
         "Aller voir Noa":
-            $ noaAF += 5
+            $ AF["Noa"] += 5
 
-            show NoaEffraye with dissolve
+            show NoaEffraye 
+            show screen loveMeter("Noa")
+            with dissolve
             protag "Hey…pas trop dure à encaisser ?"
 
             noa "Ben…je réalise à quel point j’ai été aveugle. Et toutes tes questions prennent maintenant du sens."
@@ -439,12 +511,17 @@ label j5:
 
             noa "On ferait mieux de tout nettoyer maintenant."
 
-            hide NoaTimide with dissolve
+            hide NoaTimide 
+            hide screen loveMeter 
+            with dissolve
 
         "Aller voir Chris":
-            $ chrisAF += 5
+            $ AF["Chris"] += 5
 
             show ChrisHeureux
+            show screen loveMeter("Chris")
+            with dissolve
+        
             chris "Je m’attendais pas à voir autant de fantômes. Mon détecteur a surchauffé carrément."
 
             protag "J’imagine bien. Mais tu as géré comme un chef. Malgré ta peur, tu explores et traque le paranormal."
@@ -469,12 +546,16 @@ label j5:
 
             protag "J’y vais alors. A plus tard."
 
-            hide ChrisHeureux with dissolve
+            hide ChrisHeureux 
+            hide screen loveMeter
+            with dissolve
 
         "Aller voir Jane":
-            $ JaneDoeAF += 5
+            $ AF["Jane"] += 5
 
-            show JanePense with dissolve
+            show JanePense 
+            show screen loveMeter("Jane")
+            with dissolve
             protag_pensee "J’aperçois Jane cachée derrière un pin. Je la rejoins discrètement."
 
             protag "Tu prépares un autre coup ?"
@@ -499,15 +580,21 @@ label j5:
 
             protag "Bon, faut que j’y aille. A plus."
 
-            hide JaneRizz with dissolve
+            hide JaneRizz 
+            hide screen loveMeter
+            with dissolve
 
 
-    show NoaBasic2 with dissolve
+    show NoaBasic2 
+    show screen loveMeter("Noa")
+    with dissolve
     noa "Bien joué tout le monde pour votre courage, j’espère que cette soirée vous a plu."
     noa "Je vous souhaite une bonne nuit messieurs dames."
 
     protag_pensee "Les gens s’en vont vers les bungalow comme Chris et sa famille."
     protag_pensee "Je finis de tout ranger avec Noa. Ensuite j’éteins le feu et vais dormir au cabanon, repensant à cette journée."
-    hide NoaBasic2 with dissolve
+    hide NoaBasic2 
+    hide screen loveMeter
+    with dissolve
     
     jump j6
