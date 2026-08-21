@@ -18,3 +18,4 @@ define thomas = Character("M. Thomas", color="#987d67")
 define chris = Character("[chris_name]", color="#6fb7dc")
 
 define JaneDoe = Character("[JaneDoe_name]", color="#ecf8ff")
+

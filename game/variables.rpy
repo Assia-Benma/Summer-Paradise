@@ -57,6 +57,9 @@ init python:
 
 ## définitons animations
 
+init python:
+    def animate
+
 image NoaBasicAnimated:
     "NoaBasic"
     pause 0.2
