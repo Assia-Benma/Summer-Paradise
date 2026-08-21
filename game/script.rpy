@@ -31,14 +31,7 @@ label start:
 
     play sound "sfx/new_day.wav"
 
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=0.5}{size=*2}Jour 1{/cps}" with Pause(3.0):
-        xpos 950
-        ypos 350
-
-    scene black
-    with dissolve
-
-    window show
+    call afficheJour(1)
 
     protag_pensee "Je descends enfin du car après 1h de trajet.
     Je ne voyais que des déserts de verdure à l’horizon.
@@ -158,7 +151,9 @@ label start:
     protag_pensee " Je me retourne et vois une énorme caisse
     soulevée par quelqu’un. Il dévoile sa tête. Beau garçon dis donc."
 
-    show NoaBasic with dissolve
+    show NoaBasicAnimated
+    with dissolve
+
     noa "Salut, t’es la nouvelle employée je crois. C’est moi qui doit t’aider à prendre tes marques."
     
     $ noa_name = "Noa"
@@ -168,7 +163,7 @@ label start:
         "Ah oui ! Tu es Noa.":
             $ AF["Noa"] += 5
             play sound "sfx/p5sfx.wav"
-            hide NoaBasic
+            hide NoaBasicAnimated
             show NoaBasic2
             noa "Exactement. Content de voir que tu me connais."
             hide NoaBasic2
@@ -277,7 +272,7 @@ label start:
 
     protag_pensee "Un petit local près d’un ponton se situe à quelques mètres de nous."
 
-    noa "Sincèrement, quand je meurs de chaud et que c'est une journée au lac pour les enfants, je me sens bénit."
+    noa "Sincèrement, quand je meurs de chaud et que c'est une journée au lac pour les enfants, je me sens béni."
 
     protag "Je pourrais passer des jours au lac moi aussi ?"
 
@@ -336,8 +331,8 @@ label start:
 
     protag "Merde. Comment c’est tombé…"
 
-    protag_pensee "Je ramasse les plus gros morceaux dans ma main. Ensuite je les jette prudemment à la poubelle. Avec le balais, je récupère le reste."
-    protag_pensee "Et là, boum ! Une ampoule explose. Je sursaute à nouveau et me protège la tête d’un réflexe."
+    protag_pensee "Je ramasse les plus gros morceaux dans ma main. Ensuite je les jette prudemment à la poubelle. Avec le balai, je récupère le reste."
+    protag_pensee "Et là, boum ! Une ampoule explose. Je sursaute à nouveau et me protège la tête d’un réflexe." with vpunch
     protag_pensee "Un silence puis un rire au loin. C’est une voix féminine. Je regarde autour de moi. Mais personne."
 
     menu:
@@ -351,7 +346,7 @@ label start:
 
     label voir_quelquun:
 
-        protag_pensee "Je quitte le bar mais ne vois rien vers les tables ni la scène. C’est désert. Je suis seul(e). Tout ça m’empêche de réfléchir. J’ai comme appuyer sur le bouton automatique de mon corps. Ma bouche s’ouvre sans que j’y fasse quoi que ce soit."
+        protag_pensee "Je quitte le bar mais ne vois rien vers les tables ni la scène. C’est désert. Je suis seul(e). Tout ça m’empêche de réfléchir. J’ai comme appuyé sur le bouton automatique de mon corps. Ma bouche s’ouvre sans que j’y fasse quoi que ce soit."
 
         protag "Hé ! Il y a quelqu’un d’assez débile pour casser des trucs pour effrayer les gens ?"
 
@@ -491,7 +486,7 @@ label start:
 
         protag_pensee "Le feu est flamboyant cette nuit et sa chaleur reste supportable dans la fraicheur. [noa_name] installe les gens sur les troncs. Les petits sont assis au sol et des chaises sont à disposition au cas où."
 
-        protag_pensee "J’apporte des bouts de bois pour garder le feu lumineux. [noa_name], lui, ouvre les paquets de marshamallows et les plante sur des branches. Il n’hésite pas à en manger un ou deux au passage."
+        protag_pensee "J’apporte des bouts de bois pour garder le feu lumineux. [noa_name], lui, ouvre les paquets de marshmallows et les plantes sur des branches. Il n’hésite pas à en manger un ou deux au passage."
 
         protag_pensee "Je l’aide à distribuer les brochettes puis m’installe sur une chaise face au feu. [noa_name] me rejoint, s’asseyant à côté de moi. Il me laisse le reste des marshamallows."
 
@@ -501,7 +496,7 @@ label start:
 
         noa "Salut tout le monde. Je suis [noa_name], l’animateur du club enfant. Certains parents m’ont rencontré cette après-midi pour l’inscription."
 
-        protag_pensee "Les mamans le reconnaissent immédiatement et une petite fille lui fait signe enthousiaste."
+        protag_pensee "Les mamans le reconnaissent immédiatement et une petite fille lui fait un signe enthousiaste."
 
         noa "Ce soir, devant le feu, nous allons nous conter des histoires d’horreurs. Vous avez la responsabilité de vos enfants, je vous préviens."
 

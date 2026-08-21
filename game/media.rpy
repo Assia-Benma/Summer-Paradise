@@ -5,6 +5,7 @@ image thomas = "sprites/mrthomas-sprite.png"
 
 #Sprite Noa 
 image NoaBasic = "sprites/Noa/noa-basic.png"
+image NoaBasicBis = "sprites/Noa/noa-basic-bis.png"
 image NoaBasic2 = "sprites/Noa/noa-basic2.png"
 image NoaEffraye = "sprites/Noa/noa-effray.png"
 image NoaPense = "sprites/Noa/noa-penseur.png"

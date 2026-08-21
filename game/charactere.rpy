@@ -6,6 +6,7 @@ init python:
             renpy.music.play("sfx/talking_typewriting.wav", channel='sound', loop=True)
         elif event == "slow_done" or event == "done":
             renpy.music.stop(channel='sound')
+    
 
 define protag = Character("[protag_name]", color="#ea7602", callback=callback, what_italic=False)
 define protag_pensee= Character("[protag_name]", color="#ea7602", callback=callback, what_italic=True)

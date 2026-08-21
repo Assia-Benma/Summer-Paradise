@@ -53,6 +53,32 @@ init python:
             AF["Chris"] += 5
         return
 
+image NoaBasicAnimated:
+    "NoaBasic"
+    pause 0.2
+    "NoaBasicBis"
+    pause 0.2
+    repeat
+
+label afficheJour(jour):
+
+    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*4}Jour [jour]{/size}{/cps}{/font}":
+        xpos 950
+        ypos 450
+
+    with dissolve
+    pause 3.0
+
+    hide text
+    with dissolve
+
+    scene black
+    with dissolve
+
+    window show
+
+    return
+
 screen loveMeter(character):
     $ level = get_love_level(character)
     add "Ui/lovemeter[level].jpg" xpos 1700 ypos 250

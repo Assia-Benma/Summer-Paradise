@@ -1,18 +1,7 @@
 
 label j2:
 
-   window hide
-
-   play sound "sfx/new_day.wav"
-
-   show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 2{/cps}" with Pause(3.0):
-      xpos 950
-      ypos 350
-
-   scene black
-   with dissolve
-
-   window show
+   call afficheJour(2)
 
    protag_pensee "Un vacarme infernal m’explose les tympans.
    J’éteins ce fichu réveil d’un coup brutal sans le vouloir.
@@ -74,7 +63,7 @@ label j2:
          aux alentours, me rapprochant de la forêt. Et là, je vois un
          scintillement sous un arbre."
 
-         protag "Je crois que je les ai repérés."
+         protag "Je crois que je les ai repérées."
 
          noa "Où ça ?"
 
@@ -108,7 +97,7 @@ label j2:
    protag_pensee "Si elle existe vraiment, c’est sûrement elle qui a brisé le verre et éclaté
    cette ampoule."
 
-   protag_pensee "Dis moi. As-tu déjà entendu des rumeurs
+   protag "Dis moi. As-tu déjà entendu des rumeurs
    ou vu un je-ne-sais-quoi d’inhabituel ?"
 
    show NoaPense
@@ -161,7 +150,7 @@ label j2:
    show screen loveMeter("Chris")
    with dissolve
 
-   protag "Tout va bien, ce n’est que moi ?"
+   protag "Tout va bien, ce n’est que moi."
 
    hide ChrisEffraye
 
@@ -228,7 +217,7 @@ label j2:
 
       chris "Alors. Pour commencer, les leds: quand c’est vert, tout est
       normal. Puis quand ça passe au jaune, une faible émanation est
-      détecté. Plus on avance en couleur, plus la présence est proche."
+      détectée. Plus on avance en couleur, plus la présence est proche."
 
       hide ChrisHeureux
       show ChrisBasic
@@ -360,7 +349,7 @@ label j2:
             JaneDoe "Non."
             hide JaneRizz with dissolve
 
-         "L'envoyer boulet":
+         "L'envoyer bouler":
             $ AF["Jane"] += 5
             protag "Si tu crois que je vais te le dire, tu rêves cocotte."
             hide JaneBasic
@@ -415,7 +404,7 @@ label j2:
 
       # Décor : Bar (nuit)
 
-      protag_pensee "Je me suis calmé un moment dans la
+      protag_pensee "Je me suis calmé(e) un moment dans la
       chambre. Puis je suis allé(e) travailler au bar. L’animation joyeuse
       disperse Jane de mes pensées en ébullition."
 

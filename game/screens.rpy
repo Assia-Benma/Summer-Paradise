@@ -213,8 +213,6 @@ screen choice(items):
 
 screen dateChoice:
 
-    text "Je crois que je vais choisir... [chosenDate]" style "say_dialogue"
-
     imagebutton:
         xpos 0.05
         ypos 0.2
@@ -247,6 +245,16 @@ screen dateChoice:
         hovered SetVariable("chosenDate", "Chris")
         unhovered SetVariable("chosenDate", "")
         action Jump("chrisDate")
+    window:
+        style "window"
+        window:
+            style "namebox"
+
+            text protag_name:
+                style "say_label"
+
+        text "Je crois que je vais choisir... [chosenDate]":
+            style "say_dialogue"
 
 style choice_vbox is vbox
 style choice_button is button

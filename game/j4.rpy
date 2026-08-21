@@ -1,17 +1,6 @@
 label j4:
 
-    window hide
-
-    play sound "sfx/new_day.wav"
-
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 4{/cps}" with Pause(3.0):
-        xpos 950
-        ypos 350
-
-    scene black
-    with dissolve
-
-    window show
+    call afficheJour(4)
 
     # Décor : Forêt
 

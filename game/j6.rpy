@@ -2,18 +2,7 @@ label j6:
 
     define config.menu_include_disabled = True
 
-    window hide
-
-    play sound "sfx/new_day.wav"
-
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*2}Jour 6{/cps}" with Pause(3.0):
-        xpos 950
-        ypos 350
-
-    scene black
-    with dissolve
-
-    window show
+    call afficheJour(6)
 
     # Décor : Cabanon
 
@@ -33,7 +22,7 @@ label j6:
 
     label noaDate:
 
-        $ noaAF += 10
+        $ AF["Noa"] += 10
 
         protag_pensee "Je vais voir Noa. Il a été un vrai guide et
         soutien, ici. C’est celui en qui j’ai le plus confiance."
@@ -257,7 +246,7 @@ label j6:
 
     label chrisDate:
 
-        $ chrisAF += 10
+        $ AF["Chris"] += 10
 
         protag_pensee "Je vais voir Chris. Mon partenaire de
         chasse au fantôme. Toute cette histoire nous a bien rapprochés et
@@ -497,7 +486,7 @@ label j6:
 
     label janeDate:
 
-        $ JaneDoeAF += 10
+        $ AF["Jane"] += 10
 
         default drinkDrity = False
 
