@@ -211,6 +211,42 @@ screen choice(items):
         for i in items:
             textbutton i.caption action i.action
 
+screen dateChoice:
+
+    text "Je crois que je vais choisir... [chosenDate]" style "say_dialogue"
+
+    imagebutton:
+        xpos 0.05
+        ypos 0.2
+        idle resizeImg("JaneBasic")
+        hover resizeImg("JaneRizz")
+        activate_sound "sfx/onclick.wav"
+        hover_sound "sfx/hover.wav"
+        hovered SetVariable("chosenDate", "Jane")
+        unhovered SetVariable("chosenDate", "")
+        action Jump("janeDate")
+
+    imagebutton:
+        xpos 0.3
+        ypos 0.2
+        idle resizeImg("NoaBasic")
+        hover resizeImg("NoaBasic2")
+        activate_sound "sfx/onclick.wav"
+        hover_sound "sfx/hover.wav"
+        hovered SetVariable("chosenDate", "Noa")
+        unhovered SetVariable("chosenDate", "")
+        action Jump("noaDate")
+
+    imagebutton:
+        xpos 0.5
+        ypos 0.2
+        idle resizeImg("ChrisPetitSourire")
+        hover resizeImg("ChrisHeureux")
+        activate_sound "sfx/onclick.wav"
+        hover_sound "sfx/hover.wav"
+        hovered SetVariable("chosenDate", "Chris")
+        unhovered SetVariable("chosenDate", "")
+        action Jump("chrisDate")
 
 style choice_vbox is vbox
 style choice_button is button

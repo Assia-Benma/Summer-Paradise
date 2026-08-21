@@ -29,6 +29,8 @@ define bonus_seuil = {
     "bonus_courage": 40
 }
 
+default chosenDate = ""
+
 init python:
     def get_love_level(character):
         """Calcule le niveau (1 à 8) de la lovemeter pour un personnage donné."""

@@ -31,3 +31,10 @@ image JaneNeutre = "sprites/JaneDoe/jane-neutral.png"
 image Cerbere = "sprites/JaneDoe/jane-chien.png"
 
 image mamanvener = "sprites/mamanvener.png"
+
+# fonction pour resize les images pour les utiliser en boutons
+
+init python:
+
+    def resizeImg(img, width=800, height=900):
+        return Transform(img, size=(width, height))

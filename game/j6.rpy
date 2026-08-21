@@ -27,23 +27,13 @@ label j6:
     protag_pensee "Je devrais lui proposer une rencontre au
     bar. J’ai une surprise."
 
-    menu:
-        "Noa":
-            $ AF["Noa"] += 10
-            $ ChoixDate = "Noa"
-            jump noaDate
+    window auto
 
-        "Chris":
-            $ AF["Chris"] += 10
-            $ ChoixDate = "Chris"
-            jump chrisDate
-
-        "Jane":
-            $ AF["Jane"] += 10
-            $ ChoixDate = "Jane"
-            jump janeDate
+    call screen dateChoice
 
     label noaDate:
+
+        $ noaAF += 10
 
         protag_pensee "Je vais voir Noa. Il a été un vrai guide et
         soutien, ici. C’est celui en qui j’ai le plus confiance."
@@ -266,6 +256,8 @@ label j6:
     ### Date Chris
 
     label chrisDate:
+
+        $ chrisAF += 10
 
         protag_pensee "Je vais voir Chris. Mon partenaire de
         chasse au fantôme. Toute cette histoire nous a bien rapprochés et
@@ -504,6 +496,8 @@ label j6:
     ### Date Jane
 
     label janeDate:
+
+        $ JaneDoeAF += 10
 
         default drinkDrity = False
 
