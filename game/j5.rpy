@@ -441,7 +441,7 @@ label j5:
 
     JaneDoe "De même."
 
-    protag "Pas trop traumatiser ?"
+    protag "Pas trop traumatisé ?"
 
     hide NoaBasic
     show NoaTimide at left 

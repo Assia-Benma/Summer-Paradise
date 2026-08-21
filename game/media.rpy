@@ -33,6 +33,13 @@ image Cerbere = "sprites/JaneDoe/jane-chien.png"
 
 image mamanvener = "sprites/mamanvener.png"
 
+# Déchêts (je perds du temps pour rien mais az)
+
+image dechet1 = "sprites/dechets1.png"
+image dechet2 = "sprites/dechets2.png"
+image dechet3 = "sprites/dechets3.png"
+image dechet4 = "sprites/dechets4.png"
+
 # fonction pour resize les images pour les utiliser en boutons
 
 init python:

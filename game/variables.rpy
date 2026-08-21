@@ -11,6 +11,8 @@ default KnowDirty = False
 default drinkDirty = False
 default ChoixDate = Null
 
+default dechetsRamasses = 0
+
 default AF = {
     "Noa": 0,
     "Chris": 0,
@@ -53,12 +55,22 @@ init python:
             AF["Chris"] += 5
         return
 
+## définitons animations
+
 image NoaBasicAnimated:
     "NoaBasic"
     pause 0.2
     "NoaBasicBis"
     pause 0.2
     repeat
+
+image NoaBasic2Animated:
+    "NoaBasic2"
+    pause 0.2
+    "NoaBasic2Bis"
+    pause 0.2
+    repeat
+
 
 label afficheJour(jour):
 
