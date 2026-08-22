@@ -55,15 +55,6 @@ init python:
             AF["Chris"] += 5
         return
 
-## définitons animations
-
-init python:
-    def animate_mouth(sprite):
-        return Animation(
-            "{}.png".format(sprite), 0.2,
-            "{}-bis.png".format(sprite), 0.2,
-        )
-
 
 label afficheJour(jour):
 
@@ -86,5 +77,5 @@ label afficheJour(jour):
 
 screen loveMeter(character):
     $ level = get_love_level(character)
-    add "Ui/lovemeter[level].jpg" xpos 1700 ypos 250
+    add "Ui/lovemeter[level].png" xpos 1700 ypos 250
 
