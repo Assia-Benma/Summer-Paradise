@@ -4,31 +4,30 @@
 image thomas = "sprites/mrthomas-sprite.png"
 
 #Sprite Noa 
-image NoaBasic = "sprites/Noa/noa-basic.png"
-image NoaBasicBis = "sprites/Noa/noa-basic-bis.png"
-image NoaBasic2 = "sprites/Noa/noa-basic2.png"
-image NoaEffraye = "sprites/Noa/noa-effray.png"
-image NoaPense = "sprites/Noa/noa-penseur.png"
-image NoaTimide = "sprites/Noa/noa-timide.png"
-image NoaNRV = "sprites/Noa/noa-vener.png"
-image NoaNeutre = "sprites/Noa/noa-neutral.png"
+image NoaBasic = animate_mouth("sprites/Noa/noa-basic")
+image NoaBasic2 = animate_mouth("sprites/Noa/noa-basic2")
+image NoaEffraye = animate_mouth("sprites/Noa/noa-effray")
+image NoaPense = animate_mouth("sprites/Noa/noa-penseur")
+image NoaTimide = animate_mouth("sprites/Noa/noa-timide")
+image NoaNRV = animate_mouth("sprites/Noa/noa-vener")
+image NoaNeutre = animate_mouth("sprites/Noa/noa-neutral")
 
 #Sprite Chris
-image ChrisBasic = "sprites/Chris/chris-basic.png"
-image ChrisEffraye = "sprites/Chris/chris-effray.png"
-image ChrisHeureux = "sprites/Chris/chris-heureux.png"
-image ChrisPetitSourire = "sprites/Chris/chris-petitsourire.png"
-image ChrisNRV = "sprites/Chris/chris-vener.png"
-image ChrisTimide = "sprites/Chris/chris-timide.png"
+image ChrisBasic = animate_mouth("sprites/Chris/chris-basic")
+image ChrisEffraye = animate_mouth("sprites/Chris/chris-effray")
+image ChrisHeureux = animate_mouth("sprites/Chris/chris-heureux")
+image ChrisPetitSourire = animate_mouth("sprites/Chris/chris-petitsourire")
+image ChrisNRV = animate_mouth("sprites/Chris/chris-vener")
+image ChrisTimide = animate_mouth("sprites/Chris/chris-timide")
 
 #Sprite JaneDoe
-image JaneBasic = "sprites/JaneDoe/joe-sprite.png"
-image JaneRizz = "sprites/JaneDoe/janeRizz.png"
-image JanePense = "sprites/JaneDoe/janePense.png"
-image JaneNRV = "sprites/JaneDoe/janeNRV.png"
-image JaneChock = "sprites/JaneDoe/janeChockbar.png"
-image JaneFlip = "sprites/JaneDoe/janeFlippant.png"
-image JaneNeutre = "sprites/JaneDoe/jane-neutral.png"
+image JaneBasic = animate_mouth("sprites/JaneDoe/joe-sprite")
+image JaneRizz = animate_mouth("sprites/JaneDoe/janeRizz")
+image JanePense = animate_mouth("sprites/JaneDoe/janePense")
+image JaneNRV = animate_mouth("sprites/JaneDoe/janeNRV")
+image JaneChock = animate_mouth("sprites/JaneDoe/janeChockbar")
+image JaneFlip = animate_mouth("sprites/JaneDoe/janeFlippant")
+image JaneNeutre = animate_mouth("sprites/JaneDoe/jane-neutral")
 image Cerbere = "sprites/JaneDoe/jane-chien.png"
 
 image mamanvener = "sprites/mamanvener.png"
@@ -43,6 +42,5 @@ image dechet4 = "sprites/dechets4.png"
 # fonction pour resize les images pour les utiliser en boutons
 
 init python:
-
     def resizeImg(img, width=800, height=900):
         return Transform(img, size=(width, height))

@@ -151,7 +151,7 @@ label start:
     protag_pensee " Je me retourne et vois une énorme caisse
     soulevée par quelqu’un. Il dévoile sa tête. Beau garçon dis donc."
 
-    show NoaBasicAnimated
+    show NoaBasic
     with dissolve
 
     noa "Salut, t’es la nouvelle employée je crois. C’est moi qui doit t’aider à prendre tes marques."
@@ -163,7 +163,7 @@ label start:
         "Ah oui ! Tu es Noa.":
             $ AF["Noa"] += 5
             play sound "sfx/p5sfx.wav"
-            hide NoaBasicAnimated
+            hide NoaBasic
             show NoaBasic2
             noa "Exactement. Content de voir que tu me connais."
             hide NoaBasic2

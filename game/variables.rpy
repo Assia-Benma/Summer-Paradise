@@ -58,21 +58,11 @@ init python:
 ## définitons animations
 
 init python:
-    def animate
-
-image NoaBasicAnimated:
-    "NoaBasic"
-    pause 0.2
-    "NoaBasicBis"
-    pause 0.2
-    repeat
-
-image NoaBasic2Animated:
-    "NoaBasic2"
-    pause 0.2
-    "NoaBasic2Bis"
-    pause 0.2
-    repeat
+    def animate_mouth(sprite):
+        return Animation(
+            "{}.png".format(sprite), 0.2,
+            "{}-bis.png".format(sprite), 0.2,
+        )
 
 
 label afficheJour(jour):
