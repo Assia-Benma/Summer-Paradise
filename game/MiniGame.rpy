@@ -3,10 +3,10 @@ init python:
     confirmation_ouverte = False
 
     recettes = {
-        frozenset(["Rhum", "Citron vert"]): "Mojito",
-        frozenset(["Citron vert", "Sirop de sucre"]): "Virgin Mojito",
-        frozenset(["Rhum", "Eau gazeuse"]): "Dirty Shirly",
-        frozenset(["Sirop de sucre", "Eau gazeuse"]): "Soda sucré",
+        frozenset(["Cranberry", "Citron", "Vodka"]): "Cosmopolitain",
+        frozenset(["Menthe", "Citron", "Eau gazeuse"]): "Virgin Mojito",
+        frozenset(["Citron", "Grenadine", "Vodka"]): "Dirty Shirly",
+        frozenset(["Menthe", "Citron", "Rhum"]): "Mojito",
     }
 
     def affiche_bouteille(nom):
@@ -19,8 +19,8 @@ init python:
     def demander_confirmation():
         #Appelée au clic sur le shaker. Ouvre le panneau de confirmation.
         global confirmation_ouverte
-        if len(choix_bouteille) != 2:
-            renpy.notify("Il faut choisir 2 ingrédients !")
+        if len(choix_bouteille) != 3:
+            renpy.notify("Il faut choisir 3 ingrédients !")
             return
         confirmation_ouverte = True
 
@@ -34,6 +34,10 @@ init python:
         global choix_bouteille, confirmation_ouverte
 
         resultat = recettes.get(frozenset(choix_bouteille), None)
+
+        if resultat == "Dirty Shirley" and not KnowDirty:
+            resultat = None
+
         choix_bouteille = []
         confirmation_ouverte = False
 
@@ -64,28 +68,40 @@ screen mini_game(commande, cache):
         size 30
 
     imagebutton:
-        idle "bouteille1"
+        idle "vodka"
         xpos 200 
         ypos 280
-        action Function(affiche_bouteille, "Rhum")
+        action Function(affiche_bouteille, "Vodka")
 
     imagebutton:
-        idle "bouteille2"
+        idle "petillant"
         xpos 600 
         ypos 280
-        action Function(affiche_bouteille, "Sirop de sucre")
+        action Function(affiche_bouteille, "Eau gazeuse")
 
     imagebutton:
-        idle "bouteille3"
+        idle "menthe"
         xpos 1000 
         ypos 330
-        action Function(affiche_bouteille, "Citron vert")
+        action Function(affiche_bouteille, "Menthe")
 
     imagebutton:
-        idle "bouteille4"
+        idle "citron"
         xpos 1400 
         ypos 280
-        action Function(affiche_bouteille, "Eau gazeuse")
+        action Function(affiche_bouteille, "Citron")
+
+    imagebutton:
+        idle "cranberries"
+        xpos 1400 
+        ypos 280
+        action Function(affiche_bouteille, "Cranberry")
+    
+    imagebutton:
+        idle "grenadine"
+        xpos 1400 
+        ypos 280
+        action Function(affiche_bouteille, "Grenadine")
 
     imagebutton:
         idle "shaker"
@@ -108,3 +124,19 @@ screen mini_game(commande, cache):
                     xalign 0.5
                     textbutton "Je suis sur !" action Function(faire_cocktail, commande)
                     textbutton "Non" action Function(annuler_confirmation)
+
+label bar_minigame(commande, label):
+    $ commande_du_jour = commande
+
+    protag_pensee "Un client vient de commander un [commande_du_jour]. Je dois faire vite !"
+
+    $ selected_bottles = [] 
+    call screen mini_game(commande_du_jour, False)
+
+    if _return:
+        protag "Et voilà, un [commande_du_jour] comme demandé !"
+        $ habilete += 10
+    else:
+        protag_pensee "Zut, je me suis trompé de mélange..."
+        $ habilete -= 5 
+    jump label

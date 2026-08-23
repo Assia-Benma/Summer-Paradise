@@ -85,7 +85,7 @@ label start:
             pass
 
         "Non pas exactement. J’ai un oncle qui tient un bar, j’ai appris sur le tas.":
-            play sound "sfx/p5sfx.wav"
+            
             $ habilete += 10
 
     thomas "Cela fera l’affaire, quelqu’un sera toujours avec vous. Pour la journée, vous serez un peu partout pour aider, je préfère ne
@@ -125,7 +125,6 @@ label start:
 
     menu:
         "Fouiller":
-            play sound "sfx/p5sfx.wav"
             $ curiosite += 5
             jump fouille
 
@@ -166,7 +165,7 @@ label start:
     menu:
         "Ah oui ! Tu es Noa.":
             $ AF["Noa"] += 5
-            play sound "sfx/p5sfx.wav"
+            
             hide NoaBasic
             show NoaBasic2
             noa "Exactement. Content de voir que tu me connais."
@@ -302,7 +301,7 @@ label start:
 
         protag_pensee "Il me sourit gentiment et reprend la visite guidée."
 
-        scene sc_bar 
+        scene bar 
 
         protag_pensee "On se retrouve dans une sorte de place pleine de plantes et de fleurs. Les tables rondes et rectangulaires sont mises un peu partout face à une scène."
         protag_pensee "Le bar est de l’autre côté. Il semble assez spacieux et diversifié en alcool."
@@ -333,7 +332,7 @@ label start:
         
         protag_pensee "Une fois l’estomac rempli, je décide d’aller au bar pour me familiariser."
 
-        scene sc_bar
+        scene bar
 
         protag_pensee "C’est bien spacieux. Les verres sont soigneusement posés sur les étagères. Des caisses fraîches d’alcools attendent d’être alignées également. Le menu des boissons est affiché sur le mur de pierres."
 
@@ -350,7 +349,7 @@ label start:
 
         menu:
             "Voir s’il y a quelqu’un.":
-                play sound "sfx/p5sfx.wav"
+                
                 $ courage += 5
                 jump voir_quelquun
 
@@ -391,7 +390,7 @@ label start:
 
         protag_pensee "Je pars et retourne au cabanon pour défaire ma valise. J’essaie d’oublier ce que j’ai entendu. Je suis peut-être folle de fatigue tout simplement. Même si je ne me sens pas fatigué(e)."
 
-        scene sc_bar
+        scene bar2
 
         protag_pensee "La nuit est bien tombée et le bar est rempli de nouveaux arrivants. Mon t-shirt du camping est un peu trop grand mais ça va."
         protag_pensee " Je prépare un virgin mojito pour une femme enceinte. Et mon collègue est à la caisse. J’ai eu une petite formation rapide pour me mettre dans le bain avant le début."
@@ -444,7 +443,7 @@ label start:
 
         menu:
             "Faire la conversation":
-                play sound "sfx/p5sfx.wav"
+                
                 $ curiosite += 5
                 $ AF["Chris"] += 5
                 jump conversation_chris
@@ -495,7 +494,7 @@ label start:
             protag_pensee "L’heure sonne la fin de cette soirée au bar. Tout le monde commence à partir en direction du feu de camp."
             protag_pensee "Le jeune homme de tout à l’heure et sa famille aussi. Je ferme tout avec mon collègue puis me dirige moi aussi vers cet after."
 
-            scene feu
+            scene feu2
 
             protag_pensee "Le feu est flamboyant cette nuit et sa chaleur reste supportable dans la fraicheur. [noa_name] installe les gens sur les troncs. Les petits sont assis au sol et des chaises sont à disposition au cas où."
 
@@ -610,7 +609,8 @@ label start:
 
         hide JaneFlip
 
-        #Décor : Forêt
+        scene foret2
+        with dissolve
 
         protag_pensee "Je finis dans la forêt et dans la panique, je me perds au milieu des arbres."
 

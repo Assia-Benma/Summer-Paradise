@@ -2,7 +2,7 @@ label j5:
 
     call afficheJour(5)
 
-    #Cabanon
+    scene cabane
 
     protag_pensee "Je quitte le cabanon quand je vois Chris m’attendre avec Cerbère."
 
@@ -20,7 +20,7 @@ label j5:
 
     protag "Allons ailleurs."
 
-    #Forêt
+    scene foret
 
     protag "Pourquoi es-tu venu me voir ?"
 
@@ -253,7 +253,7 @@ label j5:
     protag "Vous êtes prêts ? C’est parti."
 
 
-    #Forêt nuit
+    scene foret2
 
     protag_pensee "Les gens s’enfoncent dans la forêt enthousiastes."
     protag_pensee "Je vois également Chris avec son détecteur. Il tremblote légèrement mais n’hésite pas à y aller."
@@ -470,7 +470,7 @@ label j5:
     hide NoaBasic 
     with dissolve
 
-    #Feu de camp
+    scene feu
 
     protag_pensee "Quand on arrive au feu de camp, la plupart des campeurs sont déjà là et se servent à table."
 

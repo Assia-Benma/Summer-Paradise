@@ -2,7 +2,7 @@ label j7:
 
     call afficheJour(7)
 
-    #Décor : Cabanon 
+    scene cabane
 
     protag_pensee "Le matin se lève. Je sors du cabanon encore à moitié endormi. 
     Quelqu’un semble m’attendre appuyé contre le mur."
@@ -44,7 +44,7 @@ label j7:
 
         protag "Si tu veux."
 
-        #Décor : Forêt 
+        scene foret
 
         hide NoaBasic
         show NoaTimide
@@ -131,7 +131,7 @@ label j7:
         protag_pensee "Il est comme un livre ouvert. Son 
         embarras est bien visible et j’avoue que j’adore ça. "
 
-        #Décor : Forêt 
+        scene foret
 
         hide ChrisTimide
         show ChrisHeureux
@@ -241,7 +241,7 @@ label j7:
         with dissolve
         JaneDoe "Allez. Viens."
 
-        #Décor : forêt
+        scene foret
 
         JaneDoe "Je suis heureuse tu sais. Ça fait tellement longtemps que je 
         n’ai pas parlé à des vivants." 
@@ -342,7 +342,9 @@ label j7:
         
     label suite_boum:
         $ ajout_bonus(habilete,courage,curiosite)
-        #Décor : feu de camp
+
+        scene feu
+
         hide screen loveMeter
         with dissolve
 
@@ -441,7 +443,7 @@ label j7:
         hide NoaBasic
         with dissolve
 
-        # Décor: Feu de camp nuit 
+        scene feu2
         
         protag_pensee "La fête bat son plein. Les fantômes 
         profitent, invisibles ou cachés derrière les arbres. ils connaissent la 
@@ -628,8 +630,9 @@ label j7:
             protag "Ok." 
 
             hide JaneNeutre
-            show JanePense
             with dissolve
+
+            scene 
             JaneDoe "Imagine...la chaleur de mes mains, la texture 
             de ma peau, la pression de mes doigts. Et à quel point cela fait 
             battre ton cœur." 

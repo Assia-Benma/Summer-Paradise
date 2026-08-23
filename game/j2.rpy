@@ -15,7 +15,8 @@ label j2:
    protag_pensee " Heureusement, je suis de corvée au lac.
    Moi qui pensais que cet été serait un calvaire, je vais pouvoir en profiter."
 
-   # Décor : Lac 
+   scene lac
+   with dissolve
 
    protag_pensee " Le lac apparaît enfin devant mes yeux.
    Noa est là aussi. Il est accroupi au sol, cherchant quelque chose."
@@ -63,20 +64,24 @@ label j2:
          aux alentours, me rapprochant de la forêt. Et là, je vois un
          scintillement sous un arbre."
 
-         protag "Je crois que je les ai repérées."
+         call screen ramasseClefs
 
-         noa "Où ça ?"
+         label suiteClefs:
 
-         protag_pensee "Il se lève immédiatement pour me
-         rejoindre."
+            protag "Je crois que je les ai repérées."
 
-         show NoaPense
-         with dissolve
+            noa "Où ça ?"
 
-         protag "C’est celles-là."
+            protag_pensee "Il se lève immédiatement pour me
+            rejoindre."
 
-         protag_pensee "En tournant la tête, une silhouette lévite
-         derrière les feuilles, fuyante."
+            show NoaPense
+            with dissolve
+
+            protag "C’est celles-là."
+
+            protag_pensee "En tournant la tête, une silhouette lévite
+            derrière les feuilles, fuyante."
 
    hide NoaPense
 
@@ -141,7 +146,7 @@ label j2:
    magnétique et d’autres outils dont je ne connais pas le nom. Un
    bidule paranormal a peut-être croisé sa route."
 
-   # Décor : Forêt
+   scene foret
 
    protag_pensee "Quand j’arrive derrière lui, il tressaille.
    D’un mouvement vif, il se retourne face à moi, appareil levé."
@@ -226,7 +231,7 @@ label j2:
       protag_pensee "Je me déplace, cherchant le moindre
       signe du fantôme. On s’oriente vers le cabanon désert."
 
-      # Décor : Cabanon
+      scene cabane
 
       protag_pensee "On s’approche de la porte lentement. Et
       soudainement, un pic se produit sur le détecteur. Cela vire au
@@ -277,7 +282,7 @@ label j2:
 
    label suite_j2:
    
-      # Décor : Cabanon
+      scene cabane
 
       protag_pensee "Je vais dans la chambre pour me remettre
       de la crème solaire. Le soleil tape trop fort aujourd’hui."
@@ -402,7 +407,7 @@ label j2:
       disparaît avant que je réagisse. Est ce que ça aurait servi ? Non.
       Mais je me serais défoulé(e)."
 
-      # Décor : Bar (nuit)
+      scene bar2
 
       protag_pensee "Je me suis calmé(e) un moment dans la
       chambre. Puis je suis allé(e) travailler au bar. L’animation joyeuse
@@ -539,7 +544,7 @@ label j2:
          hide screen loveMeter
          with dissolve
 
-         jump j3
+   call bar_minigame("Mojito", "j3")
 
 
 

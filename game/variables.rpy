@@ -59,7 +59,7 @@ init python:
 
 label afficheJour(jour):
 
-    show text "{font=fonts/Karla-VariableFont_wght.ttf}{cps=2}{size=*4}Jour [jour]{/size}{/cps}{/font}":
+    show text "{font=fonts/digital-7.ttf}{color=#FFD700}{cps=2}{size=*4}Jour [jour]{/size}{/cps}{/font}{/color}":
         xpos 950
         ypos 450
 

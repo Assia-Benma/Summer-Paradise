@@ -4,7 +4,7 @@ label j6:
 
     call afficheJour(6)
 
-    # Décor : Cabanon
+    scene cabanon
 
     protag_pensee "Je n’ai pas arrêté de penser à hier. Le fait
     que l’on partage ce secret maintenant: Chris, Noa, Jane et moi. Et
@@ -27,7 +27,7 @@ label j6:
         protag_pensee "Je vais voir Noa. Il a été un vrai guide et
         soutien, ici. C’est celui en qui j’ai le plus confiance."
 
-        # décor : Fôret
+        scene foret
 
         protag_pensee "Il s’occupe de la dernière activité de la
         semaine à l’accrobranche. Tous les enfants sont dans le parcours,
@@ -128,7 +128,7 @@ label j6:
 
         hide NoaTimide
 
-        # Décor : Bar
+        scene bar
 
         protag_pensee "Je prépare les ingrédients pour mon
         cadeau. Voyons voir la carte. Je vais l’impressionner avec mon
@@ -252,7 +252,7 @@ label j6:
         chasse au fantôme. Toute cette histoire nous a bien rapprochés et
         je ne vais pas m’en plaindre."
 
-        # Décor : Feu de camp
+        scene feu
 
         protag_pensee "Quand j’arrive, Chris joue avec Cerbère. Il
         semble essayer de le dresser."
@@ -359,7 +359,7 @@ label j6:
 
         hide ChrisPetitSourire
 
-        # Décor : Bar
+        scene bar
 
         protag_pensee "Je prépare les ingrédients pour mon
         cadeau. Voyons voir la carte. Je vais l’impressionner avec mon
@@ -494,7 +494,7 @@ label j6:
         fantôme. Mais aussi la plus mignonne. Qui l’aurait cru. Pas moi. Et
         pourtant, je veux la voir. C’est ennuyant ici sans elle."
 
-        # Décor : Forêt
+        scene foret
 
         protag_pensee "La journée aide à ne pas flipper dans cette
         forêt. Où est-elle ?"
@@ -609,7 +609,7 @@ label j6:
 
         hide JaneRizz
 
-        # Décor : Bar
+        scene bar
 
         protag_pensee "Je prépare les ingrédients pour mon
         cadeau. Voyons voir la carte. Je vais l’impressionner avec mon

@@ -40,19 +40,31 @@ image dechet3 = "sprites/dechets3.png"
 image dechet4 = "sprites/dechets4.png"
 
 # Bouteille et élement du bar
-image bouteille1 = "images/interactif/mini_game_bar/Bouteille1.png"
-image bouteille2 = "images/interactif/mini_game_bar/Bouteille2.png"
-image bouteille3 = "images/interactif/mini_game_bar/Bouteille3.png"
-image bouteille4 = "images/interactif/mini_game_bar/Bouteille4.png"
+image vodka = "images/interactif/mini_game_bar/vodka.png"
+image petillant = "images/interactif/mini_game_bar/petillant.png"
+image menthe = "images/interactif/mini_game_bar/menthe.png"
+image citron = "images/interactif/mini_game_bar/citron.png"
 image shaker = "images/interactif/mini_game_bar/Shaker.png"
+image cranberries = "images/interactif/mini_game_bar/cranberries.png"
+image grenadine = "images/interactif/mini_game_bar/grenadine.png"
 image bar = "images/salle/BAR.png"
 
-#scene 
+#scene jour
+
 image lac = "images/lac.png"
-image cabane = "images/cabane.png"
-image feu = "images/feu.png"
-image entree_camping = "images/entre.png"
-image sc_bar = "images/sc_bar.png"
+image cabane = "images/cabaneStaff.png"
+image feu = "images/feuDeCamp.png"
+image entree_camping = "images/entreeCamping.png"
+image bar = "images/bar.png"
+image foret = "images/foret.png"
+
+#scene nuit
+
+image lac2 = "images/lacNuit.png"
+image cabane2 = "images/cabaneStaff2.png"
+image feu2 = "images/feuDeCampNuit.png"
+image bar2 = "images/bar2.png"
+image foret2 = "images/foret2.png"
 
 # fonction pour resize les images pour les utiliser en boutons
 

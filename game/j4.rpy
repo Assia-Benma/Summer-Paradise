@@ -2,7 +2,7 @@ label j4:
 
     call afficheJour(4)
 
-    # Décor : Forêt
+    scene foret
 
     protag_pensee "Le jour vient se lever. Je n’ai pas oublié
     ma batte au cas où. Appuyé(e) contre un arbre, je tape du pied sur
@@ -219,7 +219,7 @@ label j4:
     hide screen loveMeter
     with dissolve
 
-    # Décor : Lac
+    scene lac
 
     protag_pensee "Les enfants sont déjà là, en maillot,
     attendant devant le local."
@@ -410,7 +410,7 @@ label j4:
     hide screen loveMeter
     with dissolve
 
-    # Décor : Bar soir
+    scene bar2
 
     protag_pensee "Je sers des shorts comme tous les soirs.
     Cette fois, Noa m’aide au comptoir. Je lui jette plusieurs coups d'œil
@@ -532,7 +532,7 @@ label j4:
     protag_pensee "Il ne me croit pas. Évidemment. Je soupire
     de frustration et quitte le bar."
 
-    # Décor : Forêt nuit
+    scene foret2
 
     protag_pensee "Cette dernière discussion m’a insufflé une
     incroyable détermination. J’illumine le chemin avec ma lampe

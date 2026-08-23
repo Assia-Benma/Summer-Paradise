@@ -2,7 +2,7 @@ label j3:
     
     call afficheJour(3)
 
-    #Cabanon de nuit 
+    scene cabane2
 
     protag_pensee "Je suis allongé(e) dans mon lit essayant vainement de m’endormir. Mon corps se tourne et se retourne sans cesse."
 
@@ -14,7 +14,7 @@ label j3:
     protag_pensee "Je quitte le cabanon me dirigeant prudemment vers le lieu du hurlement."
     $ courage += 10
 
-    #Forêt de nuit 
+    scene foret2
 
     protag_pensee "Le silence m'étourdit. Dans le noir, tous les coins se ressemblent. 
     Ma vision m’illusionne d’ombres et de faux monstres. Mes muscles se tendent d’appréhension."
@@ -92,7 +92,8 @@ label j3:
     hide ChrisEffraye 
     hide screen loveMeter
     with dissolve
-    #Décor : Bar
+
+    scene bar2
 
     protag_pensee "Après ce sommeil mouvementé, je manque d’énergie pour aujourd’hui. J’ai entre les mains une caisse pleine de bouteilles pour ce soir."
 
@@ -222,7 +223,7 @@ label j3:
     hide screen loveMeter
     with dissolve
 
-    #Décor : Forêt
+    scene foret
 
     protag_pensee "Une fois ma tâche finit au bar. Je traverse le camping. Des pleurs attirent mon attention vers le club enfant."
 
@@ -378,7 +379,7 @@ label j3:
         hide screen loveMeter
         with dissolve
 
-        #Décor : Bar nuit
+        scene bar2
 
         protag_pensee "La soirée arrive enfin. Je manque de sommeil à cause de mon réveil à 4h du mat. Comment va Chris d’ailleurs ?"
 
