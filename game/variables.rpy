@@ -12,6 +12,7 @@ default drinkDirty = False
 default ChoixDate = Null
 
 default dechetsRamasses = 0
+default commande_du_jour = ""
 
 default AF = {
     "Noa": 0,

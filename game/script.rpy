@@ -33,6 +33,8 @@ label start:
 
     call afficheJour(1)
 
+    scene entree_camping
+
     protag_pensee "Je descends enfin du car après 1h de trajet.
     Je ne voyais que des déserts de verdure à l’horizon.
     Ma tête tourne encore."
@@ -65,6 +67,8 @@ label start:
 
     protag_pensee "Nous arrivons face à un cabanon plutôt grand. Une pancarte dit “staff only”. Je redresse mon bagage, sentant déjà mon muscle du bras forcer. Je suis soulagé(e) de ce
     poids en moins."
+
+    scene cabane
 
     protag_pensee "J’imagine que je vais dormir ici. Par la fenêtre, je vois plusieurs lits et des affaires éparpillés partout. Oh non… cela
     veut dire que l’on dort tous ensemble dans la même pièce. L’angoisse totale. Pitié que personne ne ronfle."
@@ -192,6 +196,8 @@ label start:
 
     protag "Ok, je te suis."
 
+    scene feu
+
     protag_pensee "On arrive face à des vestiges d’une ancienne fête. Des déchets partout, des cendres d’un feu, des miettes de gâteaux et de chips."
     
     protag_pensee "Même les troncs qui faisaient office de sièges semblent avoir été déplacés."
@@ -239,7 +245,7 @@ label start:
 
         protag_pensee "J’en finis avec les déchets. Ce fut plus long et répugnant que prévu."
 
-        protag_pensee "J’ai trouvé des choses que je souhaiterais {b}oublier{/b}. Noa s’occupe des troncs, essayant de les pousser seul."
+        protag_pensee "J’ai trouvé des choses que je souhaiterais {size=*2}oublier{/size}. Noa s’occupe des troncs, essayant de les pousser seul."
 
         menu:
             "L'aider":
@@ -255,7 +261,7 @@ label start:
                 hide NoaBasic2
 
             "Le laisser faire":
-                noa "Noa arrive à se débrouiller seul. Il est légèrement essoufflé mais il se relève plein d’énergie."
+                protag_pensee "Noa arrive à se débrouiller seul. Il est légèrement essoufflé mais il se relève plein d’énergie."
                 hide NoaBasic 
 
         show NoaNeutre    
@@ -273,7 +279,7 @@ label start:
 
         noa "Bien, ce sera court alors. Par ici, le lac n’est pas loin."
 
-        #Decors : Lac 
+        scene lac
 
         protag_pensee "Une grande étendue d’eau se présente devant mes yeux. Les reflets du soleil se promènent à la surface. Et les canards cancanent joyeusement, plongeant leurs têtes sous l’eau."
 
@@ -296,7 +302,7 @@ label start:
 
         protag_pensee "Il me sourit gentiment et reprend la visite guidée."
 
-        #Décor : Bar 
+        scene sc_bar 
 
         protag_pensee "On se retrouve dans une sorte de place pleine de plantes et de fleurs. Les tables rondes et rectangulaires sont mises un peu partout face à une scène."
         protag_pensee "Le bar est de l’autre côté. Il semble assez spacieux et diversifié en alcool."
@@ -317,7 +323,7 @@ label start:
 
         protag "Génial, je meurs de faim."
 
-        #Décor : Cabanon 
+        scene cabane 
 
         protag_pensee "On retourne au cabanon, se partageant la cuisine."
         protag_pensee "Je fais avec ce que je trouve et finis avec un sandwich simple. Noa me laisse pour manger, préférant finir ce qu’il faisait au club enfant."
@@ -327,7 +333,7 @@ label start:
         
         protag_pensee "Une fois l’estomac rempli, je décide d’aller au bar pour me familiariser."
 
-        #Décor : Bar
+        scene sc_bar
 
         protag_pensee "C’est bien spacieux. Les verres sont soigneusement posés sur les étagères. Des caisses fraîches d’alcools attendent d’être alignées également. Le menu des boissons est affiché sur le mur de pierres."
 
@@ -381,11 +387,11 @@ label start:
 
         label retour_cabanon:
 
-        #Décor : Cabanon
+        scene cabane
 
         protag_pensee "Je pars et retourne au cabanon pour défaire ma valise. J’essaie d’oublier ce que j’ai entendu. Je suis peut-être folle de fatigue tout simplement. Même si je ne me sens pas fatigué(e)."
 
-        #Décor : Bar nuit
+        scene sc_bar
 
         protag_pensee "La nuit est bien tombée et le bar est rempli de nouveaux arrivants. Mon t-shirt du camping est un peu trop grand mais ça va."
         protag_pensee " Je prépare un virgin mojito pour une femme enceinte. Et mon collègue est à la caisse. J’ai eu une petite formation rapide pour me mettre dans le bain avant le début."
@@ -489,7 +495,7 @@ label start:
             protag_pensee "L’heure sonne la fin de cette soirée au bar. Tout le monde commence à partir en direction du feu de camp."
             protag_pensee "Le jeune homme de tout à l’heure et sa famille aussi. Je ferme tout avec mon collègue puis me dirige moi aussi vers cet after."
 
-            #Décor : Feu de camp nuit
+            scene feu
 
             protag_pensee "Le feu est flamboyant cette nuit et sa chaleur reste supportable dans la fraicheur. [noa_name] installe les gens sur les troncs. Les petits sont assis au sol et des chaises sont à disposition au cas où."
 
@@ -632,6 +638,6 @@ label start:
 
         hide JaneNeutre with dissolve
 
-        #Décor : Cabanon
+        show cabane
 
         jump j2

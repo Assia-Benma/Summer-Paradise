@@ -39,6 +39,21 @@ image dechet2 = "sprites/dechets2.png"
 image dechet3 = "sprites/dechets3.png"
 image dechet4 = "sprites/dechets4.png"
 
+# Bouteille et élement du bar
+image bouteille1 = "images/interactif/mini_game_bar/Bouteille1.png"
+image bouteille2 = "images/interactif/mini_game_bar/Bouteille2.png"
+image bouteille3 = "images/interactif/mini_game_bar/Bouteille3.png"
+image bouteille4 = "images/interactif/mini_game_bar/Bouteille4.png"
+image shaker = "images/interactif/mini_game_bar/Shaker.png"
+image bar = "images/salle/BAR.png"
+
+#scene 
+image lac = "images/lac.png"
+image cabane = "images/cabane.png"
+image feu = "images/feu.png"
+image entree_camping = "images/entre.png"
+image sc_bar = "images/sc_bar.png"
+
 # fonction pour resize les images pour les utiliser en boutons
 
 init python:

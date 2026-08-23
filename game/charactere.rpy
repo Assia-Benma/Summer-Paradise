@@ -9,10 +9,8 @@ init python:
         if event == "show":
             renpy.music.play("sfx/talking_typewriting.wav", channel='sound', loop=True)
             main_speaking = True
-
         elif event == "slow_done":
             renpy.music.stop(channel='sound')
-
         elif event == "end":
             main_speaking = False
 
@@ -20,8 +18,7 @@ init python:
     def animate_mouth_dynamic(st, at, sprite):
         if main_speaking:
             return "{}.png".format(sprite), None
-
-        if int(st / 0.2) % 2 == 0:
+        if int(st / 0.2) % 2 == 0: #BROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO JUSTE POUR ALTERNER DEUX FRAAAAAAAAAAAAAAAAAAME OMAGAAAAAAAD BRO
             frame = "{}.png".format(sprite)
         else:
             frame = "{}-bis.png".format(sprite)
