@@ -544,6 +544,8 @@ label j2:
          hide screen loveMeter
          with dissolve
 
+         window auto
+
    call bar_minigame("Mojito", "j3")
 
 

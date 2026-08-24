@@ -67,14 +67,20 @@ label fin_noa:
     envie de crier, de le serrer dans mes bras, de l’embrasser." 
     
     hide NoaTimide
-    show NoaBasic
+   
+    scene kissNoa
+    with dissolve
+
     protag_pensee "Sans attendre, c’est lui que m'embrasse. 
     Ses lèvres sont chaudes contre les miennes. Je noue mes bras 
     autour de son cou, mes doigts dans ses cheveux en bataille." 
             
     protag_pensee "Il libère mes lèvres pour reprendre son 
     souffle puis les récupère aussitôt. Ses bras m’enlacent contre son 
-    corps, caressant mon dos." 
+    corps, caressant mon dos."
+
+    scene feu2
+    with dissolve
             
     protag_pensee "Je n’aurais pas pu mieux finir la soirée."
 
@@ -98,10 +104,19 @@ label fin_noa:
     protag "C’est mignon, Noa. Merci." 
     
     hide NoaBasic2
-    show NoaBasic
+
+    show black
+    with dissolve
+
     protag_pensee "Sans hésiter, il s’empare de ma bouche 
     dans un baiser tendre. On est pas pressé. Nous prenons le temps 
     de profiter avant de devoir nous séparer." 
+
+    scene feu2
+    with dissolve
+
+    show NoaBasic
+    with dissolve
         
     noa "Tu as renouvelé ton contrat pour l’été prochain." 
         
@@ -114,10 +129,19 @@ label fin_noa:
     protag "Il faut que je parte, Noa." 
     
     hide NoaBasic2
-    show NoaTimide
+
+    show black
+    with dissolve
+    
     protag_pensee "Il m’embrasse une dernière fois avant de 
     m’aider à mettre la valise dans le coffre. Je monte dans le car sans 
     oublier un au revoir à Noa." 
+
+    scene feu2
+    with dissolve
+
+    show NoaTimide
+    with dissolve
     
     protag_pensee "Ce n’est que le début de notre histoire."
 

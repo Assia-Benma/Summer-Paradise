@@ -2,6 +2,7 @@
 # ex: image eileen heureuse = "eileen_heureuse.png"
 
 image thomas = "sprites/mrthomas-sprite.png"
+image tuto = "images/Tuto.png"
 
 #Sprite Noa 
 image NoaBasic = animate_mouth("sprites/Noa/noa-basic")
@@ -47,7 +48,7 @@ image citron = "images/interactif/mini_game_bar/citron.png"
 image shaker = "images/interactif/mini_game_bar/Shaker.png"
 image cranberries = "images/interactif/mini_game_bar/cranberries.png"
 image grenadine = "images/interactif/mini_game_bar/grenadine.png"
-image bar = "images/salle/BAR.png"
+image bar_mini_game = "images/salle/BAR.png"
 
 #scene jour
 
@@ -65,6 +66,12 @@ image cabane2 = "images/cabaneStaff2.png"
 image feu2 = "images/feuDeCampNuit.png"
 image bar2 = "images/bar2.png"
 image foret2 = "images/foret2.png"
+
+# scene kiss
+
+image kissJane = "images/special/bisouJane.png"
+image kissChris = "images/special/bisouchris.png"
+image kissNoa = "images/special/bisouNoa.png"
 
 # fonction pour resize les images pour les utiliser en boutons
 

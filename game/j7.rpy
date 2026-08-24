@@ -353,8 +353,9 @@ label j7:
 
         protag "La préparation de la boum se fait dans un 
         silence plutôt apaisant pour cette fin de semaine. Noa installe les 
-        guirlandes dans les arbres. 
-        Et moi, je pose les encas sur les tables 
+        guirlandes dans les arbres."
+
+        protag "Et moi, je pose les encas sur les tables 
         dressées. Jane s’est également incrustée. Pas étonnant." 
         
         show NoaNeutre at right with moveinright
@@ -632,7 +633,9 @@ label j7:
             hide JaneNeutre
             with dissolve
 
-            scene 
+            show JanePense
+            with dissolve
+
             JaneDoe "Imagine...la chaleur de mes mains, la texture 
             de ma peau, la pression de mes doigts. Et à quel point cela fait 
             battre ton cœur." 
@@ -651,6 +654,9 @@ label j7:
             jump retour_boum
 
     label retour_boum:
+
+        scene feu2
+        
         protag "La soirée finit par se tasser. Les campeurs 
         rentrent peu à peu à leur bungalow. Et la personne qui occupe mes 
         pensées s’assoit seule sur un tronc au coin du feu."

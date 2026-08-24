@@ -462,4 +462,4 @@ label j3:
 
         protag_pensee "Ma journée est enfin terminée, c’est l’heure de dodo."
 
-    jump j4
+    call bar_minigame("Cosmopolitain", "j4")

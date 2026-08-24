@@ -52,7 +52,6 @@ label j5:
 
         "Le redescendre":
             $ AF["Chris"] -= 5
-
             play sound "sfx/bad_choice.wav"
 
             protag "De base c’est pas mon truc après. C’est à cause des esprits que j’ai eu besoin de toi."
@@ -145,7 +144,6 @@ label j5:
     menu:
         "La rembarrer":
             $ AF["Jane"] -= 10
-
             play sound "sfx/bad_choice.wav"
 
             protag "Ne me raconte pas ta vie, merci. J’ai du travail là."
@@ -307,7 +305,6 @@ label j5:
             if noa_main_proposee:
 
                 $ AF["Noa"] -= 5
-
                 play sound "sfx/bad_choice.wav"
 
                 noa "Désolé…je croyais que je pouvais."
@@ -586,4 +583,4 @@ label j5:
     hide screen loveMeter
     with dissolve
     
-    jump j6
+    call bar_minigame("Soda fruit rouge", "j6")

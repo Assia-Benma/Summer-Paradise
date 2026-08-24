@@ -10,26 +10,9 @@ label start:
     if not protag_name:
         $ protag_name = "Moi"
         
-    protag "Salut salut je suis [protag_name]!"
-
-    "Choisis maintenant tes pronoms !"
-
-    menu:
-        "Il/lui":
-            $ pronoms1 = "Il"
-            $ pronoms2 = "Lui"
-        "Elle/la":
-            $ pronoms1 = "Elle"
-            $ pronoms2 = "la"
-        "Garder l'écriture inclusif":
-            pass
-        #Donner le choix de garder le texte en inclusif 
-
-    ## début du jeu selon le script d'alissa
+    protag "Salut salut, je suis [protag_name]! ;)"
 
     window hide
-
-    play sound "sfx/new_day.wav"
 
     call afficheJour(1)
 
@@ -541,6 +524,7 @@ label start:
             "Insister":
                 $ AF["Chris"] -= 10
                 $ AF["Noa"] -= 5
+                play sound "sfx/bad_choice.wav"
         
                 jump insister_chris
 
@@ -639,5 +623,9 @@ label start:
         hide JaneNeutre with dissolve
 
         show cabane
+
+        show tuto
+        with dissolve
+        pause
 
         jump j2

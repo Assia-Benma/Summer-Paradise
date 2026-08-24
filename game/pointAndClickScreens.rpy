@@ -22,7 +22,6 @@ screen ramasseDechets():
                 idle "dechet{}".format(i + 1) # le truc de fdp jpp
 
                 activate_sound "sfx/onclick.wav"
-                hover_sound "sfx/hover.wav"
 
                 action [
                     IncrementVariable("dechetsRamasses", 1),

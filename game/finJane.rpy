@@ -74,6 +74,15 @@ label fin_janedoe:
     hide JaneRizz
     show JanePense
     with dissolve
+
+    hide JanePense
+
+    show black
+    with dissolve
+
+    scene kissJane
+    with dissolve
+
     protag_pensee "Elle pose ses mains sur mes joues. Je ne 
     sens rien et pourtant...J’ai l’impression d’une chaleur qui se répand 
     sur ma peau. Elle se penche vers moi, sa bouche à quelques 
@@ -85,9 +94,13 @@ label fin_janedoe:
             
     protag_pensee "Elle m’embrasse finalement. 
     Étrangement...tout prend réellement forme. Je ressens tout de ce 
-    moment. C’est...délicieusement réel."  
+    moment."
+
+    protag_pensee "C’est...délicieusement réel."  
+
+    scene feu2
+    with fade
             
-    hide JanePense
     show JaneBasic
     with dissolve
     JaneDoe "Tu me rends vivante." 

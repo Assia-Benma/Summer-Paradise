@@ -4,7 +4,7 @@ label j6:
 
     call afficheJour(6)
 
-    scene cabanon
+    scene cabane
 
     protag_pensee "Je n’ai pas arrêté de penser à hier. Le fait
     que l’on partage ce secret maintenant: Chris, Noa, Jane et moi. Et
@@ -150,72 +150,39 @@ label j6:
         noa "De la magie ? A ce point ? Je m’attends à ce que ce soit léger,
         attention."
 
-        menu:
-            "Dirty Shirley" if KnowDirty == True:
-                $ AF["Noa"] -= 10
+        call bar_minigame_crush("Virgin Mojito", "reussiNoaBoisson", "echecNoaBoisson")
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
-                    
-                protag "Voilà, mon cher Noa."
-                noa "Euh…Qu’est ce que c’est ?"
-                protag "Le Dirty Shirley."
-                noa "Il y a de l’alcool ?"
-                protag "Hum…oui."
+        label reussiNoaBoisson: 
+            $ AF["Noa"] += 5
+            $ habilete += 5
 
-                jump echecNoaBoisson
+            protag_pensee "Je fais comme je l’ai appris. Je
+            mélange les ingrédients et les secoue au shaker. Je suis
+            généreux(se) dans les doses puis verse le tout dans un verre à
+            cocktail."
+            protag "Voilà, mon cher Noa."
+            noa "Lequel tu m’as servi ?"
+            protag "Un Virgin Mojito, un classique."
+            noa "Parfait, tu pouvais pas me faire rêver plus."
+            protag "Régale toi."
+            protag_pensee "Il le sirote avec plaisir dans ses
+            yeux."
+            noa "Tu as un vrai talent. Je suis presque jaloux."
+            protag "Je t’apprendrais si tu veux."
+            noa "Avec plaisir. Mais il va falloir que j’y aille. M.Tomas
+            m’attend."
+            protag "D’accord, bye."
 
-            "Cosmopolitan":
-                $ AF["Noa"] -= 10
+            hide NoaTimide
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
-
-                protag "Voilà, mon cher Noa."
-                noa "Lequel tu m’as servi ?"
-                protag "Le Cosmopolitan."
-                noa "C’est alcoolisé ça, non ?"
-                protag "Euh…oui. Il y a un souci ?"
-
-                jump echecNoaBoisson
-
-            "Virgin Mojito":
-                $ AF["Noa"] += 5
-                $ habilete += 5
-
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
-                protag "Voilà, mon cher Noa."
-                noa "Lequel tu m’as servi ?"
-                protag "Un Virgin Mojito, un classique."
-                noa "Parfait, tu pouvais pas me faire rêver plus."
-                protag "Régale toi."
-                protag_pensee "Il le sirote avec plaisir dans ses
-                yeux."
-                noa "Tu as un vrai talent. Je suis presque jaloux."
-                protag "Je t’apprendrais si tu veux."
-                noa "Avec plaisir. Mais il va falloir que j’y aille. M.Tomas
-                m’attend."
-                protag "D’accord, bye."
-
-                hide NoaTimide
-
-                jump endDate
-
+            jump endDate
+        
         label echecNoaBoisson:
 
             hide NoaTimide
 
             show NoaNRV
             with dissolve
-
-            play sound "sfx/bad_choice.wav"
 
             noa "Désolé mais je ne bois pas d’alcool. Je crois te l’avoir
             déjà dit."
@@ -307,7 +274,7 @@ label j6:
         menu:
             "C’est surtout moi qui ait fait la majorité du travail.":
                 $ AF["Chris"] -= 5
-
+                play sound "sfx/bad_choice.wav"
                 hide ChrisTimide
 
                 show ChrisNRV
@@ -381,106 +348,68 @@ label j6:
         protag_pensee "Chris s’assoit correctement face à moi.
         Ses mains sont sur ses cuisses et me regarde sans rien dire."
 
-        menu:
+    call bar_minigame_crush("Cosmopolitan","goodChris","badChris")
 
-            "Dirty Shirley" if KnowDirty == True:
-                $ AF["Chris"] += 5
-                $ habilete += 5
+    label goodChris:
+        $ AF["Chris"] += 10
+        $ habilete += 5
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
-                protag "Voilà, mon cher Chris."
+        protag_pensee "Je fais comme je l’ai appris. Je
+        mélange les ingrédients et les secoue au shaker. Je suis
+        généreux(se) dans les doses puis verse le tout dans un verre à
+        cocktail."
 
-                hide ChrisPetitSourire
+        protag "Voilà, mon cher Chris."
 
-                show ChrisBasic
-                with dissolve
+        hide ChrisPetitSourire
 
-                chris "Euh…J’ai jamais vu ça. C’est quoi ?"
-                protag "Le Dirty Shirley."
-                chris "Il y a quoi dedans ?"
-                protag "Fais moi confiance."
-                chris "Ok."
-                protag_pensee "Il trempe à peine ses lèvres
-                doucement puis ses yeux s’écarquillent."
+        show ChrisHeureux
+        with dissolve
 
-                hide ChrisBasic
+        chris "Génial ! Le Cosmopolitan est mon préféré."
+        protag "Ah ouais ? C’est la première fois que je te le sers."
+        chris "Je vais le savourer alors."
+        protag_pensee "Il le sirote avec un certain plaisir
+        dans ses yeux."
+        chris "C’est le meilleur Cosmopolitan de ma vie."
+        protag "Je veux un avis honnête, Chris."
+        chris "Je ne te mentirais pas."
+        protag "Ok, je te crois."
+        chris "Il va falloir que je parte. Désolé. Mes parents veulent
+        qu’on se retrouve au lac pour ce soir."
+        protag "Pas de souci. Vas-y"
 
-                show ChrisHeureux
-                with dissolve
+        hide ChrisHeureux
 
-                chris "C’est vraiment bon."
-                protag "Vraiment ? Tant mieux."
-                chris "Il va falloir que je parte. Désolé. Mes parents veulent
-                qu’on se retrouve au lac pour ce soir."
-                protag "Pas de souci. Vas-y."
+        jump endDate
 
-                hide ChrisHeureux
+    label badChris:
+        $ AF["Chris"] -= 5
+        play sound "sfx/bad_choice.wav"
+        protag "Voilà, mon cher Chris."
 
-                jump endDate
+        hide ChrisPetitSourire
 
-            "Cosmopolitan":
-                $ AF["Chris"] += 10
-                $ habilete += 5
+        show ChrisBasic
+        with dissolve
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
+        play sound "sfx/bad_choice.wav"
 
-                protag "Voilà, mon cher Chris."
+        protag "Tu sembles déçu."
+        chris "Ouais…hum…c’est pas mon truc haha... Mais
+        tant pis. Je suis sûr que c’est bon."
+        protag_pensee "Il boit le mocktail silencieusement,
+        impossible de savoir ce qu'il pense."
+        chris "Bon, il va falloir que je parte. Désolé. Mes parents
+        veulent qu’on se retrouve au lac pour ce soir."
+        protag "Quoi ? Déjà ?"
+        chris "Ouais, désolé."
+        protag "Pas de souci. Vas-y"
 
-                hide ChrisPetitSourire
+        hide ChrisBasic
 
-                show ChrisHeureux
-                with dissolve
+        jump endDate
 
-                chris "Génial ! Le Cosmopolitan est mon préféré."
-                protag "Ah ouais ? C’est la première fois que je te le sers."
-                chris "Je vais le savourer alors."
-                protag_pensee "Il le sirote avec un certain plaisir
-                dans ses yeux."
-                chris "C’est le meilleur Cosmopolitan de ma vie."
-                protag "Je veux un avis honnête, Chris."
-                chris "Je ne te mentirais pas."
-                protag "Ok, je te crois."
-                chris "Il va falloir que je parte. Désolé. Mes parents veulent
-                qu’on se retrouve au lac pour ce soir."
-                protag "Pas de souci. Vas-y"
-
-                hide ChrisHeureux
-
-                jump endDate
-
-            "Virgin Mojito":
-                $ AF["Chris"] -= 5
-
-                protag "Voilà, mon cher Chris."
-
-                hide ChrisPetitSourire
-
-                show ChrisBasic
-                with dissolve
-
-                play sound "sfx/bad_choice.wav"
-
-                chris "C’est…un Virgin Mojito ?"
-                protag "Tu sembles déçu."
-                chris "Ouais…hum…c’est pas mon truc les virgins. Mais
-                tant pis. Je suis sûr que c’est bon."
-                protag_pensee "Il boit le mocktail silencieusement,
-                impossible de savoir ce qu'il pense."
-                chris "Bon, il va falloir que je parte. Désolé. Mes parents
-                veulent qu’on se retrouve au lac pour ce soir."
-                protag "Quoi ? Déjà ?"
-                chris "Ouais, désolé."
-                protag "Pas de souci. Vas-y"
-
-                hide ChrisBasic
-
-                jump endDate
 
     ### Date Jane
 
@@ -636,65 +565,54 @@ label j6:
         protag "Jane lévite au-dessus de moi, me
         regardant performer."
 
-        menu:
-            "Dirty Shirley" if KnowDirty == True:
-                $ AF["Jane"] += 10
-                $ habilete += 5
-                $ drinkDirty = True
+        call bar_minigame_crush("Dirty Shirly", "goodJane", "badJane")
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
+        label goodJane:
+            $ AF["Jane"] += 10
+            $ habilete += 5
+            $ drinkDirty = True
 
-                protag "Voilà, ma chère Jane."
+            protag_pensee "Je fais comme je l’ai appris. Je
+            mélange les ingrédients et les secoue au shaker. Je suis
+            généreux(se) dans les doses puis verse le tout dans un verre à
+            cocktail."
 
-                hide JaneBasic
+            protag "Voilà, ma chère Jane."
 
-                show JaneRizz
-                with dissolve
+            hide JaneBasic
 
-                JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
-                protag "Évidemment. Et si tu as reconnu, ça veut dire que
-                j’ai géré."
-                JaneDoe "Ça me fait si plaisir."
+            show JaneRizz
+            with dissolve
 
-                jump janeDrink
+            JaneDoe "C’est pas vrai. Tu as vraiment appris la recette ?"
+            protag "Évidemment. Et si tu as reconnu, ça veut dire que
+            j’ai géré."
+            JaneDoe "Ça me fait si plaisir."
 
-            "Cosmopolitan":
-                $ AF["Jane"] += 5
-                $ habilete += 5
+            jump janeDrink
 
-                protag_pensee "Je fais comme je l’ai appris. Je
-                mélange les ingrédients et les secoue au shaker. Je suis
-                généreux(se) dans les doses puis verse le tout dans un verre à
-                cocktail."
+        label badJane:
+            $ AF["Jane"] += 5
+            $ habilete += 5
 
-                protag "Voilà, ma chère Jane."
+            protag_pensee "Je fais comme je l’ai appris. Je
+            mélange les ingrédients et les secoue au shaker. Je suis
+            généreux(se) dans les doses puis verse le tout dans un verre à
+            cocktail."
 
-                JaneDoe "Un classique, je vois."
-                protag "C’est souvent les meilleurs."
-                JaneDoe "J’approuve."
+            protag "Voilà, ma chère Jane."
 
-                jump janeDrink
+            JaneDoe "Un classique, je vois."
+            protag "C’est souvent les meilleurs."
+            JaneDoe "J’approuve."
 
+            jump janeDrink
 
-            "Virgin Mojito":
-                $ AF["Jane"] -= 5
-
-                protag "Voilà, ma chère Jane."
-                JaneDoe "Un cocktail sans alcool ? Tu me connais très mal à
-                ce que je vois."
-                protag "Ça reste délicieux."
-                JaneDoe "Mouais."
-
-                play sound "sfx/bad_choice.wav"
-
-                jump janeDrink
 
         menu janeDrink:
             "Régale toi.":
                 $ AF["Jane"] -= 5
+                play sound "sfx/bad_choice.wav"
 
                 show JaneNRV
                 with dissolve
@@ -776,6 +694,8 @@ label j6:
 
     label finEpisode:
 
+        scene bar2
+
         protag_pensee "Nouvelle animation pour cette soirée. Noa
         fait un blind test sur des musiques des années 80, 90 et 2000. Il
         s’amuse à chanter au micro."
@@ -819,10 +739,4 @@ label j6:
         protag_pensee "La journée se termine. Hâte de demain
         soir."
 
-        jump j7
-
-
-
-
-
-
+    call bar_minigame("Mojito", "j7")

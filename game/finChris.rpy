@@ -64,7 +64,13 @@ label fin_chris:
     naturel. Quand faut y aller, faut y aller." 
     
     hide ChrisHeureux
-    show ChrisPetitSourire
+
+    show black
+    with dissolve
+
+    scene kissChris
+    with dissolve
+    
     protag_pensee "Sans attendre, j’attrape son menton et 
     tourne son visage vers moi. Je me penche et dépose délicatement 
     mes lèvres sur les siennes. Ses lèvres sont chaudes et 
@@ -75,9 +81,12 @@ label fin_chris:
     effleurant ses joues de mes pouces. Il garde ses bras le long du 
     corps, se stabilisant sur le tronc. Mon front se pose contre le sien 
     lorsqu’on rompt le baiser." 
+
+    scene feu2
+    with dissolve
             
     protag "Ça va ?" 
-    
+
     hide ChrisPetitSourire
     show ChrisTimide
     chris "Euh...oui. On peut recommencer ?" 
@@ -123,24 +132,41 @@ label fin_chris:
     chris "Quoi donc ?" 
     
     hide ChrisBasic
-    show ChrisTimide
+
+    show black
+    with dissolve
+
     protag_pensee "Sans hésiter, je m’empare de sa bouche 
     dans un baiser tendre. On est pas pressé. Nous prenons le temps 
     de profiter avant de devoir nous séparer. Cette fois, il m’attire contre 
     lui, ses mains sur ma taille." 
+
+    scene feu2
+    with dissolve
     
     protag "Tu prends en assurance." 
     
-    hide ChrisTimide
     show ChrisHeureux
     chris "C’est grâce à toi." 
+
+    hide ChrisHeureux
+
+    show black
+    with dissolve
     
     protag "Il m’embrasse, lui cette fois, rapidement. 
-    Une dernière fois avant de m’aider à mettre la valise dans le coffre."  
+    Une dernière fois avant de m’aider à mettre la valise dans le coffre." 
+
+    scene feu2
+    with dissolve
+
+    show ChrisHeureux
+    with dissolve 
     
     protag "Au revoir Chris."  
     
     hide ChrisHeureux
+
     show ChrisPetitSourire
     chris "Tu me manques déjà." 
     

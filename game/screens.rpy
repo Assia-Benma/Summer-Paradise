@@ -220,8 +220,8 @@ screen dateChoice:
         hover resizeImg("JaneRizz")
         activate_sound "sfx/onclick.wav"
         hover_sound "sfx/hover.wav"
-        hovered SetVariable("chosenDate", "Jane")
-        unhovered SetVariable("chosenDate", "")
+        hovered SetVariable("ChoixDate", "Jane")
+        unhovered SetVariable("ChoixDate", "")
         action Jump("janeDate")
 
     imagebutton:
@@ -231,8 +231,8 @@ screen dateChoice:
         hover resizeImg("NoaBasic2")
         activate_sound "sfx/onclick.wav"
         hover_sound "sfx/hover.wav"
-        hovered SetVariable("chosenDate", "Noa")
-        unhovered SetVariable("chosenDate", "")
+        hovered SetVariable("ChoixDate", "Noa")
+        unhovered SetVariable("ChoixDate", "")
         action Jump("noaDate")
 
     imagebutton:
@@ -242,8 +242,8 @@ screen dateChoice:
         hover resizeImg("ChrisHeureux")
         activate_sound "sfx/onclick.wav"
         hover_sound "sfx/hover.wav"
-        hovered SetVariable("chosenDate", "Chris")
-        unhovered SetVariable("chosenDate", "")
+        hovered SetVariable("ChoixDate", "Chris")
+        unhovered SetVariable("ChoixDate", "")
         action Jump("chrisDate")
     window:
         style "window"
@@ -289,6 +289,9 @@ screen quick_menu():
     if quick_menu:
 
         hbox:
+
+            yalign 0.97
+
             style_prefix "quick"
             style "quick_menu"
 
@@ -321,7 +324,13 @@ style quick_button:
     properties gui.button_properties("quick_button")
 
 style quick_button_text:
+    
     properties gui.text_properties("quick_button")
+
+    font "fonts/aesthetic-italic.ttf"
+    color "#402f22"
+    hover_color "#be765e"
+    outlines [(1, "#000000AA", 0, 0)]
 
 
 ################################################################################

@@ -59,6 +59,13 @@ init python:
 
 label afficheJour(jour):
 
+    window hide
+
+    scene black
+    with dissolve
+
+    play sound "sfx/new_day.wav"
+
     show text "{font=fonts/digital-7.ttf}{color=#FFD700}{cps=2}{size=*4}Jour [jour]{/size}{/cps}{/font}{/color}":
         xpos 950
         ypos 450
@@ -67,9 +74,6 @@ label afficheJour(jour):
     pause 3.0
 
     hide text
-    with dissolve
-
-    scene black
     with dissolve
 
     window show

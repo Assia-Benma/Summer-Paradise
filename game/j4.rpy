@@ -681,7 +681,10 @@ label j4:
     hide screen loveMeter
     with dissolve
 
-    jump j5
+    scene bar2
+    with dissolve
+
+    call bar_minigame("Virgin Mojito", "j5")
 
 
 
